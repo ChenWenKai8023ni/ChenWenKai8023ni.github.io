@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://chenwenkai8023ni.github.io">
   <title>javascript 高级程序设计第四版 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第二章 词法结构">
+  <meta name="description" content="第三章 数据类型和值">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javascript 高级程序设计第四版">
-<meta property="og:url" content="https://chenwenkai8023ni.github.io/2020/01/20/javascript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/index.html">
+<meta property="og:url" content="https://chenwenkai8023ni.github.io/2020/01/21/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A12/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="第二章 词法结构">
+<meta property="og:description" content="第三章 数据类型和值">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-01-20T07:56:47.000Z">
-<meta property="article:modified_time" content="2020-02-12T10:54:59.905Z">
+<meta property="article:published_time" content="2020-01-21T10:54:32.000Z">
+<meta property="article:modified_time" content="2020-02-14T04:40:48.275Z">
 <meta property="article:author" content="风吹过得夏天">
 <meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
@@ -139,7 +139,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-javascript高级程序设计" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="javascript-JavaScript高级程序设计2" class="article article-type-javascript " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -151,54 +151,66 @@
   
 
         
-        <a href="/2020/01/20/javascript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="archive-article-date">
-  	<time datetime="2020-01-20T07:56:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-20</time>
+        <a href="/2020/01/21/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A12/" class="archive-article-date">
+  	<time datetime="2020-01-21T10:54:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="第二章-词法结构"><a href="#第二章-词法结构" class="headerlink" title="第二章 词法结构"></a>第二章 词法结构</h2> <a id="more"></a>
+        <h2 id="第三章-数据类型和值"><a href="#第三章-数据类型和值" class="headerlink" title="第三章 数据类型和值"></a>第三章 数据类型和值</h2><a id="more"></a>
 
+<p>在一种计算机语言中，能够表示并操作的值的类型称为数据类型。<br>JavaScript中有：</p>
 <ul>
-<li>字符集<ul>
-<li>JavaScript 是由 Unicode 字符集编写</li>
+<li>基本类型：<ul>
+<li>字符串（String）</li>
+<li>数字(Number)</li>
+<li>布尔(Boolean) </li>
+<li>对空（Null）</li>
+<li>未定义（Undefined）</li>
+<li>Symbol。独一无二的值</li>
 </ul>
 </li>
-<li>大小写敏感<ul>
-<li>Javasript 在输入语言的关键字、变量、函数名以及所有标识符时 都采取一致的字符大小写</li>
-</ul>
-</li>
-<li>空白符和换行符<ul>
-<li>JavaScript 会忽视程序之间的空格、制表符和换行符（不是字符串和正则表达式的一部分）</li>
-</ul>
-</li>
-<li>可选择分号<ul>
-<li>JavaScript 中语句不再同一行中分号可以省略例如<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span>;</span><br><span class="line">b = <span class="number">2</span>;</span><br></pre></td></tr></table></figure></li>
-<li>在同一行中又必须加入分号例如<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span>;</span><br><span class="line">b = <span class="number">2</span>;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>注释<ul>
-<li>单行注释 使用//</li>
-<li>多行注释 使用 /**/</li>
-</ul>
-</li>
-<li>直接量<ul>
-<li>程序中直接显示出来的数据值例如<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">12</span></span><br><span class="line"><span class="string">'字符串'</span></span><br><span class="line"><span class="literal">true</span></span><br><span class="line"><span class="literal">false</span></span><br><span class="line">/^[<span class="number">0</span><span class="number">-9</span>]/</span><br><span class="line"><span class="literal">null</span></span><br><span class="line">&#123;<span class="attr">x</span>:<span class="number">1</span>,<span class="attr">y</span>:<span class="number">2</span>&#125;</span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>标识符<ul>
-<li>用来命名变量和函数，或作用于 js 代码中的循环标签，命名规则:第一个必须是字母、<br>下划线、美元符号。接下来的字符必须是字母、数字、下划线、美元符。<br>标识符不能和 JavaScript 其他关键字、保留字同名</li>
-</ul>
-</li>
-<li>保留字<ul>
-<li>在 JavaScript 中不能作用于变量名、函数名、循环标签 -保留的 JavaScript 的关键字<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">break do if switch typeof case lese in this var catch false instanceof  throwvoid continue finally new true while default for null try with delete function return ...</span><br></pre></td></tr></table></figure></li>
-<li>ECMA 扩展的关键字</li>
+<li>引用数据类型<ul>
+<li>对象(Object)</li>
+<li>数组(Array)</li>
+<li>函数(Function)  </li>
 </ul>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abstract double goto native static package super byte long short ...</span><br></pre></td></tr></table></figure>
+<h4 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h4><ul>
+<li>在JavaScript程序中直接出现的数字称作为数值直接量 <ul>
+<li>整型直接量<ul>
+<li>在JavaScript程序中数字的格式允许精确到-(2^53)~(2^53)之间的所有整数</li>
+</ul>
+</li>
+<li>八进制和16进制的直接量<ul>
+<li>以0X或0x开头的就是16进制的直接量</li>
+<li>ECMAScript标准不支持八进制的直接量，在JavaScript某些情况允许使用八进制</li>
+</ul>
+</li>
+<li>浮点型直接量<ul>
+<li>浮点型直接量可以具有小数点，采用科学计数法。一个数值被表示为整数部分后加小数点和小数部分<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">3.14</span><br><span class="line">23456.789</span><br><span class="line">.33333333333</span><br><span class="line">6.02e23&#x2F;&#x2F;6.02*10</span><br><span class="line">1.473822E-32&#x2F;&#x2F;14738233*10^32</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>数字的使用<ul>
+<li>加法运算符</li>
+<li>减法运算符</li>
+<li>乘法运算符</li>
+<li>除法运算符</li>
+<li>算数函数</li>
+</ul>
+</li>
+<li>特殊的数值<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">infinity              表示无穷大的特殊值</span><br><span class="line">NaN                   特殊的非数字值</span><br><span class="line">Number.MAX-VALUE      可表示的最大数字</span><br><span class="line">Number.MIN-VALUE      可表示的最小数字（与零接触的数字）</span><br><span class="line">Number.NaN            特殊的非数字值</span><br><span class="line">Number.POSITIVE_infinity  表示正无穷大的特殊值</span><br><span class="line">Number.NEGATIVE_infinity  表示负无穷大的特殊值</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><ul>
+<li>由Unicode字符、数字、标点符号组成的序列，在JavaScript用力表示文本的数据类型</li>
+</ul>
 
       
 
@@ -268,7 +280,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://chenwenkai8023ni.github.io/2020/01/20/javascript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://chenwenkai8023ni.github.io/2020/01/21/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A12/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -282,15 +294,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/01/21/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A12/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/01/22/MongoDB%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          javascript 高级程序设计第四版
+          MongoDB笔记
         
       </div>
     </a>
   
+  
+    <a href="/2020/01/20/javascript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">javascript 高级程序设计第四版</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -307,19 +324,6 @@
             </div>
         </div>
         
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#第二章-词法结构"><span class="toc-number">1.</span> <span class="toc-text">第二章 词法结构</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
         
     </div>
 </aside>
