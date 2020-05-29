@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 1000px;
+            height: 1100px;
+            background: black;
+        }
+
+        p {
+            width: auto;
+            position: absolute;
+            border-radius: 100%;
+            /* transition:  all 2s linear; */
+            
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+    </div>
+    <!-- <script src="./jquery-1.10.1.js"></script> -->
+    <script>
+        window.onload = function () {
+            
+            var cols = ["#f5d76e", "#f7ca18", "#f4d03f", "#eccec", "#ecf0f1", "#a2ded0"];
+            var box = document.querySelector(".box");
+
+            function chen() {
+                for (var i = 0; i < 200; i++) {
+                    var size = Math.random() * 5;
+                    var color = cols[Math.ceil(Math.random() * 4)];
+                    var lt = Math.random() * 1000;
+                    var tp = Math.random() * 1000;
+                    box.innerHTML += "<p></p>";
+                    var p = document.querySelectorAll("p");
+                    p[i].style.transition=" all 2s linear";
+                    p[i].style.left = lt + "px";
+                    p[i].style.top = tp + "px";
+                    p[i].style.width = size + "px";
+                    p[i].style.height = size + "px";
+                    p[i].style.background = color;
+                    
+                };
+              
+            };
+            chen();
+            // setInterval("chen()",10);
+           
+
+        };
+    </script>
+</body>
+
+</html>
