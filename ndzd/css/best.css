@@ -137,13 +137,15 @@ img {
 }
 
 .first_p3 {
-    width: 2.55rem;
+    width: 1.8rem;
+    text-align: center;
     font-size: .4rem;
     color: #0c8f8d;
     position: absolute;
     top: 6.8rem;
     z-index: 100;
-    left: 2.4rem;
+    left: 50%;
+    transform:translateX(-50%);
 }
 
 .word {
