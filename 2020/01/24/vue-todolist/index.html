@@ -15,13 +15,13 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="vue_todolist">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://chenwenkai8023ni.github.io/img/hexo/vuetodolist.png">
+<meta property="og:image" content="https://chenwenkai8023ni.github.io/hexo/vuetodolist.png">
 <meta property="article:published_time" content="2020-01-24T09:39:47.000Z">
-<meta property="article:modified_time" content="2020-06-02T10:59:02.424Z">
+<meta property="article:modified_time" content="2020-06-02T12:59:26.467Z">
 <meta property="article:author" content="风吹过得夏天">
 <meta property="article:tag" content="VUE">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://chenwenkai8023ni.github.io/img/hexo/vuetodolist.png">
+<meta name="twitter:image" content="https://chenwenkai8023ni.github.io/hexo/vuetodolist.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -63,8 +63,6 @@
 				<li><a href="/">主页</a></li>
 	        
 				<li><a href="/archives">归档</a></li>
-	        
-				<li><a href="/ndzd">JQ动画</a></li>
 	        
 			</ul>
 		</nav>
@@ -110,8 +108,6 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -125,14 +121,12 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 70%">
+				<ul style="width: 50%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/archives">归档</a></li>
-		        
-					<li style="width: 33.333333333333336%"><a href="/ndzd">JQ动画</a></li>
+					<li style="width: 50%"><a href="/archives">归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -200,7 +194,7 @@
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">使用 v-model 指令在 input 框上创建双向数据绑定。添加点击事件将值传给父组件</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"msg"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"handleClick()"</span>&gt;</span>添加<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line">    data() &#123;</span><br><span class="line"><span class="actionscript">      <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="actionscript">        msg: <span class="string">""</span>,</span></span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">      handleClick() &#123;</span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.$emit(<span class="string">"addlist"</span>, <span class="keyword">this</span>.msg);</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.msg = <span class="string">""</span>;</span></span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="页面展示"><a href="#页面展示" class="headerlink" title="页面展示"></a>页面展示</h2><p><img src="https://chenwenkai8023ni.github.io/img/hexo/vuetodolist.png" alt="vuetodolist"></p>
+<h2 id="页面展示"><a href="#页面展示" class="headerlink" title="页面展示"></a>页面展示</h2><p><img src="https://chenwenkai8023ni.github.io/hexo/vuetodolist.png" alt="vuetodolist"></p>
 
       
 
