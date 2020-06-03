@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://chenwenkai8023ni.github.io">
-  <title>JsElement | 风吹过得夏天</title>
+  <title>前端浏览器兼容 | 风吹过得夏天</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="clientHeight 等属性详解">
+  <meta name="description" content="浏览器内核">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JsElement">
-<meta property="og:url" content="https://chenwenkai8023ni.github.io/2019/11/19/JSElement/index.html">
+<meta property="og:title" content="前端浏览器兼容">
+<meta property="og:url" content="https://chenwenkai8023ni.github.io/2019/12/20/%E5%89%8D%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="风吹过得夏天">
-<meta property="og:description" content="clientHeight 等属性详解">
+<meta property="og:description" content="浏览器内核">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://developer.mozilla.org/@api/deki/files/185/=Dimensions-client.png">
-<meta property="article:published_time" content="2019-11-19T10:54:32.000Z">
-<meta property="article:modified_time" content="2020-06-03T03:00:43.501Z">
+<meta property="article:published_time" content="2019-12-20T07:56:47.000Z">
+<meta property="article:modified_time" content="2020-06-03T05:36:42.142Z">
 <meta property="article:author" content="风吹过得夏天">
-<meta property="article:tag" content="JS">
+<meta property="article:tag" content="浏览器">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://developer.mozilla.org/@api/deki/files/185/=Dimensions-client.png">
   
     <link rel="alternative" href="/atom.xml" title="风吹过得夏天" type="application/atom+xml">
   
@@ -141,73 +139,92 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JSElement" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-前端浏览器兼容总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JsElement
+      前端浏览器兼容
     </h1>
   
 
         
-        <a href="/2019/11/19/JSElement/" class="archive-article-date">
-  	<time datetime="2019-11-19T10:54:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-19</time>
+        <a href="/2019/12/20/%E5%89%8D%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2019-12-20T07:56:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="clientHeight-等属性详解"><a href="#clientHeight-等属性详解" class="headerlink" title="clientHeight 等属性详解"></a>clientHeight 等属性详解</h2> <a id="more"></a>
+        <h2 id="浏览器内核"><a href="#浏览器内核" class="headerlink" title="浏览器内核"></a>浏览器内核</h2><a id="more"></a>
 
-<h3 id="clientHeight"><a href="#clientHeight" class="headerlink" title="clientHeight"></a>clientHeight</h3><blockquote>
-<p>clientHeight 可以通过 CSS height + CSS padding - 水平滚动条高度 (如果存在)来计算</p>
+<blockquote>
+<p>常见的浏览器内核可以分四种：Trident、Gecko、Blink、Webkit</p>
 </blockquote>
 <ul>
-<li>这个属性是只读属性，对于没有定义 CSS 或者内联布局盒子的元素为 0，否则，</li>
-<li>它是元素内部的高度(单位像素)，包含内边距，但不包括水平滚动条、边框和外边距。<br><img src="https://developer.mozilla.org/@api/deki/files/185/=Dimensions-client.png" alt="图解"></li>
+<li>IE 浏览器：Trident 内核，也称为 IE 内核</li>
+<li>edge 浏览器 Webkit Chrome</li>
+<li>Chrome 浏览器：WebkitChrome</li>
+<li>Firefox 浏览器：Gecko 内核，俗称 Firefox 内核</li>
+<li>Safari 浏览器：Webkit 内核</li>
+<li>Opera 浏览器：最初是自己的 Presto 内核，后来加入谷歌大军，</li>
 </ul>
-<h3 id="clientWidth"><a href="#clientWidth" class="headerlink" title="clientWidth"></a>clientWidth</h3><ul>
-<li>内联元素以及没有 CSS 样式的元素的 clientWidth 属性值为 0</li>
-<li>Element.clientWidth 属性表示元素的内部宽度，以像素计。</li>
-<li>该属性包括内边距 padding，但不包括边框 border、外边距 margin 和垂直滚动条（如果有的话）。</li>
+<h2 id="常见的兼容性问题："><a href="#常见的兼容性问题：" class="headerlink" title="常见的兼容性问题："></a>常见的兼容性问题：</h2><ul>
+<li>1.不同浏览器的标签默认的 margin,padding 不同<ul>
+<li>css 里增加通配符*{margin：0；padding：0}</li>
 </ul>
-<h3 id="scrollHeight"><a href="#scrollHeight" class="headerlink" title="scrollHeight"></a>scrollHeight</h3><blockquote>
-<p>Element.scrollHeight 这个只读属性是一个元素内容高度的度量，包括由于溢出导致的视图中不可见内容。</p>
-</blockquote>
-<ul>
-<li>scrollHeight 的值等于该元素在不使用滚动条的情况下为了适应视口中所用内容所需的最小高度。</li>
-<li>没有垂直滚动条的情况下，scrollHeight 值与元素视图填充所有内容所需要的最小值 clientHeight 相同。</li>
+</li>
+<li>2.IE6 双边距问题；在 IE6 中设置了 float，同时又设置 margin，就会出现边距问题<ul>
+<li>设置 display：inline；</li>
 </ul>
-<h3 id="scrollWidth"><a href="#scrollWidth" class="headerlink" title="scrollWidth"></a>scrollWidth</h3><blockquote>
-<p>Element.scrollWidth 这个只读属性是元素内容宽度的一种度量，包括由于 overflow 溢出而在屏幕上不可见的内容。</p>
-</blockquote>
-<ul>
-<li>scrollWidth 值等于元素在不使用水平滚动条的情况下适合视口中的所有内容所需的最小宽度。</li>
-<li>宽度的测量方式与 clientWidth 相同：它包含元素的内边距，但不包括边框，外边距或垂直滚动条（如果存在）。 它还可以包括伪元素的宽度</li>
+</li>
+<li>3.当标签的高度设置小于 10px，在 IE6、IE7 中会超出自己设置的高度<ul>
+<li>超出高度的标签设置 overflow：hidden，或者设置 line-height 的值小于你的设置高度</li>
 </ul>
-<h3 id="offsetLeft"><a href="#offsetLeft" class="headerlink" title="offsetLeft"></a>offsetLeft</h3><blockquote>
-<p>HTMLElement.offsetLeft 是一个只读属性，返回当前元素左上角相对于 HTMLElement.offsetParent 节点的左边界偏移的像素值。</p>
-</blockquote>
-<ul>
-<li>对块级元素来说，offsetTop、offsetLeft、offsetWidth 及 offsetHeight 描述了元素相对于 offsetParent 的边界框。</li>
-<li>对于可被截断到下一行的行内元素（如 span），offsetTop 和 offsetLeft 描述的是第一个边界框的位置</li>
+</li>
+<li>4.图片默认有间距<ul>
+<li>使用 float 为 img 布局</li>
 </ul>
-<h3 id="clientTop"><a href="#clientTop" class="headerlink" title="clientTop"></a>clientTop</h3><blockquote>
-<p>一个元素顶部边框的宽度（以像素表示）。不包括顶部外边距或内边距。clientTop 是只读的</p>
-</blockquote>
-<ul>
-<li>容器内部相对于容器本身的 top 偏移，实际就是 上 border-width</li>
+</li>
+<li>5.cursor：hand 显示手型在 safari 上不支持<ul>
+<li>统一使用 cursor：pointer</li>
 </ul>
-<h3 id="scrollTop"><a href="#scrollTop" class="headerlink" title="scrollTop"></a>scrollTop</h3><blockquote>
-<p>Element.scrollTop 属性可以获取或设置一个元素的内容垂直滚动的像素数。</p>
-</blockquote>
-<ul>
-<li>一个元素的 scrollTop 值是这个元素的内容顶部（卷起来的）到它的视口可见内容（的顶部）的距离的度量。</li>
-<li>当一个元素的内容没有产生垂直方向的滚动条，那么它的 scrollTop 值为 0</li>
+</li>
+<li>6.event.srcElement 问题</li>
+<li>问题说明：IE 下，event 对象有 srcElement 属性，但是没有 target 属性；Firefox 下，event 对象有 target 属性，但是没有 srcElement 属性。<ul>
+<li>使用 srcObj = event.srcElement?event.srcElement:event.target;</li>
+</ul>
+</li>
+<li>7.事件绑定<ul>
+<li>IE:dom.attachEvent(); 其他浏览器：dom.addEventListener();</li>
+<li>标准浏览器采用事件捕获的方式对应 IE 的事件冒泡机制</li>
+</ul>
+</li>
+<li>8.innerText 在 IE 中能正常工作，但在 FireFox 中却不行.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(navigator.appName.indexOf(<span class="string">"Explorer"</span>) &gt; <span class="number">-1</span>)&#123;</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'element'</span>).innerText = <span class="string">"my text"</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'element'</span>).textContent = <span class="string">"my text"</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></li>
+<li>9.CSS 透明<ul>
+<li>IE：filter:progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=60)。</li>
+<li>FF：opacity:0.6。</li>
+</ul>
+</li>
+<li>10.FF 和 IEBOX 模型解释不一致导致相差 2px<ul>
+<li>ie 理解为 box.width =100</li>
+<li>ff 理解为 box.width =100 + 1*2 = 102 //加上边框 2px</li>
+<li>div{margin:30px!important;margin:28px;}</li>
+<li>ie 不能识别!important</li>
+</ul>
+</li>
+<li>11.IE5 和 IE6 的 BOX 解释不一致<ul>
+<li>IE5 下 div{width:300px;margin:0 10px 0 10px;}<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">div 的宽度会被解释为300px-10px(右填充)-10px(左填充)，最终div的宽度为280px，而在IE6和其他浏览器上宽度则是以 300px+10px(右填充)+10px(左填充)&#x3D;320px来计算的。这时我们可以做如下修改div&#123;width:300px!important;width &#x2F;**&#x2F;:340px;margin:0 10px 0 10px&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>12.元素水平居中问题<br>+FF: margin:0auto;<br>-IE: 父级{ text-align:center; }</li>
+<li>13.Div 的垂直居中问题<ul>
+<li>vertical-align:middle; 将行距增加到和整个 DIV 一样高：line-height:200px;然后插入文字，就垂直居中了。缺点是要控制内容不要换行。</li>
+</ul>
+</li>
 </ul>
 
       
@@ -222,7 +239,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">浏览器</a>
         		</li>
       		
 		</ul>
@@ -278,7 +295,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://chenwenkai8023ni.github.io/2019/11/19/JSElement/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://chenwenkai8023ni.github.io/2019/12/20/%E5%89%8D%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%BB%E7%BB%93/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -292,15 +309,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/11/21/Js%E6%94%BE%E5%A4%A7%E9%95%9C/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/01/20/javascript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          JS放大镜
+          javascript 高级程序设计第四版
         
       </div>
     </a>
   
+  
+    <a href="/2019/11/21/Js%E6%94%BE%E5%A4%A7%E9%95%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JS放大镜</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
