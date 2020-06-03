@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://chenwenkai8023ni.github.io">
-  <title>Archives: 2019/11 | 风吹过得夏天</title>
+  <title>Express JWT | 风吹过得夏天</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="风吹过得夏天">
-<meta property="og:url" content="https://chenwenkai8023ni.github.io/archives/2019/11/index.html">
+  <meta name="description" content="Express JWT 使用方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Express JWT">
+<meta property="og:url" content="https://chenwenkai8023ni.github.io/2020/01/05/JWT%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="风吹过得夏天">
+<meta property="og:description" content="Express JWT 使用方法">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-01-05T07:58:02.000Z">
+<meta property="article:modified_time" content="2020-06-03T08:42:53.726Z">
 <meta property="article:author" content="风吹过得夏天">
+<meta property="article:tag" content="Express">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="风吹过得夏天" type="application/atom+xml">
@@ -134,60 +139,189 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="express-JWT使用" class="article article-type-express " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/19/JSElement/" class="archive-article-date">
-  	<time datetime="2019-11-19T10:54:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/19/JSElement/">JsElement</a>
+    <h1 class="article-title" itemprop="name">
+      Express JWT
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/01/05/JWT%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2020-01-05T07:58:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Express-JWT-使用方法"><a href="#Express-JWT-使用方法" class="headerlink" title="Express JWT 使用方法"></a>Express JWT 使用方法</h2><a id="more"></a>
+
+<h3 id="安装-express-jwt"><a href="#安装-express-jwt" class="headerlink" title="安装 express-jwt"></a>安装 express-jwt</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install express-jwt --save</span><br><span class="line">npm install jsonwebtoken --save</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置-jwt-（app-js）"><a href="#配置-jwt-（app-js）" class="headerlink" title="配置 jwt （app.js）"></a>配置 jwt （app.js）</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> expressJwt = <span class="built_in">require</span>(<span class="string">"express-jwt"</span>);</span><br><span class="line"><span class="comment">// jwt中间件</span></span><br><span class="line">app.use(</span><br><span class="line">  expressJwt(&#123;</span><br><span class="line">    credentialsRequired: <span class="literal">false</span>, <span class="comment">//关键</span></span><br><span class="line">    secret: <span class="string">"yousecret"</span>, <span class="comment">//加密密钥，可换</span></span><br><span class="line">  &#125;).unless(&#123;</span><br><span class="line">    path: [<span class="string">"/api/login"</span>, <span class="string">"/api/addUser"</span>, <span class="string">"/api/test"</span>], <span class="comment">//添加不需要token验证的路由</span></span><br><span class="line">  &#125;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="生成-token"><a href="#生成-token" class="headerlink" title="生成 token"></a>生成 token</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> jwt = <span class="built_in">require</span>(<span class="string">'jsonwebtoken'</span>)</span><br><span class="line"><span class="comment">//api/v1/login</span></span><br><span class="line">app.post(<span class="string">'/login'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  User.findOne(&#123;<span class="attr">userName</span>:req.body.username,<span class="attr">password</span>:req.body.password&#125;).then(<span class="function"><span class="params">result</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span>(result)&#123;</span><br><span class="line">        <span class="comment">// 注意默认情况 Token 必须以 Bearer+空格 开头</span></span><br><span class="line">        <span class="keyword">const</span> token = <span class="string">'Bearer '</span> + jwt.sign(</span><br><span class="line">          &#123;</span><br><span class="line">            _id: user._id,</span><br><span class="line">            admin: user.role === <span class="string">'admin'</span></span><br><span class="line">          &#125;,</span><br><span class="line">          <span class="string">'secret12345'</span>,</span><br><span class="line">          &#123;</span><br><span class="line">            expiresIn: <span class="number">3600</span> * <span class="number">24</span> * <span class="number">3</span></span><br><span class="line">            <span class="comment">//or</span></span><br><span class="line">            <span class="comment">//expiresIn: "10 days"</span></span><br><span class="line">          &#125;</span><br><span class="line">        )</span><br><span class="line">        res.json(&#123;</span><br><span class="line">          status: <span class="string">'ok'</span>,</span><br><span class="line">          token: token</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      res.json(&#123;</span><br><span class="line">        code: <span class="number">250</span>,</span><br><span class="line">        msg: <span class="string">'用户名或密码不正确'</span></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="vue-前端路由守卫限制"><a href="#vue-前端路由守卫限制" class="headerlink" title="vue 前端路由守卫限制"></a>vue 前端路由守卫限制</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// JWT 用户权限校验，判断 TOKEN 是否在 localStorage 当中</span></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">&#123; name &#125;, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 获取 JWT Token</span></span><br><span class="line">  <span class="keyword">if</span> (localStorage.getItem(<span class="string">"token"</span>)) &#123;</span><br><span class="line">    <span class="comment">// 如果用户在login页面</span></span><br><span class="line">    <span class="keyword">if</span> (name === <span class="string">"login"</span>) &#123;</span><br><span class="line">      next(<span class="string">"/"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      next();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    router.push(<span class="string">"/login"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="vue-组件内-headers-携带-token-方法-（一）"><a href="#vue-组件内-headers-携带-token-方法-（一）" class="headerlink" title="vue 组件内 headers 携带 token 方法 （一）"></a>vue 组件内 headers 携带 token 方法 （一）</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line"><span class="comment">//获取课程列表</span></span><br><span class="line"><span class="keyword">this</span>.axios(&#123;</span><br><span class="line">  method: <span class="string">"get"</span>,</span><br><span class="line">  url: <span class="string">"http://localhost:3000/api/v1/courses"</span>,</span><br><span class="line">  headers: &#123;</span><br><span class="line">    authorization: <span class="string">"Bearer "</span> + <span class="built_in">window</span>.localStorage.getItem(<span class="string">"token"</span>),</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;).then(<span class="function">(<span class="params">result</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (result.data.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    that.courses = result.data;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="vue-组件内-headers-携带-token-方法-（二）设置-axios-拦截器"><a href="#vue-组件内-headers-携带-token-方法-（二）设置-axios-拦截器" class="headerlink" title="vue 组件内 headers 携带 token 方法 （二）设置 axios 拦截器"></a>vue 组件内 headers 携带 token 方法 （二）设置 axios 拦截器</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// http request 拦截器可选</span></span><br><span class="line">axios.interceptors.request.use(</span><br><span class="line">  (config) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (localStorage.token) &#123;</span><br><span class="line">      <span class="comment">// 判断是否存在token，如果存在的话，则每个http header都加上token</span></span><br><span class="line">      config.headers.Authorization = <span class="string">`Bearer <span class="subst">$&#123;localStorage.token&#125;</span>`</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> config;</span><br><span class="line">  &#125;,</span><br><span class="line">  (err) =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(err);</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">axios.interceptors.response.use(</span><br><span class="line">  (response) =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> response;</span><br><span class="line">  &#125;,</span><br><span class="line">  (error) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (error.response.status === <span class="number">401</span>) &#123;</span><br><span class="line">      <span class="comment">//输出授权失败错误信息</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">//输出其他错误信息</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error);</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Express</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://chenwenkai8023ni.github.io/2020/01/05/JWT%E4%BD%BF%E7%94%A8/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/01/10/Vue%E5%88%9D%E5%AD%A6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Vue初学
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2020/01/02/Express-%E6%A8%A1%E5%9D%97%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Express模块使用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80ODI0Ny8yNDc0Mw==" style="position: relative; z-index: 10; padding: 0 29px;">
+  <script type="text/javascript">
+     (function(d, s) {
+         var j, e = d.getElementsByTagName(s)[0];
+  
+         if (typeof LivereTower === 'function') { return; }
+  
+         j = d.createElement(s);
+         j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+         j.async = true;
+  
+         e.parentNode.insertBefore(j, e);
+     })(document, 'script');
+  </script>
+  <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+  </div>
+  <!-- City版安装代码已完成 -->
+
+  
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -252,8 +386,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
