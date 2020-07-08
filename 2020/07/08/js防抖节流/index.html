@@ -6,20 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://chenwenkai8023ni.github.io">
-  <title>MongoDB笔记 | 风吹过得夏天</title>
+  <title>js防抖节流 | 风吹过得夏天</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="MongoDB基本语法">
+  <meta name="description" content="js 防抖节流">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MongoDB笔记">
-<meta property="og:url" content="https://chenwenkai8023ni.github.io/2020/01/22/MongoDB%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="js防抖节流">
+<meta property="og:url" content="https://chenwenkai8023ni.github.io/2020/07/08/js%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/index.html">
 <meta property="og:site_name" content="风吹过得夏天">
-<meta property="og:description" content="MongoDB基本语法">
+<meta property="og:description" content="js 防抖节流">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-01-22T07:56:47.000Z">
-<meta property="article:modified_time" content="2020-02-13T05:53:01.802Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/08/UEwruR.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/08/UEDu4K.md.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/08/UEgSE9.jpg">
+<meta property="article:published_time" content="2020-07-08T01:37:42.000Z">
+<meta property="article:modified_time" content="2020-07-08T03:07:44.826Z">
 <meta property="article:author" content="风吹过得夏天">
-<meta property="article:tag" content="MongoDB">
+<meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/08/UEwruR.png">
   
     <link rel="alternative" href="/atom.xml" title="风吹过得夏天" type="application/atom+xml">
   
@@ -139,20 +143,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-MongoDB笔记" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-js防抖节流" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      MongoDB笔记
+      js防抖节流
     </h1>
   
 
         
-        <a href="/2020/01/22/MongoDB%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2020-01-22T07:56:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-22</time>
+        <a href="/2020/07/08/js%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/" class="archive-article-date">
+  	<time datetime="2020-07-08T01:37:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-08</time>
 </a>
         <!-- 需要添加的位置 -->
         <!-- 开始添加字数统计-->
@@ -162,7 +166,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">1.1k字</span>
+      <span class="post-count">540字</span>
     </span>
   </span>
 
@@ -171,7 +175,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-hourglass-half"></i>
       <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">4分</span>
+      <span class="post-count">2分</span>
     </span>
   </span>
 </div>
@@ -184,131 +188,55 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="MongoDB基本语法"><a href="#MongoDB基本语法" class="headerlink" title="MongoDB基本语法"></a>MongoDB基本语法</h2> <a id="more"></a>
-<ul>
-<li>创建数据库<ul>
-<li>use databasename(如果数据库不存在，则创建数据库，否则切换到指定的数据库)</li>
-<li>例如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use mydata</span><br><span class="line">switched to db mydata</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>查看所有数据库<ul>
-<li>show dbs</li>
-<li>刚刚创建的数据库不在所有数据库列表中，要显示他，需要向mydata数据库插入一些数据</li>
-<li>例如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.mydata.insert(&#123;&quot;name&quot;:李四&#125;)</span><br><span class="line">WriteResult(&#123;&quot;nInserted&quot;:1&#125;)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<strong>注意点：在MongoDB中，集合只有在内容插入之后才会创建，创建集合后要插入文档，集合才真正创建</strong></li>
-<li>删除数据库<ul>
-<li>db.dropDatabase() 删除当前数据库默认为test</li>
-<li>例如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">use mydata 切换到要被删除的数据库</span><br><span class="line">switched to db mydata</span><br><span class="line">db.dropDatabase()</span><br><span class="line">&#123;&quot;dropped&quot;:&quot;mydata&quot;,&quot;ok&quot;:1&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>删除集合(表)<ul>
-<li>db.collection.drop()</li>
-<li>例如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">use mydata 创建数据库</span><br><span class="line">db.createCollection(&quot;city&quot;) 创建集合(表)</span><br><span class="line">show tables 展示集合</span><br><span class="line">city</span><br><span class="line">db.city.drop()</span><br><span class="line">true</span><br><span class="line">show tables</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>创建集合<ul>
-<li>db.createCollection(name,options)<ul>
-<li>name:要创建集合名称</li>
-<li>options:可选参数   </li>
-<li>参数如下  </li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>字段</th>
-<th>类型</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>capped</td>
-<td>布尔</td>
-<td>可选，如果为true，创建固定集合，固定集合是指由着固定大小的集合当达到最大值时，它会自动覆盖最早的文档。当该值为 true 时，必须指定 size 参数</td>
-</tr>
-<tr>
-<td>autoIndexId</td>
-<td>布尔</td>
-<td>（可选）如为 true，自动在 _id 字段创建索引。默认为 false。</td>
-</tr>
-<tr>
-<td>size</td>
-<td>数值</td>
-<td>（可选）为固定集合指定一个最大值，以千字节计（KB）。如果 capped 为 true，也需要指定该字段。</td>
-</tr>
-<tr>
-<td>max</td>
-<td>数值</td>
-<td>（可选）指定固定集合中包含文档的最大数量。</td>
-</tr>
-</tbody></table>
-<ul>
-<li><p>创建固定集合 mycol，整个集合空间大小 6142800 KB, 文档最大个数为 10000 个。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.createCollection(&quot;mycol&quot;, &#123; capped : true, autoIndexId : true, size : </span><br><span class="line">6142800, max : 10000 &#125; )</span><br><span class="line"> &#123; &quot;ok&quot; : 1 &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在 MongoDB 中，你不需要创建集合。当你插入一些文档时，MongoDB 会自动创建集合。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.mycol2.insert(&#123;&quot;name&quot; : &quot;菜鸟教程&quot;&#125;)</span><br><span class="line"> show collections</span><br><span class="line"> mycol2</span><br></pre></td></tr></table></figure>
+        <h2 id="js-防抖节流"><a href="#js-防抖节流" class="headerlink" title="js 防抖节流"></a>js 防抖节流</h2><a id="more"></a>
 
-</li>
-</ul>
+<p><strong>防抖和节流目前是前端开发中最重要的 2 个函数</strong></p>
+<h4 id="防抖使用场景"><a href="#防抖使用场景" class="headerlink" title="防抖使用场景"></a>防抖使用场景</h4><blockquote>
+<p>在输入框中输入自己搜索的内容</p>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/07/08/UEwruR.png" alt="图示"></p>
 <ul>
-<li>删除集合<ul>
-<li>db.collection.drop()</li>
-<li>返回值</li>
-<li>如果成功删除选定集合，则 drop() 方法返回 true，否则返回 false。  </li>
+<li>当输入男时,为了更好的体验,通常会出现对应的联想内容,发送一次网络请求</li>
+<li>继续输入男士时,再一次发送请求,出现对应内容</li>
+<li>在输入完男士夏季套装一共需要发送 6 次请求</li>
 </ul>
-</li>
-<li>插入文档  <ul>
-<li>使用 insert() 或 save() 方法向集合中插入文档，语法如下：</li>
-<li>db.COLLECTION_NAME.insert(document)</li>
-<li>实例 </li>
+<p>但是事实上不根本不需要怎么多次请求</p>
+<ul>
+<li>正确的做法应该是在合适的情况发送请求</li>
+<li>例如用户快速输入男士夏季套装,那么就发送一次请求</li>
+<li>例如用户每输入一个字停顿一会,这时就发送 6 次请求<br><img src="https://s1.ax1x.com/2020/07/08/UEDu4K.md.png" alt="图示"></li>
 </ul>
-</li>
+<h4 id="节流使用场景"><a href="#节流使用场景" class="headerlink" title="节流使用场景"></a>节流使用场景</h4><blockquote>
+<p>监听页面滚动事件<br>鼠标移动事件<br>按钮点击事件</p>
+</blockquote>
+<ul>
+<li>在某个时间内,某个函数只能被触发执行一次</li>
 </ul>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">db.col.insert(&#123;</span><br><span class="line"> title: &#39;MongoDB &#39;, </span><br><span class="line">  content:&#39;一个nosql数据库&#39;,</span><br><span class="line">  text:&#39;文档的数据结构和 JSON 基本一样。&#39;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></code></pre><ul>
-<li><p>我们也可以将数据定义为一个变量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">document&#x3D;(&#123; </span><br><span class="line">  title: &#39;MongoDB &#39;, </span><br><span class="line">  content:&#39;一个nosql数据库&#39;,</span><br><span class="line">  text:&#39;文档的数据结构和 JSON 基本一样。&#39;</span><br><span class="line">  likes: 100</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行插入操作：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.col.insert(document)WriteResult(&#123;&quot;nInserted&quot;:1&#125;)</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/07/08/UEgSE9.jpg" alt="图示"></p>
+<h4 id="简单防抖函数实现"><a href="#简单防抖函数实现" class="headerlink" title="简单防抖函数实现"></a>简单防抖函数实现</h4><p><strong>基本功能</strong></p>
+<ul>
+<li>当触发一个函数,不会立即执行这个函数,而是延迟(使用定时器)</li>
+<li>如果延迟内有重新触发函数,那么取消上一个函数执行(取消定时器)</li>
+<li>如果在延迟时间内,没有重新触发函数,函数正常执行</li>
+</ul>
+<blockquote>
+<p>代码实现</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, time</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> timer = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (timer) clearTimeout(timer);</span><br><span class="line">    timer = setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      fn();</span><br><span class="line">    &#125;, time);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
-<ul>
-<li>db.collection.insertOne():向指定集合中插入一条文档数据</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> var document &#x3D; db.collection.insertOne(&#123;&quot;a&quot;: 3&#125;)</span><br><span class="line">  document</span><br><span class="line">&#123;</span><br><span class="line">        &quot;acknowledged&quot; : true,</span><br><span class="line">        &quot;insertedId&quot; : ObjectId(&quot;571a218011a82a1d94c02333&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>优化参数和 this</p>
+</blockquote>
+<p>通常 input 事件触发都会带有参数传递,而且触发函数的 this 指向当前元素节点<br>上方代码的 fn 函数是个普通的函数,this 指向 window,且没有携带参数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, time</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> timer = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (timer) clearTimeout(timer);</span><br><span class="line">    <span class="keyword">let</span> that = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">let</span> arg = <span class="built_in">arguments</span>;</span><br><span class="line">    timer = setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      fn.apply(that, arg);</span><br><span class="line">    &#125;, time);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h4 id="简单节流函数实现"><a href="#简单节流函数实现" class="headerlink" title="简单节流函数实现"></a>简单节流函数实现</h4><p><strong>基本功能</strong></p>
+<p>使用时间戳方式来实现</p>
 <ul>
-<li>插入多条数据<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; var res &#x3D; db.collection.insertMany([&#123;&quot;b&quot;: 3&#125;, &#123;&#39;c&#39;: 4&#125;])</span><br><span class="line">&gt; res</span><br><span class="line">&#123;</span><br><span class="line">        &quot;acknowledged&quot; : true,</span><br><span class="line">        &quot;insertedIds&quot; : [</span><br><span class="line">                ObjectId(&quot;571a22a911a82a1d94c02337&quot;),</span><br><span class="line">                ObjectId(&quot;571a22a911a82a1d94c02338&quot;)</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>更新文档<ul>
-<li>update()方法用于更新已存在的文档，语法格式如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">db.collection.update(</span><br><span class="line"> &lt;query&gt;,</span><br><span class="line"> &lt;update&gt;,</span><br><span class="line"> &#123;</span><br><span class="line">   upsert: &lt;boolean&gt;,</span><br><span class="line">   multi: &lt;boolean&gt;,</span><br><span class="line">   writeConcern: &lt;document&gt;</span><br><span class="line"> &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
-<li>参数说明：<ul>
-<li>query : update的查询条件，类似sql update查询内where后面的。</li>
-<li>update : update的对象和一些更新的操作符（如$,$inc…）等，也可以理解为sql update查询内set后面的</li>
-<li>upsert : 可选，这个参数的意思是，如果不存在update的记录，是否插入objNew,true为插入，默认是false，不插入。</li>
-<li>multi : 可选，mongodb 默认是false,只更新找到的第一条记录，如果这个参数为true,就把按条件查出来多条记录全部更新。</li>
-<li>writeConcern :可选，抛出异常的级别。</li>
+<li>使用一个 last 记录上一次执行时间</li>
+<li>每次执行前获取当前时间</li>
 </ul>
-</li>
-<li>实例 修改col集合title文档<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.col.update(&#123;&#39;title&#39;:&#39;MongoDB&#39;&#125;,&#123;$set:&#123;&#39;title&#39;:&#39;mongodb&#39;&#125;&#125;)</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>删除文档<ul>
-<li>remove() 方法的基本语法格式如下所示：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">db.collection.remove(</span><br><span class="line"> &lt;query&gt;,</span><br><span class="line"> &#123;</span><br><span class="line">   justOne: &lt;boolean&gt;,</span><br><span class="line">   writeConcern: &lt;document&gt;</span><br><span class="line"> &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
-<li>参数说明：<ul>
-<li>query :（可选）删除的文档的条件。</li>
-<li>ustOne : （可选）如果设为 true 或 1，则只删除一个文档，如果不设置该参数，或使用默认值 false，则删除所有匹配条件的文档</li>
-<li>writeConcern :（可选）抛出异常的级别。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn, interval</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> last = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> that = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">let</span> arg = <span class="built_in">arguments</span>;</span><br><span class="line">    <span class="keyword">let</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">    <span class="keyword">if</span> (now - last &gt; interval) &#123;</span><br><span class="line">      fn.apply(that, arg);</span><br><span class="line">      last = now;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -322,7 +250,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MongoDB</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
         		</li>
       		
 		</ul>
@@ -378,7 +306,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://chenwenkai8023ni.github.io/2020/01/22/MongoDB%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://chenwenkai8023ni.github.io/2020/07/08/js%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -392,18 +320,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/01/24/vue-todolist/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Vue_todolist
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/01/18/VueX/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Vuex</div>
+    <a href="/2020/07/07/js%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE-%E9%97%AD%E5%8C%85/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js原型与原型链,闭包</div>
       <i class="icon-circle-right"></i>
     </a>
   

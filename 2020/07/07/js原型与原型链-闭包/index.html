@@ -6,20 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://chenwenkai8023ni.github.io">
-  <title>MongoDB笔记 | 风吹过得夏天</title>
+  <title>js原型与原型链,闭包 | 风吹过得夏天</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="MongoDB基本语法">
+  <meta name="description" content="js 闭包变量的作用域要理解闭包，首先必须理解 Javascript 特殊的变量作用域。 变量的作用域无非就是两种：全局变量和局部变量。 Javascript 特殊之处，就在于函数内部可以直接读取全局变量。 12345var n &#x3D; 999;function f1() &amp;#123;  alert(n);&amp;#125;f1(); &#x2F;&#x2F; 999  在函数外部自然无法读取函数内的局部变量。 12345fu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MongoDB笔记">
-<meta property="og:url" content="https://chenwenkai8023ni.github.io/2020/01/22/MongoDB%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="js原型与原型链,闭包">
+<meta property="og:url" content="https://chenwenkai8023ni.github.io/2020/07/07/js%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE-%E9%97%AD%E5%8C%85/index.html">
 <meta property="og:site_name" content="风吹过得夏天">
-<meta property="og:description" content="MongoDB基本语法">
+<meta property="og:description" content="js 闭包变量的作用域要理解闭包，首先必须理解 Javascript 特殊的变量作用域。 变量的作用域无非就是两种：全局变量和局部变量。 Javascript 特殊之处，就在于函数内部可以直接读取全局变量。 12345var n &#x3D; 999;function f1() &amp;#123;  alert(n);&amp;#125;f1(); &#x2F;&#x2F; 999  在函数外部自然无法读取函数内的局部变量。 12345fu">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-01-22T07:56:47.000Z">
-<meta property="article:modified_time" content="2020-02-13T05:53:01.802Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1490251-48851bf37a08259d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/556/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1490251-e7476a8697e97aab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/567/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1490251-0cac772635e8a128.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/518/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1490251-293b8fe01cf2ef5f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/609/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1490251-3089c135df71c956.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/604/format/webp">
+<meta property="article:published_time" content="2020-07-07T05:47:59.000Z">
+<meta property="article:modified_time" content="2020-07-08T01:37:35.136Z">
 <meta property="article:author" content="风吹过得夏天">
-<meta property="article:tag" content="MongoDB">
+<meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1490251-48851bf37a08259d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/556/format/webp">
   
     <link rel="alternative" href="/atom.xml" title="风吹过得夏天" type="application/atom+xml">
   
@@ -139,20 +145,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-MongoDB笔记" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-js原型与原型链-闭包" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      MongoDB笔记
+      js原型与原型链,闭包
     </h1>
   
 
         
-        <a href="/2020/01/22/MongoDB%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2020-01-22T07:56:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-22</time>
+        <a href="/2020/07/07/js%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE-%E9%97%AD%E5%8C%85/" class="archive-article-date">
+  	<time datetime="2020-07-07T05:47:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-07</time>
 </a>
         <!-- 需要添加的位置 -->
         <!-- 开始添加字数统计-->
@@ -162,7 +168,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">1.1k字</span>
+      <span class="post-count">1.3k字</span>
     </span>
   </span>
 
@@ -171,7 +177,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-hourglass-half"></i>
       <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">4分</span>
+      <span class="post-count">5分</span>
     </span>
   </span>
 </div>
@@ -184,131 +190,64 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="MongoDB基本语法"><a href="#MongoDB基本语法" class="headerlink" title="MongoDB基本语法"></a>MongoDB基本语法</h2> <a id="more"></a>
-<ul>
-<li>创建数据库<ul>
-<li>use databasename(如果数据库不存在，则创建数据库，否则切换到指定的数据库)</li>
-<li>例如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use mydata</span><br><span class="line">switched to db mydata</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>查看所有数据库<ul>
-<li>show dbs</li>
-<li>刚刚创建的数据库不在所有数据库列表中，要显示他，需要向mydata数据库插入一些数据</li>
-<li>例如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.mydata.insert(&#123;&quot;name&quot;:李四&#125;)</span><br><span class="line">WriteResult(&#123;&quot;nInserted&quot;:1&#125;)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<strong>注意点：在MongoDB中，集合只有在内容插入之后才会创建，创建集合后要插入文档，集合才真正创建</strong></li>
-<li>删除数据库<ul>
-<li>db.dropDatabase() 删除当前数据库默认为test</li>
-<li>例如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">use mydata 切换到要被删除的数据库</span><br><span class="line">switched to db mydata</span><br><span class="line">db.dropDatabase()</span><br><span class="line">&#123;&quot;dropped&quot;:&quot;mydata&quot;,&quot;ok&quot;:1&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>删除集合(表)<ul>
-<li>db.collection.drop()</li>
-<li>例如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">use mydata 创建数据库</span><br><span class="line">db.createCollection(&quot;city&quot;) 创建集合(表)</span><br><span class="line">show tables 展示集合</span><br><span class="line">city</span><br><span class="line">db.city.drop()</span><br><span class="line">true</span><br><span class="line">show tables</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>创建集合<ul>
-<li>db.createCollection(name,options)<ul>
-<li>name:要创建集合名称</li>
-<li>options:可选参数   </li>
-<li>参数如下  </li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>字段</th>
-<th>类型</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>capped</td>
-<td>布尔</td>
-<td>可选，如果为true，创建固定集合，固定集合是指由着固定大小的集合当达到最大值时，它会自动覆盖最早的文档。当该值为 true 时，必须指定 size 参数</td>
-</tr>
-<tr>
-<td>autoIndexId</td>
-<td>布尔</td>
-<td>（可选）如为 true，自动在 _id 字段创建索引。默认为 false。</td>
-</tr>
-<tr>
-<td>size</td>
-<td>数值</td>
-<td>（可选）为固定集合指定一个最大值，以千字节计（KB）。如果 capped 为 true，也需要指定该字段。</td>
-</tr>
-<tr>
-<td>max</td>
-<td>数值</td>
-<td>（可选）指定固定集合中包含文档的最大数量。</td>
-</tr>
-</tbody></table>
-<ul>
-<li><p>创建固定集合 mycol，整个集合空间大小 6142800 KB, 文档最大个数为 10000 个。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.createCollection(&quot;mycol&quot;, &#123; capped : true, autoIndexId : true, size : </span><br><span class="line">6142800, max : 10000 &#125; )</span><br><span class="line"> &#123; &quot;ok&quot; : 1 &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在 MongoDB 中，你不需要创建集合。当你插入一些文档时，MongoDB 会自动创建集合。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.mycol2.insert(&#123;&quot;name&quot; : &quot;菜鸟教程&quot;&#125;)</span><br><span class="line"> show collections</span><br><span class="line"> mycol2</span><br></pre></td></tr></table></figure>
+        <h2 id="js-闭包"><a href="#js-闭包" class="headerlink" title="js 闭包"></a>js 闭包</h2><p><strong>变量的作用域</strong><br>要理解闭包，首先必须理解 Javascript 特殊的变量作用域。</p>
+<p>变量的作用域无非就是两种：全局变量和局部变量。</p>
+<p>Javascript 特殊之处，就在于函数内部可以直接读取全局变量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="number">999</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert(n);</span><br><span class="line">&#125;</span><br><span class="line">f1(); <span class="comment">// 999</span></span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
-<ul>
-<li>删除集合<ul>
-<li>db.collection.drop()</li>
-<li>返回值</li>
-<li>如果成功删除选定集合，则 drop() 方法返回 true，否则返回 false。  </li>
-</ul>
-</li>
-<li>插入文档  <ul>
-<li>使用 insert() 或 save() 方法向集合中插入文档，语法如下：</li>
-<li>db.COLLECTION_NAME.insert(document)</li>
-<li>实例 </li>
-</ul>
-</li>
-</ul>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">db.col.insert(&#123;</span><br><span class="line"> title: &#39;MongoDB &#39;, </span><br><span class="line">  content:&#39;一个nosql数据库&#39;,</span><br><span class="line">  text:&#39;文档的数据结构和 JSON 基本一样。&#39;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></code></pre><ul>
-<li><p>我们也可以将数据定义为一个变量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">document&#x3D;(&#123; </span><br><span class="line">  title: &#39;MongoDB &#39;, </span><br><span class="line">  content:&#39;一个nosql数据库&#39;,</span><br><span class="line">  text:&#39;文档的数据结构和 JSON 基本一样。&#39;</span><br><span class="line">  likes: 100</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行插入操作：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.col.insert(document)WriteResult(&#123;&quot;nInserted&quot;:1&#125;)</span><br></pre></td></tr></table></figure>
+<p>在函数外部自然无法读取函数内的局部变量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> n = <span class="number">999</span>;</span><br><span class="line">&#125;</span><br><span class="line">f1();</span><br><span class="line">alert(n); <span class="comment">// error</span></span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
-<ul>
-<li>db.collection.insertOne():向指定集合中插入一条文档数据</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> var document &#x3D; db.collection.insertOne(&#123;&quot;a&quot;: 3&#125;)</span><br><span class="line">  document</span><br><span class="line">&#123;</span><br><span class="line">        &quot;acknowledged&quot; : true,</span><br><span class="line">        &quot;insertedId&quot; : ObjectId(&quot;571a218011a82a1d94c02333&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>函数内部声明变量的时候，一定要使用 var/let/const 命令。如果不用的话，你实际上声明了一个全局变量！</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  n = <span class="number">999</span>;</span><br><span class="line">&#125;</span><br><span class="line">f1();</span><br><span class="line">alert(n); <span class="comment">// 999</span></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>插入多条数据<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; var res &#x3D; db.collection.insertMany([&#123;&quot;b&quot;: 3&#125;, &#123;&#39;c&#39;: 4&#125;])</span><br><span class="line">&gt; res</span><br><span class="line">&#123;</span><br><span class="line">        &quot;acknowledged&quot; : true,</span><br><span class="line">        &quot;insertedIds&quot; : [</span><br><span class="line">                ObjectId(&quot;571a22a911a82a1d94c02337&quot;),</span><br><span class="line">                ObjectId(&quot;571a22a911a82a1d94c02338&quot;)</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>更新文档<ul>
-<li>update()方法用于更新已存在的文档，语法格式如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">db.collection.update(</span><br><span class="line"> &lt;query&gt;,</span><br><span class="line"> &lt;update&gt;,</span><br><span class="line"> &#123;</span><br><span class="line">   upsert: &lt;boolean&gt;,</span><br><span class="line">   multi: &lt;boolean&gt;,</span><br><span class="line">   writeConcern: &lt;document&gt;</span><br><span class="line"> &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
-<li>参数说明：<ul>
-<li>query : update的查询条件，类似sql update查询内where后面的。</li>
-<li>update : update的对象和一些更新的操作符（如$,$inc…）等，也可以理解为sql update查询内set后面的</li>
-<li>upsert : 可选，这个参数的意思是，如果不存在update的记录，是否插入objNew,true为插入，默认是false，不插入。</li>
-<li>multi : 可选，mongodb 默认是false,只更新找到的第一条记录，如果这个参数为true,就把按条件查出来多条记录全部更新。</li>
-<li>writeConcern :可选，抛出异常的级别。</li>
-</ul>
+<p><strong>从外部读取局部变量</strong><br>在函数的内部，再定义一个函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> n = <span class="number">999</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(n);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> f2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> result = f1();</span><br><span class="line">result(); <span class="comment">// 999</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>闭包的概念</strong><br>上述事例代码 f2 就是闭包.我的理解是,闭包就是能够读取其他函数内部变量的函数。<br>由于在 Javascript 语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解成”定义在一个函数内部的函数”.闭包就是将函数内部和函数外部连接起来的一座桥梁。</p>
+<p><strong>闭包的用途</strong><br>一个是前面提到的可以读取函数内部的变量，另一个就是让这些变量的值始终保持在内存中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> n = <span class="number">999</span>;</span><br><span class="line">  nAdd = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    n += <span class="number">1</span>;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(n);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> f2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> result = f1();</span><br><span class="line">result(); <span class="comment">// 999</span></span><br><span class="line">nAdd();</span><br><span class="line">result(); <span class="comment">// 1000</span></span><br></pre></td></tr></table></figure>
+
+<p>在这段代码中,result 就是闭包 f2 函数它一共运行了两次，第一次的值是 999，第二次的值是<br>1000。这证明了，函数 f1 中的局部变量 n 一直保存在内存中，并没有在 f1 调用后被自动清除。</p>
+<p>为什么会这样呢？因就在于 f1 是 f2 的父函数，而 f2 被赋给了一个全局变量，这导致 f2 始终在内存中，而 f2 的存在依赖于 f1，因此 f1 也始终在内存中，不会在调用结束后，被垃圾回收机制（garbage collection）回收。</p>
+<p>这段代码中另一个值得注意的地方，就是”nAdd=function(){n+=1}”这一行，首先在 nAdd 前面没有使用 var 关键字，因此 nAdd 是一个全局变量，而不是局部变量。其次，nAdd 的值是一个匿名函数（anonymous function），而这个匿名函数本身也是一个闭包，所以 nAdd 相当于是一个 setter，可以在函数外部对函数内部的局部变量进行操作。</p>
+<p><strong>使用闭包的注意点</strong></p>
+<ol>
+<li><p>由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，</p>
 </li>
-<li>实例 修改col集合title文档<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.col.update(&#123;&#39;title&#39;:&#39;MongoDB&#39;&#125;,&#123;$set:&#123;&#39;title&#39;:&#39;mongodb&#39;&#125;&#125;)</span><br></pre></td></tr></table></figure></li>
-</ul>
+<li><p>闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value）</p>
 </li>
-<li>删除文档<ul>
-<li>remove() 方法的基本语法格式如下所示：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">db.collection.remove(</span><br><span class="line"> &lt;query&gt;,</span><br><span class="line"> &#123;</span><br><span class="line">   justOne: &lt;boolean&gt;,</span><br><span class="line">   writeConcern: &lt;document&gt;</span><br><span class="line"> &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
-<li>参数说明：<ul>
-<li>query :（可选）删除的文档的条件。</li>
-<li>ustOne : （可选）如果设为 true 或 1，则只删除一个文档，如果不设置该参数，或使用默认值 false，则删除所有匹配条件的文档</li>
-<li>writeConcern :（可选）抛出异常的级别。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+</ol>
+<p><strong>思考题</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;</span><br><span class="line"><span class="keyword">var</span> object = &#123;</span><br><span class="line">  name: <span class="string">"My Object"</span>,</span><br><span class="line">  getNameFunc: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">//普通函数this指向window</span></span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">alert(object.getNameFunc()()); <span class="comment">//The Window</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;</span><br><span class="line"><span class="keyword">var</span> object = &#123;</span><br><span class="line">  name: <span class="string">"My Object"</span>,</span><br><span class="line">  getNameFunc: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">    <span class="comment">// 对象函数中this指向对象本身</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> that.name;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">alert(object.getNameFunc()()); <span class="comment">//My Object</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="原型和原型链"><a href="#原型和原型链" class="headerlink" title="原型和原型链"></a>原型和原型链</h2><p><strong>prototype</strong><br>每个函数都要一个 prototype 属性<br>每个 JavaScript 对象(null 除外)在创建的时候就会关联另一个对象.这个对象就是我们所说的原型，每一个对象都会从原型”继承”属性。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">Person.prototype.name = <span class="string">"李四"</span>;</span><br><span class="line"><span class="keyword">let</span> person1 = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="keyword">let</span> person2 = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(person1); <span class="comment">//李四</span></span><br><span class="line"><span class="built_in">console</span>.log(person2); <span class="comment">//李四</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/1490251-48851bf37a08259d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/556/format/webp" alt="图示"></p>
+<p><strong>proto</strong><br>每一个 JavaScript 对象(null 除外)都具有一个属性,叫 proto,这个属性会指向该对象原型</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(person.__proto__ === Person.prototype); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/1490251-e7476a8697e97aab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/567/format/webp" alt="图示"></p>
+<p><strong>constructor</strong><br>每一个原型都有一个 constructor 属性指向关联的构造函数 实例原型指向构造函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(Person === Person.prototype.constructor); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/1490251-0cac772635e8a128.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/518/format/webp" alt="图示"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(person.__proto__ == Person.prototype); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype.constructor == Person); <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 顺便学习一个ES5的方法,可以获得对象的原型</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(person) === Person.prototype); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>**实例与原型</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.name = <span class="string">"Kevin"</span>;</span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person();</span><br><span class="line">person.name = <span class="string">"Daisy"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">// Daisy</span></span><br><span class="line"><span class="keyword">delete</span> person.name;</span><br><span class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">// Kevin</span></span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，我们给实例对象 person 添加了 name 属性，当我们打印 person.name 的时候，结果自然为 Daisy。</p>
+<p>但是当我们删除了 person 的 name 属性时，读取 person.name，从 person 对象中找不到 name 属性就会从 person 的原型也就是 person.proto ，也就是 Person.prototype 中查找，幸运的是我们找到了 name 属性，结果为 Kevin。</p>
+<p><strong>原型与原型</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">obj.name = <span class="string">"Kevin"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj.name); <span class="comment">// Kevin</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/1490251-293b8fe01cf2ef5f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/609/format/webp" alt="图示"></p>
+<p><strong>原型链</strong><br>最终指向 null<code>console.log(Object.prototype.__proto__ === null) // true</code><br><img src="https://upload-images.jianshu.io/upload_images/1490251-3089c135df71c956.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/604/format/webp" alt="图示"><br><strong>总结</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">person.__proto__ = Person.prototype;</span><br><span class="line">Person.__proto__ === <span class="built_in">Function</span>.prototype;</span><br><span class="line"><span class="built_in">Function</span>.prototype.__proto__ === <span class="built_in">Object</span>.prototype;</span><br><span class="line"><span class="built_in">Object</span>.prototype.__proto__ === <span class="literal">null</span>;</span><br><span class="line">Person.prototype.__proto__ == <span class="built_in">Object</span>.prototype;</span><br><span class="line">Obejct.prototype.__proto__ === <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -322,7 +261,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MongoDB</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
         		</li>
       		
 		</ul>
@@ -378,7 +317,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://chenwenkai8023ni.github.io/2020/01/22/MongoDB%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://chenwenkai8023ni.github.io/2020/07/07/js%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE-%E9%97%AD%E5%8C%85/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -392,18 +331,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/01/24/vue-todolist/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/07/08/js%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Vue_todolist
+          js防抖节流
         
       </div>
     </a>
   
   
-    <a href="/2020/01/18/VueX/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Vuex</div>
+    <a href="/2020/07/07/%E7%89%9B%E5%AE%A2%E7%BD%91js%E9%94%99%E9%A2%98%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">牛客网js错题总结</div>
       <i class="icon-circle-right"></i>
     </a>
   

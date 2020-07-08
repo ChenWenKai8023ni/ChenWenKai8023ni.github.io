@@ -15,11 +15,13 @@
 <meta property="og:site_name" content="风吹过得夏天">
 <meta property="og:description" content="状态管理与 VueX（跨组件共享数据）">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/07/UkkWfs.png">
 <meta property="article:published_time" content="2020-01-18T07:58:02.000Z">
-<meta property="article:modified_time" content="2020-06-03T09:01:32.081Z">
+<meta property="article:modified_time" content="2020-07-07T05:42:17.448Z">
 <meta property="article:author" content="风吹过得夏天">
 <meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/07/UkkWfs.png">
   
     <link rel="alternative" href="/atom.xml" title="风吹过得夏天" type="application/atom+xml">
   
@@ -162,7 +164,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">308字</span>
+      <span class="post-count">866字</span>
     </span>
   </span>
 
@@ -171,7 +173,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-hourglass-half"></i>
       <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">1分</span>
+      <span class="post-count">3分</span>
     </span>
   </span>
 </div>
@@ -186,15 +188,60 @@
       
         <h2 id="状态管理与-VueX（跨组件共享数据）"><a href="#状态管理与-VueX（跨组件共享数据）" class="headerlink" title="状态管理与 VueX（跨组件共享数据）"></a>状态管理与 VueX（跨组件共享数据）</h2><a id="more"></a>
 
+<p>vuex 顾名思义是一款为 vue 而生的状态管理工具。<br>vue 本身自带着 store 模式，其实就是全局注册一个对象，实现数据共享。适合小型数据量少的项目。<br>vuex 适合复杂的单页面应用，涉及到多层次嵌套，多层次组件传值，不同视图对一个状态或者接口的处理。<br><strong>vuex 工作原理</strong><br><img src="https://s1.ax1x.com/2020/07/07/UkkWfs.png" alt="vue工作原理"></p>
 <h3 id="安装与使用"><a href="#安装与使用" class="headerlink" title="安装与使用"></a>安装与使用</h3><blockquote>
 <p>npm install –save vuex</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//main.js</span></span><br><span class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">'vuex'</span>;</span><br><span class="line">vue.use(Vuex);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vue.Store(&#123;</span><br><span class="line"><span class="comment">//vuex的配置</span></span><br><span class="line">  state:&#123;</span><br><span class="line">  	count:<span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  mutations:&#123;</span><br><span class="line">  	increment:(state)&#123;</span><br><span class="line">  		state.count++;</span><br><span class="line">  	&#125;,</span><br><span class="line">  	decrease(stats)&#123;</span><br><span class="line">    	state.count--;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">	el:<span class="string">'#app'</span>,</span><br><span class="line">  router:router,</span><br><span class="line">  store:store,</span><br><span class="line">  render:<span class="function"><span class="params">h</span>=&gt;</span>&#123;</span><br><span class="line">  	<span class="keyword">return</span> h(App)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="vuex-的五大核心"><a href="#vuex-的五大核心" class="headerlink" title="vuex 的五大核心"></a>vuex 的五大核心</h2><h3 id="State"><a href="#State" class="headerlink" title="State"></a>State</h3><p>vuex 中的数据源，我们需要保存的数据就保存在这里，可以在页面通过 this.$store.state 来获取我们定义的数据；</p>
+<h3 id="Getters"><a href="#Getters" class="headerlink" title="Getters"></a>Getters</h3><p>Getter 相当于 vue 中的 computed 计算属性，getter 的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被<br>重新计算，这里我们可以通过定义 vuex 的 Getter 来获取，Getters 可以用于监听、state 中的值的变化，返回计算后的结果</p>
+<h3 id="Mutations"><a href="#Mutations" class="headerlink" title="Mutations"></a>Mutations</h3><p>数据我们在页面是获取到了，但是如果我们需要修改值怎么办？如果需要修改 store 中的值唯一的方法就是提交 mutation 来修改</p>
+<h3 id="Actions"><a href="#Actions" class="headerlink" title="Actions"></a>Actions</h3><p>官方并不介意我们这样直接去修改 store 里面的值，而是让我们去提交一个 actions，在 actions 中提交 mutation 再去修改状态值，</p>
+<h3 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h3><p>由于使用单一状态树，应用的所有状态会集中到一个比较大的对象。当应用变得非常复杂时，store 对象就有可能变得相当臃肿。<br>为了解决以上问题，Vuex 允许我们将 store 分割成模块（module）。每个模块拥有自己的 state、mutation、action、getter、甚至是嵌套子模块——从上至下进行同样方式的分割：</p>
+<h3 id="vuex-辅助函数"><a href="#vuex-辅助函数" class="headerlink" title="vuex 辅助函数"></a>vuex 辅助函数</h3><p>mapState 、mapGetters 、 mapMutations 、mapActions</p>
+<table>
+<thead>
+<tr>
+<th>调用</th>
+<th>方法</th>
+<th>方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>state</td>
+<td>this.$store.state</td>
+<td>mapState</td>
+</tr>
+<tr>
+<td>getters</td>
+<td>this.$store.getters</td>
+<td>mapGetters</td>
+</tr>
+<tr>
+<td>mutations</td>
+<td>this.$store.cmmit</td>
+<td>mapMutations</td>
+</tr>
+<tr>
+<td>actions</td>
+<td>this.$store.dispatch</td>
+<td>mapActions</td>
+</tr>
+</tbody></table>
+<p><code>mapState</code>和<code>mapGetter</code>的使用只能在 computed 计算属性中，<br><code>mapMutations</code>和<code>mapActions</code>使用的时候只能在 methods 中调用否则报错</p>
+<h2 id="简单的示例"><a href="#简单的示例" class="headerlink" title="简单的示例"></a>简单的示例</h2><blockquote>
+<p>index.js</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">"vue"</span>;</span><br><span class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">"vuex"</span>;</span><br><span class="line">Vue.use(Vuex);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    num: <span class="number">1</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  getters: &#123;</span><br><span class="line">    getstateNum(state) &#123;</span><br><span class="line">      <span class="keyword">return</span> state.num + <span class="number">1</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    <span class="comment">//根据action commit的type类型匹配进行操作</span></span><br><span class="line">    add(state) &#123;</span><br><span class="line">      state.num = state.num + <span class="number">1</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    reducer(state) &#123;</span><br><span class="line">      state.num = state.num - <span class="number">1</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  actions: &#123;</span><br><span class="line">    <span class="comment">//执行对应操作</span></span><br><span class="line">    addfun(context) &#123;</span><br><span class="line">      <span class="comment">//commit一个type类型</span></span><br><span class="line">      context.commit(<span class="string">"add"</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    reducerfun(context) &#123;</span><br><span class="line">      context.commit(<span class="string">"reducer"</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  modules: &#123;&#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>store 包含了应用的数据（状态）和操作过程。Vue 里的数据都是响应式的，任何组件使用同一 store 的数据时, 只要 store 的数据变化，对应的组件页会立即更新。<br>在组件内，来自 store 的数据只能读取，不能手动改动，改变 store 中的数据的唯一 途径就是显示的提交 mutations.<br>mutations 里的方法可以接受两个参数，第二个参数可以是数字，字符串或对象等类型</p>
+<p>app.vue</p>
 </blockquote>
-<h4 id="在组件内，通过-this-store-commit-方法来执行-mutations"><a href="#在组件内，通过-this-store-commit-方法来执行-mutations" class="headerlink" title="在组件内，通过 this.$store.commit 方法来执行 mutations."></a>在组件内，通过 this.$store.commit 方法来执行 mutations.</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        &#123;&#123; count &#125;&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"handleIncrement"</span>&gt;</span>+1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"handleDecrease"</span>&gt;</span>-1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tmplate</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">	<span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line">    	computed:&#123;</span><br><span class="line">        	count()&#123;</span><br><span class="line"><span class="actionscript">            	<span class="keyword">return</span> <span class="keyword">this</span>.$store.stat.count;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line">        	handleIncrement()&#123;</span><br><span class="line"><span class="actionscript">            	<span class="keyword">this</span>.$store.commit(<span class="string">'increment'</span>)</span></span><br><span class="line">            &#125;,</span><br><span class="line">            handlDecrease()&#123;</span><br><span class="line"><span class="actionscript">            	<span class="keyword">this</span>.$store.commit(<span class="string">'decrease'</span>);</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>直接从store获取的num&#123;&#123;this.$store.state.num&#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>执行了Getters获得取num&#123;&#123;this.$store.getters.getstateNum&#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"add"</span>&gt;</span>+<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"reducer"</span>&gt;</span>-<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line">  methods: &#123;</span><br><span class="line">    add() &#123;</span><br><span class="line"><span class="actionscript">      <span class="comment">//派发action</span></span></span><br><span class="line"><span class="actionscript">      <span class="keyword">this</span>.$store.dispatch(<span class="string">"addfun"</span>)</span></span><br><span class="line">    &#125;,</span><br><span class="line">    reducer() &#123;</span><br><span class="line"><span class="actionscript">      <span class="keyword">this</span>.$store.dispatch(<span class="string">"reducerfun"</span>)</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>使用辅助函数简化代码</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>直接从store获取的num&#123;&#123;num&#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>执行了Getters获得取num&#123;&#123;getstateNum&#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"add"</span>&gt;</span>+<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"reducer"</span>&gt;</span>-<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> &#123; mapState  , mapActions , mapGetters  &#125; <span class="keyword">from</span> <span class="string">'vuex'</span>;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line">  computed:&#123;</span><br><span class="line">    ...mapState(&#123;</span><br><span class="line"><span class="javascript">      num:<span class="function">(<span class="params">state</span>)=&gt;</span>state.num</span></span><br><span class="line">    &#125;)</span><br><span class="line">    ...mapGetters(&#123;</span><br><span class="line"><span class="actionscript">      getstateNum:<span class="string">"getstateNum"</span></span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    ...mapActions(&#123;</span><br><span class="line"><span class="actionscript">        addfun:<span class="string">"addfun"</span>,</span></span><br><span class="line"><span class="actionscript">        reducerfun:<span class="string">"reducerfun"</span></span></span><br><span class="line">    &#125;),</span><br><span class="line">    add()&#123;</span><br><span class="line"><span class="actionscript">      <span class="keyword">this</span>.addfun()</span></span><br><span class="line">    &#125;,</span><br><span class="line">    reducer() &#123;</span><br><span class="line"><span class="actionscript">    <span class="keyword">this</span>.reducerfun()</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
       
 
@@ -472,19 +519,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">

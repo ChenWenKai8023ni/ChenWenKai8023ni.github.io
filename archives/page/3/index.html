@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://chenwenkai8023ni.github.io">
-  <title>MongoDB笔记 | 风吹过得夏天</title>
+  <title>Archives | 风吹过得夏天</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="MongoDB基本语法">
-<meta property="og:type" content="article">
-<meta property="og:title" content="MongoDB笔记">
-<meta property="og:url" content="https://chenwenkai8023ni.github.io/2020/01/22/MongoDB%E7%AC%94%E8%AE%B0/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="风吹过得夏天">
+<meta property="og:url" content="https://chenwenkai8023ni.github.io/archives/page/3/index.html">
 <meta property="og:site_name" content="风吹过得夏天">
-<meta property="og:description" content="MongoDB基本语法">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-01-22T07:56:47.000Z">
-<meta property="article:modified_time" content="2020-02-13T05:53:01.802Z">
 <meta property="article:author" content="风吹过得夏天">
-<meta property="article:tag" content="MongoDB">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="风吹过得夏天" type="application/atom+xml">
@@ -139,328 +134,65 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-MongoDB笔记" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      MongoDB笔记
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/11/19/JSElement/" class="archive-article-date">
+  	<time datetime="2019-11-19T10:54:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-19</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/11/19/JSElement/">JsElement</a>
     </h1>
   
 
-        
-        <a href="/2020/01/22/MongoDB%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2020-01-22T07:56:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-22</time>
-</a>
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">1.1k字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">4分</span>
-    </span>
-  </span>
-</div>
-
+        <div class="article-info info-on-right">
           
-        <!-- 添加完成 -->
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="MongoDB基本语法"><a href="#MongoDB基本语法" class="headerlink" title="MongoDB基本语法"></a>MongoDB基本语法</h2> <a id="more"></a>
-<ul>
-<li>创建数据库<ul>
-<li>use databasename(如果数据库不存在，则创建数据库，否则切换到指定的数据库)</li>
-<li>例如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use mydata</span><br><span class="line">switched to db mydata</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>查看所有数据库<ul>
-<li>show dbs</li>
-<li>刚刚创建的数据库不在所有数据库列表中，要显示他，需要向mydata数据库插入一些数据</li>
-<li>例如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.mydata.insert(&#123;&quot;name&quot;:李四&#125;)</span><br><span class="line">WriteResult(&#123;&quot;nInserted&quot;:1&#125;)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<strong>注意点：在MongoDB中，集合只有在内容插入之后才会创建，创建集合后要插入文档，集合才真正创建</strong></li>
-<li>删除数据库<ul>
-<li>db.dropDatabase() 删除当前数据库默认为test</li>
-<li>例如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">use mydata 切换到要被删除的数据库</span><br><span class="line">switched to db mydata</span><br><span class="line">db.dropDatabase()</span><br><span class="line">&#123;&quot;dropped&quot;:&quot;mydata&quot;,&quot;ok&quot;:1&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>删除集合(表)<ul>
-<li>db.collection.drop()</li>
-<li>例如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">use mydata 创建数据库</span><br><span class="line">db.createCollection(&quot;city&quot;) 创建集合(表)</span><br><span class="line">show tables 展示集合</span><br><span class="line">city</span><br><span class="line">db.city.drop()</span><br><span class="line">true</span><br><span class="line">show tables</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>创建集合<ul>
-<li>db.createCollection(name,options)<ul>
-<li>name:要创建集合名称</li>
-<li>options:可选参数   </li>
-<li>参数如下  </li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>字段</th>
-<th>类型</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>capped</td>
-<td>布尔</td>
-<td>可选，如果为true，创建固定集合，固定集合是指由着固定大小的集合当达到最大值时，它会自动覆盖最早的文档。当该值为 true 时，必须指定 size 参数</td>
-</tr>
-<tr>
-<td>autoIndexId</td>
-<td>布尔</td>
-<td>（可选）如为 true，自动在 _id 字段创建索引。默认为 false。</td>
-</tr>
-<tr>
-<td>size</td>
-<td>数值</td>
-<td>（可选）为固定集合指定一个最大值，以千字节计（KB）。如果 capped 为 true，也需要指定该字段。</td>
-</tr>
-<tr>
-<td>max</td>
-<td>数值</td>
-<td>（可选）指定固定集合中包含文档的最大数量。</td>
-</tr>
-</tbody></table>
-<ul>
-<li><p>创建固定集合 mycol，整个集合空间大小 6142800 KB, 文档最大个数为 10000 个。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.createCollection(&quot;mycol&quot;, &#123; capped : true, autoIndexId : true, size : </span><br><span class="line">6142800, max : 10000 &#125; )</span><br><span class="line"> &#123; &quot;ok&quot; : 1 &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在 MongoDB 中，你不需要创建集合。当你插入一些文档时，MongoDB 会自动创建集合。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.mycol2.insert(&#123;&quot;name&quot; : &quot;菜鸟教程&quot;&#125;)</span><br><span class="line"> show collections</span><br><span class="line"> mycol2</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<ul>
-<li>删除集合<ul>
-<li>db.collection.drop()</li>
-<li>返回值</li>
-<li>如果成功删除选定集合，则 drop() 方法返回 true，否则返回 false。  </li>
-</ul>
-</li>
-<li>插入文档  <ul>
-<li>使用 insert() 或 save() 方法向集合中插入文档，语法如下：</li>
-<li>db.COLLECTION_NAME.insert(document)</li>
-<li>实例 </li>
-</ul>
-</li>
-</ul>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">db.col.insert(&#123;</span><br><span class="line"> title: &#39;MongoDB &#39;, </span><br><span class="line">  content:&#39;一个nosql数据库&#39;,</span><br><span class="line">  text:&#39;文档的数据结构和 JSON 基本一样。&#39;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></code></pre><ul>
-<li><p>我们也可以将数据定义为一个变量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">document&#x3D;(&#123; </span><br><span class="line">  title: &#39;MongoDB &#39;, </span><br><span class="line">  content:&#39;一个nosql数据库&#39;,</span><br><span class="line">  text:&#39;文档的数据结构和 JSON 基本一样。&#39;</span><br><span class="line">  likes: 100</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行插入操作：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.col.insert(document)WriteResult(&#123;&quot;nInserted&quot;:1&#125;)</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<ul>
-<li>db.collection.insertOne():向指定集合中插入一条文档数据</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> var document &#x3D; db.collection.insertOne(&#123;&quot;a&quot;: 3&#125;)</span><br><span class="line">  document</span><br><span class="line">&#123;</span><br><span class="line">        &quot;acknowledged&quot; : true,</span><br><span class="line">        &quot;insertedId&quot; : ObjectId(&quot;571a218011a82a1d94c02333&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>插入多条数据<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; var res &#x3D; db.collection.insertMany([&#123;&quot;b&quot;: 3&#125;, &#123;&#39;c&#39;: 4&#125;])</span><br><span class="line">&gt; res</span><br><span class="line">&#123;</span><br><span class="line">        &quot;acknowledged&quot; : true,</span><br><span class="line">        &quot;insertedIds&quot; : [</span><br><span class="line">                ObjectId(&quot;571a22a911a82a1d94c02337&quot;),</span><br><span class="line">                ObjectId(&quot;571a22a911a82a1d94c02338&quot;)</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>更新文档<ul>
-<li>update()方法用于更新已存在的文档，语法格式如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">db.collection.update(</span><br><span class="line"> &lt;query&gt;,</span><br><span class="line"> &lt;update&gt;,</span><br><span class="line"> &#123;</span><br><span class="line">   upsert: &lt;boolean&gt;,</span><br><span class="line">   multi: &lt;boolean&gt;,</span><br><span class="line">   writeConcern: &lt;document&gt;</span><br><span class="line"> &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
-<li>参数说明：<ul>
-<li>query : update的查询条件，类似sql update查询内where后面的。</li>
-<li>update : update的对象和一些更新的操作符（如$,$inc…）等，也可以理解为sql update查询内set后面的</li>
-<li>upsert : 可选，这个参数的意思是，如果不存在update的记录，是否插入objNew,true为插入，默认是false，不插入。</li>
-<li>multi : 可选，mongodb 默认是false,只更新找到的第一条记录，如果这个参数为true,就把按条件查出来多条记录全部更新。</li>
-<li>writeConcern :可选，抛出异常的级别。</li>
-</ul>
-</li>
-<li>实例 修改col集合title文档<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.col.update(&#123;&#39;title&#39;:&#39;MongoDB&#39;&#125;,&#123;$set:&#123;&#39;title&#39;:&#39;mongodb&#39;&#125;&#125;)</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>删除文档<ul>
-<li>remove() 方法的基本语法格式如下所示：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">db.collection.remove(</span><br><span class="line"> &lt;query&gt;,</span><br><span class="line"> &#123;</span><br><span class="line">   justOne: &lt;boolean&gt;,</span><br><span class="line">   writeConcern: &lt;document&gt;</span><br><span class="line"> &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
-<li>参数说明：<ul>
-<li>query :（可选）删除的文档的条件。</li>
-<li>ustOne : （可选）如果设为 true 或 1，则只删除一个文档，如果不设置该参数，或使用默认值 false，则删除所有匹配条件的文档</li>
-<li>writeConcern :（可选）抛出异常的级别。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MongoDB</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://chenwenkai8023ni.github.io/2020/01/22/MongoDB%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/01/24/vue-todolist/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Vue_todolist
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/01/18/VueX/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Vuex</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-  
-    <!-- 来必力City版安装代码 -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC80ODI0Ny8yNDc0Mw==" style="position: relative; z-index: 10; padding: 0 29px;">
-  <script type="text/javascript">
-     (function(d, s) {
-         var j, e = d.getElementsByTagName(s)[0];
-  
-         if (typeof LivereTower === 'function') { return; }
-  
-         j = d.createElement(s);
-         j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-         j.async = true;
-  
-         e.parentNode.insertBefore(j, e);
-     })(document, 'script');
-  </script>
-  <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-  </div>
-  <!-- City版安装代码已完成 -->
-
-  
-  
-  
+    </div></section>
   
 
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
   
 
-  
-
-  
-
-
-
- 
 
           </div>
         </div>
@@ -524,8 +256,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
