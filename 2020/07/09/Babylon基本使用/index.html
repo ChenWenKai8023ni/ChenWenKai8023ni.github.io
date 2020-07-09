@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://chenwenkai8023ni.github.io">
-  <title>Archives: 2019/12 | 风吹过得夏天</title>
+  <title>Babylon基本使用 | 风吹过得夏天</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="无">
-<meta property="og:type" content="website">
-<meta property="og:title" content="风吹过得夏天">
-<meta property="og:url" content="https://chenwenkai8023ni.github.io/archives/2019/12/index.html">
+  <meta name="description" content="Babylon.js 一个 WebGL 开源框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Babylon基本使用">
+<meta property="og:url" content="https://chenwenkai8023ni.github.io/2020/07/09/Babylon%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="风吹过得夏天">
-<meta property="og:description" content="无">
+<meta property="og:description" content="Babylon.js 一个 WebGL 开源框架">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-09T02:07:00.000Z">
+<meta property="article:modified_time" content="2020-07-09T02:39:05.707Z">
 <meta property="article:author" content="风吹过得夏天">
+<meta property="article:tag" content="WebGL">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="风吹过得夏天" type="application/atom+xml">
@@ -146,213 +149,321 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article
+  id="post-Babylon基本使用"
+  class="article article-type-post "
+  itemscope
+  itemprop="blogPost"
+>
+  <div class="article-inner">
     
-    
+    <header class="article-header">
       
+  
+    <h1 class="article-title" itemprop="name">
+      Babylon基本使用
+    </h1>
+  
+  <a href="/2020/07/09/Babylon%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2020-07-09T02:07:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-09</time>
+</a> 
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+       <h2 id="Babylon-js-一个-WebGL-开源框架"><a href="#Babylon-js-一个-WebGL-开源框架" class="headerlink" title="Babylon.js 一个 WebGL 开源框架"></a>Babylon.js 一个 WebGL 开源框架</h2><a id="more"></a>
+
+<h3 id="Babylonjs-中的基本元素使用"><a href="#Babylonjs-中的基本元素使用" class="headerlink" title="Babylonjs 中的基本元素使用"></a>Babylonjs 中的基本元素使用</h3><blockquote>
+<p><code>使用 babylonjs 创建盒子</code></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = BABYLON.MeshBuilder.CreateBox(<span class="string">"box"</span>, &#123;&#125;, scene); <span class="comment">//默认盒子;</span></span><br><span class="line"><span class="keyword">var</span> mybox = BABYON.MeshBuilder.CreateBox(</span><br><span class="line">  <span class="string">"mybox"</span>,</span><br><span class="line">  &#123; <span class="attr">height</span>: <span class="number">5</span>, <span class="attr">width</span>: <span class="number">2</span>, <span class="attr">depth</span>: <span class="number">0.5</span> &#125;,</span><br><span class="line">  scene</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>参数 1: 盒子名称</li>
+<li>参数 2: 盒子的基本属性</li>
+<li>参数 3: 它将放到场景的变量</li>
+</ul>
+<p>盒子第二个基本属性参数可以是下面的值：</p>
+<table>
+<thead>
+<tr>
+<th>选型</th>
+<th>值</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>size</td>
+<td>盒子边长大小</td>
+<td>1</td>
+</tr>
+<tr>
+<td>height</td>
+<td>盒子的高度</td>
+<td>size</td>
+</tr>
+<tr>
+<td>width</td>
+<td>盒子的宽度</td>
+<td>size</td>
+</tr>
+<tr>
+<td>depth</td>
+<td>盒子的深度</td>
+<td>size</td>
+</tr>
+<tr>
+<td>faceColors</td>
+<td>盒子 6 个面的颜色,是一个 6 个元素的 Color4 数组</td>
+<td>每个面默认白色 Color4(1, 1, 1, 1)</td>
+</tr>
+<tr>
+<td>faceUV</td>
+<td>盒子 6 个面的法向量</td>
+<td>默认法向量 UVs(0, 0, 1, 1)</td>
+</tr>
+<tr>
+<td>updatable</td>
+<td>是否可以更新</td>
+<td>false 就是不可以改变其属性</td>
+</tr>
+<tr>
+<td>sideOrientation</td>
+<td>(number) 盒子绘里面，还是外面</td>
+<td>DEFAULTSIDE(缺省面)</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><code>使用 babylonjs 创建一个球体</code></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sphere = BABYLON.MeshBuilder.CreateSphere(<span class="string">"sphere"</span>, &#123;&#125;, scene); <span class="comment">//默认球体</span></span><br><span class="line"><span class="keyword">var</span> mySphere = BABYLON.MeshBuilder.CreateSphere(</span><br><span class="line">  <span class="string">"mySphere"</span>,</span><br><span class="line">  &#123; <span class="attr">diameter</span>: <span class="number">2</span>, <span class="attr">diameterX</span>: <span class="number">3</span> &#125;,</span><br><span class="line">  scene</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>参数一：球体的名字</p>
+</li>
+<li><p>参数二：球体的基本属性</p>
+</li>
+<li><p>参数三：它将放到的那个场景的变量</p>
+<p>参数二是一个元组，可取值如下：</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>选型</th>
+<th>值</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>segments</td>
+<td>细分段数</td>
+<td>32</td>
+</tr>
+<tr>
+<td>diameter</td>
+<td>圆的半径</td>
+<td>1</td>
+</tr>
+<tr>
+<td>diameterX</td>
+<td>x 轴径大小, 如果写了会重写 diameter 参数</td>
+<td>diameter</td>
+</tr>
+<tr>
+<td>diameterY</td>
+<td>y 轴径大小, 如果写了会重写 diameter 参数</td>
+<td>diameter</td>
+</tr>
+<tr>
+<td>diameterZ</td>
+<td>z 轴径大小, 如果写了会重写 diameter 参数</td>
+<td>diameter</td>
+</tr>
+<tr>
+<td>arc</td>
+<td>这是一个比较难的参数，建议你想放弃理解</td>
+<td>1</td>
+</tr>
+<tr>
+<td>slice</td>
+<td>这是一个比较难的参数，建议你想放弃理解</td>
+<td>1</td>
+</tr>
+<tr>
+<td>updatable</td>
+<td>这个网格是否改变属性</td>
+<td>false</td>
+</tr>
+<tr>
+<td>sideOrientation</td>
+<td>(number) 盒子绘里面，还是外面</td>
+<td>DEFAULTSIDE</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><code>使用 babylonjs 创建一个平面</code></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> plane = BABYLON.MeshBuilder.CreatePlane(<span class="string">"plane"</span>, &#123;&#125;, scene); <span class="comment">// default plane</span></span><br><span class="line"><span class="keyword">var</span> myPlane = BABYLON.MeshBuilder.CreatePlane(</span><br><span class="line">  <span class="string">"myPlane"</span>,</span><br><span class="line">  &#123; <span class="attr">width</span>: <span class="number">5</span>, <span class="attr">height</span>: <span class="number">2</span> &#125;,</span><br><span class="line">  scene</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>参数一：平面的名字</li>
+<li>参数二：平面的基本属性</li>
+<li>参数三：它将放到的那个场景的变量</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>选型</th>
+<th>值</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>size</td>
+<td>平面的长宽高</td>
+<td>1</td>
+</tr>
+<tr>
+<td>width</td>
+<td>单独设置平面的长</td>
+<td>size</td>
+</tr>
+<tr>
+<td>height</td>
+<td>单独设置平面的宽</td>
+<td>size</td>
+</tr>
+<tr>
+<td>updatable</td>
+<td>这个网格是否可以更新</td>
+<td>false</td>
+</tr>
+<tr>
+<td>sideOrientation</td>
+<td>盒子绘里面，还是外面</td>
+<td>DEFAULTSIDE</td>
+</tr>
+<tr>
+<td>frontUVs</td>
+<td>正面的法向量数组</td>
+<td>Vector4(0,0, 1,1)</td>
+</tr>
+<tr>
+<td>backUVs</td>
+<td>(Vector4[]) 背面的法向量数组</td>
+<td>Vector4(0,0, 1,1)</td>
+</tr>
+<tr>
+<td>sourcePlane</td>
+<td>(Plane) source plane (maths) the mesh will be transformed to</td>
+<td>null</td>
+</tr>
+</tbody></table>
+  
+      <div class="page-reward">
+        <a href="javascript:;" class="page-reward-btn tooltip-top">
+          <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p">
+                    <i class="icon icon-quo-left"></i>感谢观看<i class="icon icon-quo-right"></i>
+                  </p>
+                  <div class="reward-box">
+                     
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/weixin.png" />
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+        </a>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/25/Js%E6%94%BE%E5%A4%A7%E9%95%9C/" class="archive-article-date">
-  	<time datetime="2019-12-25T10:54:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/25/Js%E6%94%BE%E5%A4%A7%E9%95%9C/">JS放大镜</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
+    </div>
+    <div class="article-info article-info-index">
+       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">WebGL</a>
         		</li>
       		
 		</ul>
 	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+ 
+  
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+ 
+<nav id="article-nav">
   
-    
-    
-    <article class="archive-article archive-type-javascript">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/21/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A12/" class="archive-article-date">
-  	<time datetime="2019-12-21T10:54:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-21</time>
-</a>
+  
+    <a href="/2020/07/09/mvvm%E4%B8%8Emvc/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mvvm与mvc</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+  <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/21/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A12/">javascript 高级程序设计第四版</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Babylon-js-一个-WebGL-开源框架"><span class="toc-number">1.</span> <span class="toc-text">Babylon.js 一个 WebGL 开源框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Babylonjs-中的基本元素使用"><span class="toc-number">1.1.</span> <span class="toc-text">Babylonjs 中的基本元素使用</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
+        
+    </div>
+</aside> 
+<!-- 来比力评论 -->
+ <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80ODI0Ny8yNDc0Mw==" style="position: relative; z-index: 10; padding: 0 29px;">
+  <script type="text/javascript">
+     (function(d, s) {
+         var j, e = d.getElementsByTagName(s)[0];
+  
+         if (typeof LivereTower === 'function') { return; }
+  
+         j = d.createElement(s);
+         j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+         j.async = true;
+  
+         e.parentNode.insertBefore(j, e);
+     })(document, 'script');
+  </script>
+  <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
   </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/21/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BC%80%E5%8F%91/" class="archive-article-date">
-  	<time datetime="2019-12-21T07:56:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/21/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BC%80%E5%8F%91/">移动端开发</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">移动端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/20/javascript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="archive-article-date">
-  	<time datetime="2019-12-20T07:56:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/20/javascript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">javascript 高级程序设计第四版</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/20/%E5%89%8D%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2019-12-20T07:56:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/20/%E5%89%8D%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%BB%E7%BB%93/">前端浏览器兼容</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">浏览器</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-
+  <!-- City版安装代码已完成 -->
+       
 
           </div>
         </div>
@@ -421,8 +532,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
