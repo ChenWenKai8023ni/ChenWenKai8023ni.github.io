@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://chenwenkai8023ni.github.io">
-  <title>浏览器重排与重绘 | 风吹过得夏天</title>
+  <title>git命令 | 风吹过得夏天</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="浏览器重绘和重排">
+  <meta name="description" content="git 命令">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浏览器重排与重绘">
-<meta property="og:url" content="https://chenwenkai8023ni.github.io/artcle/41644.html">
+<meta property="og:title" content="git命令">
+<meta property="og:url" content="https://chenwenkai8023ni.github.io/artcle/341ecd43.html">
 <meta property="og:site_name" content="风吹过得夏天">
-<meta property="og:description" content="浏览器重绘和重排">
+<meta property="og:description" content="git 命令">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/12/16/167b642d014afaf1?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
-<meta property="article:published_time" content="2020-07-07T01:38:43.000Z">
-<meta property="article:modified_time" content="2020-07-10T02:19:28.160Z">
+<meta property="article:published_time" content="2020-07-10T04:30:31.000Z">
+<meta property="article:modified_time" content="2020-07-10T04:31:27.176Z">
 <meta property="article:author" content="风吹过得夏天">
-<meta property="article:tag" content="web">
+<meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/12/16/167b642d014afaf1?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
   
     <link rel="alternative" href="/atom.xml" title="风吹过得夏天" type="application/atom+xml">
   
@@ -164,7 +162,7 @@
           </div>
           <div id="js-content" class="content-ll">
             <article
-  id="post-浏览器重排与重绘"
+  id="post-git命令"
   class="article article-type-post "
   itemscope
   itemprop="blogPost"
@@ -175,187 +173,719 @@
       
   
     <h1 class="article-title" itemprop="name">
-      浏览器重排与重绘
+      git命令
     </h1>
   
   
-<a href="/artcle/41644.html" class="archive-article-date">
-  <time datetime="2020-07-07T01:38:43.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-07-07</time
+<a href="/artcle/341ecd43.html" class="archive-article-date">
+  <time datetime="2020-07-10T04:30:31.000Z" itemprop="datePublished"
+    ><i class="icon-calendar icon"></i>2020-07-10</time
   >
 </a>
  
     </header>
     
     <div class="article-entry" itemprop="articleBody">
-       <h2 id="浏览器重绘和重排"><a href="#浏览器重绘和重排" class="headerlink" title="浏览器重绘和重排"></a>浏览器重绘和重排</h2><a id="more"></a>
+       <h2 id="git-命令"><a href="#git-命令" class="headerlink" title="git 命令"></a>git 命令</h2><a id="more"></a>
 
-<h3 id="网页生成过程"><a href="#网页生成过程" class="headerlink" title="网页生成过程"></a>网页生成过程</h3><ol>
-<li>html 被 html 解析器解析成 DOM 树</li>
-<li>css 被 css 解析器解析成 CSSOM 树</li>
-<li>结合 DOM 树与 CSSOM 树,生成一个渲染树</li>
-<li>生成布局,即将所有渲染树的所有节点进行平面合成</li>
-<li>将布局绘制在屏幕上</li>
-</ol>
-<p><img src="https://user-gold-cdn.xitu.io/2018/12/16/167b642d014afaf1?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图示"></p>
-<h3 id="渲染"><a href="#渲染" class="headerlink" title="渲染"></a>渲染</h3><p>网页在生成的时候,至少会渲染一次,在用户访问的过程中，还会不断重新渲染.<br>重新渲染需要重复之前的第四步(重新生成布局)+第五步(重新绘制)或者只有第五个步(重新绘制)。</p>
-<h4 id="重排比重绘影响大"><a href="#重排比重绘影响大" class="headerlink" title="重排比重绘影响大"></a>重排比重绘影响大</h4><ul>
-<li>重绘：某些元素的外观被改变，例如：元素的填充颜色</li>
-<li>重排：重新生成布局，重新排列元素。</li>
-</ul>
-<p><strong>只改变元素外观,不会引起网页重排,但当浏览器重排之后,将会重新绘制重排影响的部分</strong><br><strong>“重绘”不一定会出现”重排”，”重排”必然会出现”重绘”</strong></p>
-<h3 id="重排-reflow"><a href="#重排-reflow" class="headerlink" title="重排(reflow)"></a>重排(reflow)</h3><p><strong>概念</strong><br>当 DOM 的变化影响了元素的几何信息(DOM 对象的位置和尺寸大小)，浏览器需要重新计算元素的几何属性，将其安放在界面中的正确位置，这个过程叫做重排。<br><strong>常见引起重排属性和方法</strong><br>任何会改变元素几何信息(元素的位置和尺寸大小)的操作，都会触发重排</p>
-<ol>
-<li>添加或者删除可见的 DOM 元素</li>
-<li>元素尺寸改变——边距、填充、边框、宽度和高度</li>
-<li>内容变化，比如用户在 input 框中输入文字</li>
-<li>浏览器窗口尺寸改变——resize 事件发生时</li>
-<li>计算 offsetWidth 和 offsetHeight 属性</li>
-<li>设置 style 属性的值</li>
-</ol>
-<table>
+<p><strong>Git 常用命令速查</strong></p>
+<p>git branch 查看本地所有分支<br>git status 查看当前状态<br>git commit 提交<br>git branch -a 查看所有的分支<br>git branch -r 查看远程所有分支<br>git commit -am “init” 提交并且加注释<br>git remote add origin <a href="mailto:git@192.168.1.119">git@192.168.1.119</a>:ndshow<br>git push origin master 将文件给推到服务器上<br>git remote show origin 显示远程库 origin 里的资源<br>git push origin master:develop<br>git push origin master:hb-dev 将本地库与服务器上的库进行关联<br>git checkout –track origin/dev 切换到远程 dev 分支<br>git branch -D master develop 删除本地库 develop<br>git checkout -b dev 建立一个新的本地分支 dev<br>git merge origin/dev 将分支 dev 与当前分支进行合并<br>git checkout dev 切换到本地 dev 分支<br>git remote show 查看远程库<br>git add .<br>git rm 文件名(包括路径) 从 git 中删除指定文件<br>git clone git://github.com/schacon/grit.git 从服务器上将代码给拉下来<br>git config –list 看所有用户<br>git ls-files 看已经被提交的<br>git rm [file name] 删除一个文件<br>git commit -a 提交当前 repos 的所有的改变<br>git add [file name] 添加一个文件到 git index<br>git commit -v 当你用－v 参数的时候可以看 commit 的差异<br>git commit -m “This is the message describing the commit” 添加 commit 信息<br>git commit -a -a 是代表 add，把所有的 change 加到 git index 里然后再 commit<br>git commit -a -v 一般提交命令<br>git log 看你 commit 的日志<br>git diff 查看尚未暂存的更新<br>git rm a.a 移除文件(从暂存区和工作区中删除)<br>git rm –cached a.a 移除文件(只从暂存区中删除)<br>git commit -m “remove” 移除文件(从 Git 中删除)<br>git rm -f a.a 强行移除修改后文件(从暂存区和工作区中删除)<br>git diff –cached 或 $ git diff –staged 查看尚未提交的更新<br>git stash push 将文件给 push 到一个临时空间中<br>git stash pop 将文件从临时空间 pop 下来<br>-——————————————————–<br>git remote add origin <a href="mailto:git@github.com">git@github.com</a>:username/Hello-World.git<br>git push origin master 将本地项目给提交到服务器中<br>-———————————————————-<br>git pull 本地与服务器端同步<br>-—————————————————————-<br>git push (远程仓库名) (分支名) 将本地分支推送到服务器上去。<br>git push origin serverfix:awesomebranch<br>-—————————————————————–<br>git fetch 相当于是从远程获取最新版本到本地，不会自动 merge<br>git commit -a -m “log_message” (-a 是提交所有改动，-m 是加入 log 信息) 本地修改同步至服务器端 ：<br>git branch branch_0.1 master 从主分支 master 创建 branch_0.1 分支<br>git branch -m branch_0.1 branch_1.0 将 branch_0.1 重命名为 branch_1.0<br>git checkout branch_1.0/master 切换到 branch_1.0/master 分支<br>du -hs</p>
+<p>git branch 删除远程 branch<br>git push origin :branch_remote_name<br>git branch -r -d branch_remote_name<br>-———————————————————-</p>
+<p>初始化版本库，并提交到远程服务器端<br>mkdir WebApp<br>cd WebApp<br>git init 本地初始化<br>touch README<br>git add README 添加文件<br>git commit -m ‘first commit’<br>git remote add origin <a href="mailto:git@github.com">git@github.com</a>:daixu/WebApp.git</p>
+<p>增加一个远程服务器端</p>
+<p>上面的命令会增加 URL 地址为‘git@github.com:daixu/WebApp.git’，名称为 origin 的远程服务器库，以后提交代码的时候只需要使用 origin 别名即可</p>
+<h2 id="1、常用的-Git-命令"><a href="#1、常用的-Git-命令" class="headerlink" title="1、常用的 Git 命令"></a>1、常用的 Git 命令</h2><table>
 <thead>
 <tr>
-<th>常见引起重排属性和方法</th>
-<th></th>
-<th></th>
-<th></th>
+<th><strong>命令</strong></th>
+<th><strong>简要说明</strong></th>
 </tr>
 </thead>
 <tbody><tr>
-<td>width</td>
-<td>height</td>
-<td>margin</td>
-<td>padding</td>
+<td>git add</td>
+<td>添加至暂存区</td>
 </tr>
 <tr>
-<td>display</td>
-<td>border</td>
-<td>position</td>
-<td>overflow</td>
+<td>git add–interactive</td>
+<td>交互式添加</td>
 </tr>
 <tr>
-<td>clientWidth</td>
-<td>clientHeight</td>
-<td>clientTop</td>
-<td>clientLeft</td>
+<td>git apply</td>
+<td>应用补丁</td>
 </tr>
 <tr>
-<td>offsetWidth</td>
-<td>offsetHeight</td>
-<td>offsetTop</td>
-<td>offsetLeft</td>
+<td>git am</td>
+<td>应用邮件格式补丁</td>
 </tr>
 <tr>
-<td>scrollWidth</td>
-<td>scrollHeight</td>
-<td>scrollTop</td>
-<td>scrollLeft</td>
+<td>git annotate</td>
+<td>同义词，等同于 git blame</td>
 </tr>
 <tr>
-<td>scrollIntoView()</td>
-<td>scrollTo()</td>
-<td>getComputedStyle()</td>
-<td>—</td>
+<td>git archive</td>
+<td>文件归档打包</td>
 </tr>
 <tr>
-<td>getBoundingClientRect()</td>
-<td>scrollIntoViewIfNeeded()</td>
-<td>—</td>
-<td>—</td>
+<td>git bisect</td>
+<td>二分查找</td>
+</tr>
+<tr>
+<td>git blame</td>
+<td>文件逐行追溯</td>
+</tr>
+<tr>
+<td>git branch</td>
+<td>分支管理</td>
+</tr>
+<tr>
+<td>git cat-file</td>
+<td>版本库对象研究工具</td>
+</tr>
+<tr>
+<td>git checkout</td>
+<td>检出到工作区、切换或创建分支</td>
+</tr>
+<tr>
+<td>git cherry-pick</td>
+<td>提交拣选</td>
+</tr>
+<tr>
+<td>git citool</td>
+<td>图形化提交，相当于 git gui 命令</td>
+</tr>
+<tr>
+<td>git clean</td>
+<td>清除工作区未跟踪文件</td>
+</tr>
+<tr>
+<td>git clone</td>
+<td>克隆版本库</td>
+</tr>
+<tr>
+<td>git commit</td>
+<td>提交</td>
+</tr>
+<tr>
+<td>git config</td>
+<td>查询和修改配置</td>
+</tr>
+<tr>
+<td>git describe</td>
+<td>通过里程碑直观地显示提交 ID</td>
+</tr>
+<tr>
+<td>git diff</td>
+<td>差异比较</td>
+</tr>
+<tr>
+<td>git difftool</td>
+<td>调用图形化差异比较工具</td>
+</tr>
+<tr>
+<td>git fetch</td>
+<td>获取远程版本库的提交</td>
+</tr>
+<tr>
+<td>git format-patch</td>
+<td>创建邮件格式的补丁文件。参见 git am 命令</td>
+</tr>
+<tr>
+<td>git grep</td>
+<td>文件内容搜索定位工具</td>
+</tr>
+<tr>
+<td>git gui</td>
+<td>基于 Tcl/Tk 的图形化工具，侧重提交等操作</td>
+</tr>
+<tr>
+<td>git help</td>
+<td>帮助</td>
+</tr>
+<tr>
+<td>git init</td>
+<td>版本库初始化</td>
+</tr>
+<tr>
+<td>git init-db*</td>
+<td>同义词，等同于 git init</td>
+</tr>
+<tr>
+<td>git log</td>
+<td>显示提交日志</td>
+</tr>
+<tr>
+<td>git merge</td>
+<td>分支合并</td>
+</tr>
+<tr>
+<td>git mergetool</td>
+<td>图形化冲突解决</td>
+</tr>
+<tr>
+<td>git mv</td>
+<td>重命名</td>
+</tr>
+<tr>
+<td>git pull</td>
+<td>拉回远程版本库的提交</td>
+</tr>
+<tr>
+<td>git push</td>
+<td>推送至远程版本库</td>
+</tr>
+<tr>
+<td>git rebase</td>
+<td>分支变基</td>
+</tr>
+<tr>
+<td>git rebase–interactive</td>
+<td>交互式分支变基</td>
+</tr>
+<tr>
+<td>git reflog</td>
+<td>分支等引用变更记录管理</td>
+</tr>
+<tr>
+<td>git remote</td>
+<td>远程版本库管理</td>
+</tr>
+<tr>
+<td>git repo-config*</td>
+<td>同义词，等同于 git config</td>
+</tr>
+<tr>
+<td>git reset</td>
+<td>重置改变分支“游标”指向</td>
+</tr>
+<tr>
+<td>git rev-parse</td>
+<td>将各种引用表示法转换为哈希值等</td>
+</tr>
+<tr>
+<td>git revert</td>
+<td>反转提交</td>
+</tr>
+<tr>
+<td>git rm</td>
+<td>删除文件</td>
+</tr>
+<tr>
+<td>git show</td>
+<td>显示各种类型的对象</td>
+</tr>
+<tr>
+<td>git stage*</td>
+<td>同义词，等同于 git add</td>
+</tr>
+<tr>
+<td>git stash</td>
+<td>保存和恢复进度</td>
+</tr>
+<tr>
+<td>git status</td>
+<td>显示工作区文件状态</td>
+</tr>
+<tr>
+<td>git tag</td>
+<td>里程碑管理</td>
 </tr>
 </tbody></table>
-<h4 id="重排影响的范围"><a href="#重排影响的范围" class="headerlink" title="重排影响的范围"></a>重排影响的范围</h4><p>由于浏览器渲染界面是基于流失布局模型的，所以触发重排时会对周围 DOM 重新排列，影响的范围有两种：</p>
-<ul>
-<li>全局范围：从根节点 html 开始对整个渲染树进行重新布局。</li>
-<li>局部范围：对渲染树的某部分或某一个渲染对象进行重新布局</li>
-</ul>
-<p><strong>全局范围重排：</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hello"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h4</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>Name:<span class="tag">&lt;/<span class="name">strong</span>&gt;</span>BDing<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h5</span>&gt;</span>male<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>coding<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>loving<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 当p节点上发生r重排时，hello和body也会重新渲染，甚至h5和ol都会收到影响。 --&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>局部范围重排</strong><br>把一个 dom 的宽高之类的几何信息定死，然后在 dom 内部触发重排，就只会重新渲染该 dom 内部的元素，而不会影响到外界。</p>
-<h4 id="尽可能的减少重排的次数、重排范围"><a href="#尽可能的减少重排的次数、重排范围" class="headerlink" title="尽可能的减少重排的次数、重排范围"></a>尽可能的减少重排的次数、重排范围</h4><ul>
-<li>重排需要更新渲染树,性能花销非常大:</li>
-<li>它们的代价是高昂的，会破坏用户体验，并且让 UI 展示非常迟缓</li>
-<li>重排的性能花销跟渲染树有多少节点需要重新构建有关系：</li>
-<li>尽量以局部布局的形式组织 html 结构，尽可能小的影响重排的范围。</li>
-</ul>
-<h3 id="重绘-repaint"><a href="#重绘-repaint" class="headerlink" title="重绘(repaint)"></a>重绘(repaint)</h3><p><strong>概念</strong><br>当一个元素的外观发生改变，但没有改变布局,重新把元素外观绘制出来的过程，叫做重绘。<br><strong>常见的引起重绘的属性:</strong></p>
-<table>
+<h2 id="2、对象库操作相关命令"><a href="#2、对象库操作相关命令" class="headerlink" title="2、对象库操作相关命令"></a>2、对象库操作相关命令</h2><table>
 <thead>
 <tr>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
+<th><strong>命令</strong></th>
+<th><strong>简要说明</strong></th>
 </tr>
 </thead>
 <tbody><tr>
-<td>color</td>
-<td>border-style</td>
-<td>visibility</td>
-<td>background</td>
+<td>git commit-tree</td>
+<td>从树对象创建提交</td>
 </tr>
 <tr>
-<td>text-decoration</td>
-<td>background-image</td>
-<td>background-position</td>
-<td>background-repeat</td>
+<td>git hash-object</td>
+<td>从标准输入或文件计算哈希值或创建对象</td>
 </tr>
 <tr>
-<td>outline-color</td>
-<td>outline</td>
-<td>outline-style</td>
-<td>border-radius</td>
+<td>git ls-files</td>
+<td>显示工作区和暂存区文件</td>
 </tr>
 <tr>
-<td>outline-width</td>
-<td>box-shadow</td>
-<td>background-size</td>
-<td></td>
+<td>git ls-tree</td>
+<td>显示树对象包含的文件</td>
+</tr>
+<tr>
+<td>git mktag</td>
+<td>读取标准输入创建一个里程碑对象</td>
+</tr>
+<tr>
+<td>git mktree</td>
+<td>读取标准输入创建一个树对象</td>
+</tr>
+<tr>
+<td>git read-tree</td>
+<td>读取树对象到暂存区</td>
+</tr>
+<tr>
+<td>git update-index</td>
+<td>工作区内容注册到暂存区及暂存区管理</td>
+</tr>
+<tr>
+<td>git unpack-file</td>
+<td>创建临时文件包含指定 blob 的内容</td>
+</tr>
+<tr>
+<td>git write-tree</td>
+<td>从暂存区创建一个树对象</td>
 </tr>
 </tbody></table>
-<h4 id="浏览器的渲染队列"><a href="#浏览器的渲染队列" class="headerlink" title="浏览器的渲染队列"></a>浏览器的渲染队列</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">div.style.left = <span class="string">"10px"</span>;</span><br><span class="line">div.style.top = <span class="string">"10px"</span>;</span><br><span class="line">div.style.width = <span class="string">"20px"</span>;</span><br><span class="line">div.style.height = <span class="string">"20px"</span>;</span><br></pre></td></tr></table></figure>
-
-<p>这段代码理论上会触发 4 次重排+重绘，因为每一次都改变了元素的几何属性，实际上最后只触发了一次重排，这都得益于浏览器的渲染队列机制：<br>当我们修改了元素的几何属性，导致浏览器触发重排或重绘时。它会把该操作放进渲染队列，等到队列中的操作到了一定的数量或者到了一定的时间间隔时，浏览器就会批量执行这些操作。</p>
-<h4 id="强制刷新队列"><a href="#强制刷新队列" class="headerlink" title="强制刷新队列"></a>强制刷新队列</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">div.style.left = <span class="string">"10px"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(div.offsetLeft);</span><br><span class="line">div.style.top = <span class="string">"10px"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(div.offsetTop);</span><br><span class="line">div.style.width = <span class="string">"20px"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(div.offsetWidth);</span><br><span class="line">div.style.height = <span class="string">"20px"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(div.offsetHeight);</span><br></pre></td></tr></table></figure>
-
-<p>这段代码会触发 4 次重排+重绘，因为在<code>console</code>中你请求的这几个样式信息，无论何时浏览器都会立即执行渲染队列的任务，即使该值与你操作中修改的值没关联。</p>
-<p><strong>因为队列中，可能会有影响到这些值的操作，为了给我们最精确的值，浏览器会立即重排+重绘。</strong><br><strong>强制刷新队列的 style 样式请求</strong></p>
-<ol>
-<li>offsetTop, offsetLeft, offsetWidth, offsetHeight</li>
-<li>scrollTop, scrollLeft, scrollWidth, scrollHeight</li>
-<li>clientTop, clientLeft, clientWidth, clientHeight</li>
-<li>getComputedStyle(), 或者 IE 的 currentStyle</li>
-</ol>
-<p><strong>在开发中,应该谨慎的使用这些 style 请求,注意上下文关系,避免一行代码一个重排,这对性能是个巨大的消耗</strong></p>
-<h3 id="重排优化建议"><a href="#重排优化建议" class="headerlink" title="重排优化建议"></a>重排优化建议</h3><h4 id="1-分离读写操作"><a href="#1-分离读写操作" class="headerlink" title="1. 分离读写操作"></a>1. 分离读写操作</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">div.style.left = <span class="string">"10px"</span>;</span><br><span class="line">div.style.top = <span class="string">"10px"</span>;</span><br><span class="line">div.style.width = <span class="string">"20px"</span>;</span><br><span class="line">div.style.height = <span class="string">"20px"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(div.offsetLeft);</span><br><span class="line"><span class="built_in">console</span>.log(div.offsetTop);</span><br><span class="line"><span class="built_in">console</span>.log(div.offsetWidth);</span><br><span class="line"><span class="built_in">console</span>.log(div.offsetHeight);</span><br></pre></td></tr></table></figure>
-
-<p>还是上面触发 4 次重排+重绘的代码，这次只触发了一次重排：<br>在第一个<code>console</code>的时候，浏览器把之前上面四个写操作的渲染队列都给清空了。剩下的 console，因为渲染队列本来就是空的，所以并没有触发重排，仅仅拿值而已。</p>
-<h4 id="2-样式集中改变"><a href="#2-样式集中改变" class="headerlink" title="2. 样式集中改变"></a>2. 样式集中改变</h4><p>建议通过改变 class 或者 csstext 属性集中改变样式</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">var</span> left = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> top = <span class="number">10</span>;</span><br><span class="line">el.style.left = left + <span class="string">"px"</span>;</span><br><span class="line">el.style.top = top + <span class="string">"px"</span>;</span><br><span class="line"><span class="comment">// good</span></span><br><span class="line">el.className += <span class="string">" theclassname"</span>;</span><br><span class="line"><span class="comment">// good</span></span><br><span class="line">el.style.cssText += <span class="string">"; left: "</span> + left + <span class="string">"px; top: "</span> + top + <span class="string">"px;"</span>;</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-缓存布局信息"><a href="#3-缓存布局信息" class="headerlink" title="3. 缓存布局信息"></a>3. 缓存布局信息</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad 强制刷新 触发两次重排</span></span><br><span class="line">div.style.left = div.offsetLeft + <span class="number">1</span> + <span class="string">"px"</span>;</span><br><span class="line">div.style.top = div.offsetTop + <span class="number">1</span> + <span class="string">"px"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good 缓存布局信息 相当于读写分离</span></span><br><span class="line"><span class="keyword">var</span> curLeft = div.offsetLeft;</span><br><span class="line"><span class="keyword">var</span> curTop = div.offsetTop;</span><br><span class="line">div.style.left = curLeft + <span class="number">1</span> + <span class="string">"px"</span>;</span><br><span class="line">div.style.top = curTop + <span class="number">1</span> + <span class="string">"px"</span>;</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-离线改变-dom"><a href="#4-离线改变-dom" class="headerlink" title="4. 离线改变 dom"></a>4. 离线改变 dom</h4><p>在要<code>多次</code>操作 dom 之前，通过 display 隐藏 dom，当操作完成之后，才将元素的 display 属性为可见，因为不可见的元素不会触发重排和重绘。这样就只会触发 2 次</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dom.display = <span class="string">"none"</span>;</span><br><span class="line"><span class="comment">// 修改 dom 样式</span></span><br><span class="line">dom.display = <span class="string">"block"</span>;</span><br></pre></td></tr></table></figure>
-
-<p>通过使用 DocumentFragment 创建一个 dom 碎片,在它上面批量操作 dom，操作完成之后，再添加到文档中，这样只会触发一次重排。</p>
-<h4 id="5-position-属性为-absolute-或-fixed"><a href="#5-position-属性为-absolute-或-fixed" class="headerlink" title="5. position 属性为 absolute 或 fixed"></a>5. position 属性为 absolute 或 fixed</h4><p>position 属性为 absolute 或 fixed 的元素，重排开销比较小，不用考虑它对其他元素的影响</p>
-<h4 id="6-优化动画"><a href="#6-优化动画" class="headerlink" title="6. 优化动画"></a>6. 优化动画</h4><ul>
-<li><p>可以把动画效果应用到 position 属性为 absolute 或 fixed 的元素上，这样对其他元素影响较小</p>
-</li>
-<li><p>启用 GPPU 加速</p>
-<p><strong>GPU(图像加速器)</strong></p>
-</li>
-</ul>
-<p>GPU 硬件加速是指应用 GPU 的图形性能对浏览器中的一些图形操作交给 GPU 来完成，因为 GPU 是专门为处理图形而设计，所以它在速度和能耗上更有效率。<br>GPU 加速通常包括以下几个部分：Canvas2D，布局合成, CSS3 转换（transitions），CSS3 3D 变换（transforms），WebGL 和视频(video)。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 根据上面的结论</span></span><br><span class="line"><span class="comment"> * 将 2d transform 换成 3d</span></span><br><span class="line"><span class="comment"> * 就可以强制开启 GPU 加速</span></span><br><span class="line"><span class="comment"> * 提高动画性能</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translate3d</span>(<span class="number">10px</span>, <span class="number">10px</span>, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>重排也是导致 DOM 脚本执行效率低的关键因素之一，重排与重绘作为大厂经常出现的面试题，并且涉及的性能优化，这是前端必须掌握的基本概念/技能之一(敲黑板!)。<br>重排会不断触发这是不可避免的，但我们在开发时，应尽量按照文中的建议来组织代码，这种优化，需要平时有意识的去做，一点一滴的去做，希望大家重视一下。</p>
-<blockquote>
-<p>作者：OBKoro1 来源：掘金<br>链接：<a href="https://juejin.im/post/5c15f797f265da61141c7f86" target="_blank" rel="noopener">https://juejin.im/post/5c15f797f265da61141c7f86</a></p>
-</blockquote>
+<h2 id="3、引用操作相关命令"><a href="#3、引用操作相关命令" class="headerlink" title="3、引用操作相关命令"></a>3、引用操作相关命令</h2><table>
+<thead>
+<tr>
+<th><strong>命令</strong></th>
+<th><strong>简要说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git check-ref-format</td>
+<td>检查引用名称是否符合规范</td>
+</tr>
+<tr>
+<td>git for-each-ref</td>
+<td>引用迭代器，用于 shell 编程</td>
+</tr>
+<tr>
+<td>git ls-remote</td>
+<td>显示远程版本库的引用</td>
+</tr>
+<tr>
+<td>git name-rev</td>
+<td>将提交 ID 显示为友好名称</td>
+</tr>
+<tr>
+<td>git peek-remote*</td>
+<td>过时命令，请使用 git ls-remote</td>
+</tr>
+<tr>
+<td>git rev-list</td>
+<td>显示版本范围</td>
+</tr>
+<tr>
+<td>git show-branch</td>
+<td>显示分支列表及拓扑关系</td>
+</tr>
+<tr>
+<td>git show-ref</td>
+<td>显示本地引用</td>
+</tr>
+<tr>
+<td>git symbolic-ref</td>
+<td>显示或者设置符号引用</td>
+</tr>
+<tr>
+<td>git update-ref</td>
+<td>更新引用的指向</td>
+</tr>
+<tr>
+<td>git verify-tag</td>
+<td>校验 GPG 签名的 Tag</td>
+</tr>
+</tbody></table>
+<h2 id="4、版本库管理相关命令"><a href="#4、版本库管理相关命令" class="headerlink" title="4、版本库管理相关命令"></a>4、版本库管理相关命令</h2><table>
+<thead>
+<tr>
+<th><strong>命令</strong></th>
+<th><strong>简要说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git count-objects</td>
+<td>显示松散对象的数量和磁盘占用</td>
+</tr>
+<tr>
+<td>git filter-branch</td>
+<td>版本库重构</td>
+</tr>
+<tr>
+<td>git fsck</td>
+<td>对象库完整性检查</td>
+</tr>
+<tr>
+<td>git fsck-objects*</td>
+<td>同义词，等同于 git fsck</td>
+</tr>
+<tr>
+<td>git gc</td>
+<td>版本库存储优化</td>
+</tr>
+<tr>
+<td>git index-pack</td>
+<td>从打包文件创建对应的索引文件</td>
+</tr>
+<tr>
+<td>git lost-found*</td>
+<td>过时，请使用 git fsck –lost-found 命令</td>
+</tr>
+<tr>
+<td>git pack-objects</td>
+<td>从标准输入读入对象 ID，打包到文件</td>
+</tr>
+<tr>
+<td>git pack-redundant</td>
+<td>查找多余的 pack 文件</td>
+</tr>
+<tr>
+<td>git pack-refs</td>
+<td>将引用打包到 .git/packed-refs 文件中</td>
+</tr>
+<tr>
+<td>git prune</td>
+<td>从对象库删除过期对象</td>
+</tr>
+<tr>
+<td>git prune-packed</td>
+<td>将已经打包的松散对象删除</td>
+</tr>
+<tr>
+<td>git relink</td>
+<td>为本地版本库中相同的对象建立硬连接</td>
+</tr>
+<tr>
+<td>git repack</td>
+<td>将版本库未打包的松散对象打包</td>
+</tr>
+<tr>
+<td>git show-index</td>
+<td>读取包的索引文件，显示打包文件中的内容</td>
+</tr>
+<tr>
+<td>git unpack-objects</td>
+<td>从打包文件释放文件</td>
+</tr>
+<tr>
+<td>git verify-pack</td>
+<td>校验对象库打包文件</td>
+</tr>
+</tbody></table>
+<h2 id="5、数据传输相关命令"><a href="#5、数据传输相关命令" class="headerlink" title="5、数据传输相关命令"></a>5、数据传输相关命令</h2><table>
+<thead>
+<tr>
+<th><strong>命令</strong></th>
+<th><strong>简要说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git fetch-pack</td>
+<td>执行 git fetch 或 git pull 命令时在本地执行此命令，用于从其他版本库获取缺失的对象</td>
+</tr>
+<tr>
+<td>git receive-pack</td>
+<td>执行 git push 命令时在远程执行的命令，用于接受推送的数据</td>
+</tr>
+<tr>
+<td>git send-pack</td>
+<td>执行 git push 命令时在本地执行的命令，用于向其他版本库推送数据</td>
+</tr>
+<tr>
+<td>git upload-archive</td>
+<td>执行 git archive –remote 命令基于远程版本库创建归档时，远程版本库执行此命令传送归档</td>
+</tr>
+<tr>
+<td>git upload-pack</td>
+<td>执行 git fetch 或 git pull 命令时在远程执行此命令，将对象打包、上传</td>
+</tr>
+</tbody></table>
+<h2 id="6、邮件相关命令"><a href="#6、邮件相关命令" class="headerlink" title="6、邮件相关命令"></a>6、邮件相关命令</h2><table>
+<thead>
+<tr>
+<th><strong>命令</strong></th>
+<th><strong>简要说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git imap-send</td>
+<td>将补丁通过 IMAP 发送</td>
+</tr>
+<tr>
+<td>git mailinfo</td>
+<td>从邮件导出提交说明和补丁</td>
+</tr>
+<tr>
+<td>git mailsplit</td>
+<td>将 mbox 或 Maildir 格式邮箱中邮件逐一提取为文件</td>
+</tr>
+<tr>
+<td>git request-pull</td>
+<td>创建包含提交间差异和执行 PULL 操作地址的信息</td>
+</tr>
+<tr>
+<td>git send-email</td>
+<td>发送邮件</td>
+</tr>
+</tbody></table>
+<h2 id="7、协议相关命令"><a href="#7、协议相关命令" class="headerlink" title="7、协议相关命令"></a>7、协议相关命令</h2><table>
+<thead>
+<tr>
+<th><strong>命令</strong></th>
+<th><strong>简要说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git daemon</td>
+<td>实现 Git 协议</td>
+</tr>
+<tr>
+<td>git http-backend</td>
+<td>实现 HTTP 协议的 CGI 程序，支持智能 HTTP 协议</td>
+</tr>
+<tr>
+<td>git instaweb</td>
+<td>即时启动浏览器通过 gitweb 浏览当前版本库</td>
+</tr>
+<tr>
+<td>git shell</td>
+<td>受限制的 shell，提供仅执行 Git 命令的 SSH 访问</td>
+</tr>
+<tr>
+<td>git update-server-info</td>
+<td>更新哑协议需要的辅助文件</td>
+</tr>
+<tr>
+<td>git http-fetch</td>
+<td>通过 HTTP 协议获取版本库</td>
+</tr>
+<tr>
+<td>git http-push</td>
+<td>通过 HTTP/DAV 协议推送</td>
+</tr>
+<tr>
+<td>git remote-ext</td>
+<td>由 Git 命令调用，通过外部命令提供扩展协议支持</td>
+</tr>
+<tr>
+<td>git remote-fd</td>
+<td>由 Git 命令调用，使用文件描述符作为协议接口</td>
+</tr>
+<tr>
+<td>git remote-ftp</td>
+<td>由 Git 命令调用，提供对 FTP 协议的支持</td>
+</tr>
+<tr>
+<td>git remote-ftps</td>
+<td>由 Git 命令调用，提供对 FTPS 协议的支持</td>
+</tr>
+<tr>
+<td>git remote-http</td>
+<td>由 Git 命令调用，提供对 HTTP 协议的支持</td>
+</tr>
+<tr>
+<td>git remote-https</td>
+<td>由 Git 命令调用，提供对 HTTPS 协议的支持</td>
+</tr>
+<tr>
+<td>git remote-testgit</td>
+<td>协议扩展示例脚本</td>
+</tr>
+</tbody></table>
+<h2 id="8、版本库转换和交互相关命令"><a href="#8、版本库转换和交互相关命令" class="headerlink" title="8、版本库转换和交互相关命令"></a>8、版本库转换和交互相关命令</h2><table>
+<thead>
+<tr>
+<th><strong>命令</strong></th>
+<th><strong>简要说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git archimport</td>
+<td>导入 Arch 版本库到 Git</td>
+</tr>
+<tr>
+<td>git bundle</td>
+<td>提交打包和解包，以便在不同版本库间传递</td>
+</tr>
+<tr>
+<td>git cvsexportcommit</td>
+<td>将 Git 的一个提交作为一个 CVS 检出</td>
+</tr>
+<tr>
+<td>git cvsimport</td>
+<td>导入 CVS 版本库到 Git。或者使用 cvs2git</td>
+</tr>
+<tr>
+<td>git cvsserver</td>
+<td>Git 的 CVS 协议模拟器，可供 CVS 命令访问 Git 版本库</td>
+</tr>
+<tr>
+<td>git fast-export</td>
+<td>将提交导出为 git-fast-import 格式</td>
+</tr>
+<tr>
+<td>git fast-import</td>
+<td>其他版本库迁移至 Git 的通用工具</td>
+</tr>
+<tr>
+<td>git svn</td>
+<td>Git 作为前端操作 Subversion</td>
+</tr>
+</tbody></table>
+<h2 id="9、合并相关的辅助命令"><a href="#9、合并相关的辅助命令" class="headerlink" title="9、合并相关的辅助命令"></a>9、合并相关的辅助命令</h2><table>
+<thead>
+<tr>
+<th><strong>命令</strong></th>
+<th><strong>简要说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git merge-base</td>
+<td>供其他脚本调用，找到两个或多个提交最近的共同祖先</td>
+</tr>
+<tr>
+<td>git merge-file</td>
+<td>针对文件的两个不同版本执行三向文件合并</td>
+</tr>
+<tr>
+<td>git merge-index</td>
+<td>对 index 中的冲突文件调用指定的冲突解决工具</td>
+</tr>
+<tr>
+<td>git merge-octopus</td>
+<td>合并两个以上分支。参见 git merge 的 octopus 合并策略</td>
+</tr>
+<tr>
+<td>git merge-one-file</td>
+<td>由 git merge-index 调用的标准辅助程序</td>
+</tr>
+<tr>
+<td>git merge-ours</td>
+<td>合并使用本地版本，抛弃他人版本。参见 git merge 的 ours 合并策略</td>
+</tr>
+<tr>
+<td>git merge-recursive</td>
+<td>针对两个分支的三向合并。参见 git merge 的 recursive 合并策略</td>
+</tr>
+<tr>
+<td>git merge-resolve</td>
+<td>针对两个分支的三向合并。参见 git merge 的 resolve 合并策略</td>
+</tr>
+<tr>
+<td>git merge-subtree</td>
+<td>子树合并。参见 git merge 的 subtree 合并策略</td>
+</tr>
+<tr>
+<td>git merge-tree</td>
+<td>显式三向合并结果，不改变暂存区</td>
+</tr>
+<tr>
+<td>git fmt-merge-msg</td>
+<td>供执行合并操作的脚本调用，用于创建一个合并提交说明</td>
+</tr>
+<tr>
+<td>git rerere</td>
+<td>重用所记录的冲突解决方案</td>
+</tr>
+</tbody></table>
+<h2 id="10、-杂项"><a href="#10、-杂项" class="headerlink" title="10、 杂项"></a>10、 杂项</h2><table>
+<thead>
+<tr>
+<th><strong>命令</strong></th>
+<th><strong>简要说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git bisect–helper</td>
+<td>由 git bisect 命令调用，确认二分查找进度</td>
+</tr>
+<tr>
+<td>git check-attr</td>
+<td>显示某个文件是否设置了某个属性</td>
+</tr>
+<tr>
+<td>git checkout-index</td>
+<td>从暂存区拷贝文件至工作区</td>
+</tr>
+<tr>
+<td>git cherry</td>
+<td>查找没有合并到上游的提交</td>
+</tr>
+<tr>
+<td>git diff-files</td>
+<td>比较暂存区和工作区，相当于 git diff –raw</td>
+</tr>
+<tr>
+<td>git diff-index</td>
+<td>比较暂存区和版本库，相当于 git diff –cached –raw</td>
+</tr>
+<tr>
+<td>git diff-tree</td>
+<td>比较两个树对象，相当于 git diff –raw A B</td>
+</tr>
+<tr>
+<td>git difftool–helper</td>
+<td>由 git difftool 命令调用，默认要使用的差异比较工具</td>
+</tr>
+<tr>
+<td>git get-tar-commit-id</td>
+<td>从 git archive 创建的 tar 包中提取提交 ID</td>
+</tr>
+<tr>
+<td>git gui–askpass</td>
+<td>命令 git gui 的获取用户口令输入界面</td>
+</tr>
+<tr>
+<td>git notes</td>
+<td>提交评论管理</td>
+</tr>
+<tr>
+<td>git patch-id</td>
+<td>补丁过滤行号和空白字符后生成补丁唯一 ID</td>
+</tr>
+<tr>
+<td>git quiltimport</td>
+<td>将 Quilt 补丁列表应用到当前分支</td>
+</tr>
+<tr>
+<td>git replace</td>
+<td>提交替换</td>
+</tr>
+<tr>
+<td>git shortlog</td>
+<td>对 git log 的汇总输出，适合于产品发布说明</td>
+</tr>
+<tr>
+<td>git stripspace</td>
+<td>删除空行，供其他脚本调用</td>
+</tr>
+<tr>
+<td>git submodule</td>
+<td>子模组管理</td>
+</tr>
+<tr>
+<td>git tar-tree</td>
+<td>过时命令，请使用 git archive</td>
+</tr>
+<tr>
+<td>git var</td>
+<td>显示 Git 环境变量</td>
+</tr>
+<tr>
+<td>git web–browse</td>
+<td>启动浏览器以查看目录或文件</td>
+</tr>
+<tr>
+<td>git whatchanged</td>
+<td>显示提交历史及每次提交的改动</td>
+</tr>
+<tr>
+<td>git-mergetool–lib</td>
+<td>包含于其他脚本中，提供合并/差异比较工具的选择和执行</td>
+</tr>
+<tr>
+<td>git-parse-remote</td>
+<td>包含于其他脚本中，提供操作远程版本库的函数</td>
+</tr>
+<tr>
+<td>git-sh-setup</td>
+<td>包含于其他脚本中，提供 shell 编程的函数库</td>
+</tr>
+</tbody></table>
   
       <div class="page-reward">
         <a href="javascript:;" class="page-reward-btn tooltip-top">
@@ -387,7 +917,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
         		</li>
       		
 		</ul>
@@ -438,7 +968,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://chenwenkai8023ni.github.io/artcle/41644.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://chenwenkai8023ni.github.io/artcle/341ecd43.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -451,18 +981,9 @@
  
 <nav id="article-nav">
   
-    <a href="/artcle/51388.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          牛客网js错题总结
-        
-      </div>
-    </a>
   
-  
-    <a href="/artcle/58774.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">canvas_基础方法</div>
+    <a href="/artcle/715c0509.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Three.js</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -487,7 +1008,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器重绘和重排"><span class="toc-number">1.</span> <span class="toc-text">浏览器重绘和重排</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#网页生成过程"><span class="toc-number">1.1.</span> <span class="toc-text">网页生成过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#渲染"><span class="toc-number">1.2.</span> <span class="toc-text">渲染</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#重排比重绘影响大"><span class="toc-number">1.2.1.</span> <span class="toc-text">重排比重绘影响大</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重排-reflow"><span class="toc-number">1.3.</span> <span class="toc-text">重排(reflow)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#重排影响的范围"><span class="toc-number">1.3.1.</span> <span class="toc-text">重排影响的范围</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#尽可能的减少重排的次数、重排范围"><span class="toc-number">1.3.2.</span> <span class="toc-text">尽可能的减少重排的次数、重排范围</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重绘-repaint"><span class="toc-number">1.4.</span> <span class="toc-text">重绘(repaint)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#浏览器的渲染队列"><span class="toc-number">1.4.1.</span> <span class="toc-text">浏览器的渲染队列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#强制刷新队列"><span class="toc-number">1.4.2.</span> <span class="toc-text">强制刷新队列</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重排优化建议"><span class="toc-number">1.5.</span> <span class="toc-text">重排优化建议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-分离读写操作"><span class="toc-number">1.5.1.</span> <span class="toc-text">1. 分离读写操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-样式集中改变"><span class="toc-number">1.5.2.</span> <span class="toc-text">2. 样式集中改变</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-缓存布局信息"><span class="toc-number">1.5.3.</span> <span class="toc-text">3. 缓存布局信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-离线改变-dom"><span class="toc-number">1.5.4.</span> <span class="toc-text">4. 离线改变 dom</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-position-属性为-absolute-或-fixed"><span class="toc-number">1.5.5.</span> <span class="toc-text">5. position 属性为 absolute 或 fixed</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-优化动画"><span class="toc-number">1.5.6.</span> <span class="toc-text">6. 优化动画</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">1.6.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#git-命令"><span class="toc-number">1.</span> <span class="toc-text">git 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1、常用的-Git-命令"><span class="toc-number">2.</span> <span class="toc-text">1、常用的 Git 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、对象库操作相关命令"><span class="toc-number">3.</span> <span class="toc-text">2、对象库操作相关命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、引用操作相关命令"><span class="toc-number">4.</span> <span class="toc-text">3、引用操作相关命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、版本库管理相关命令"><span class="toc-number">5.</span> <span class="toc-text">4、版本库管理相关命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、数据传输相关命令"><span class="toc-number">6.</span> <span class="toc-text">5、数据传输相关命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、邮件相关命令"><span class="toc-number">7.</span> <span class="toc-text">6、邮件相关命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、协议相关命令"><span class="toc-number">8.</span> <span class="toc-text">7、协议相关命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8、版本库转换和交互相关命令"><span class="toc-number">9.</span> <span class="toc-text">8、版本库转换和交互相关命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9、合并相关的辅助命令"><span class="toc-number">10.</span> <span class="toc-text">9、合并相关的辅助命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10、-杂项"><span class="toc-number">11.</span> <span class="toc-text">10、 杂项</span></a></li></ol>
                     </div>
                 </span>
             </div>

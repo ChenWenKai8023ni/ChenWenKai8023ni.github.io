@@ -114,24 +114,24 @@
             // src += ".jpg";
 
             liTmpl +=
-              '<figure class="thumb" itemprop="associatedMedia" itemscope="" >\
-                <a href="' +
+              '<figure class="thumb" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">\
+                  <a href="' +
               src +
               '" itemprop="contentUrl" data-size="640x640" data-type="' +
               type +
               '" data-target="' +
               target +
               '">\
-                  <img class="reward-img" data-type="' +
+                    <img class="reward-img" data-type="' +
               type +
               '" data-src="' +
               minSrc +
               '" src="/assets/img/empty.png" itemprop="thumbnail" onload="lzld(this)">\
-                </a>\
-                <figcaption style="display:none" itemprop="caption description">' +
+                  </a>\
+                  <figcaption style="display:none" itemprop="caption description">' +
               data.text[i] +
               "</figcaption>\
-            </figure>";
+              </figure>";
           }
           ulTmpl =
             ulTmpl +
@@ -143,10 +143,10 @@
             data.day +
             "日 " +
             '</h1>\
-        <ul class="img-box-ul">' +
+          <ul class="img-box-ul">' +
             liTmpl +
             "</ul>\
-        </section>";
+          </section>";
         }
         document.querySelector(".instagram").innerHTML =
           '<div class="photos" itemscope="" itemtype="http://schema.org/ImageGallery">' +
@@ -187,7 +187,7 @@
       function loadData(success) {
         if (!searchData) {
           var xhr = new XMLHttpRequest();
-          xhr.open("GET", "./ins.json?t=" + +new Date(), true);
+          xhr.open("GET", "./life.json?t=" + +new Date(), true);
           xhr.onload = function () {
             if (this.status >= 200 && this.status < 300) {
               var res = JSON.parse(this.response);
@@ -330,12 +330,16 @@
           return opts;
         }
 
+        // http://webreflection.blogspot.fr/2011/06/partial-polyfills.html
         function indexOf(value) {
           for (var i = this.length; i-- && this[i] !== value; ) {}
           return i;
         }
 
         module.exports = lazyload;
+
+        // export default impush;
+        /* WEBPACK VAR INJECTION */
       }.call(
         exports,
         (function () {
