@@ -42,7 +42,7 @@
     <link href="https://chenwenkai8023ni.github.io/artcle/44428.html"/>
     <id>https://chenwenkai8023ni.github.io/artcle/44428.html</id>
     <published>2020-07-09T01:21:53.000Z</published>
-    <updated>2020-07-10T02:22:39.986Z</updated>
+    <updated>2020-07-10T02:46:31.312Z</updated>
     
     <content type="html"><![CDATA[<h2 id="mvvm-与-mvc"><a href="#mvvm-与-mvc" class="headerlink" title="mvvm 与 mvc"></a>mvvm 与 mvc</h2><a id="more"></a><h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><blockquote><p>Model（模型）：是应用程序中用于处理应用程序数据逻辑的部分.通常模型对象负责在数据库中存取数据。</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">比如我们人类有一双手，一双眼睛，一个脑袋，没有尾巴，这就是模型，Model定义了这个模块的数据模型。</span><br><span class="line">在代码中体现为数据管理者，Model负责对数据进行获取及存放。</span><br><span class="line">数据不可能凭空生成的，要么是从服务器上面获取到的数据，要么是本地数据库中的数据，</span><br><span class="line">也有可能是用户在UI上填写的表单即将上传到服务器上面存放，所以需要有数据来源。</span><br><span class="line">既然Model是数据管理者，则自然由它来负责获取数据。</span><br><span class="line">Controller不需要关心Model是如何拿到数据的，只管调用就行了。</span><br><span class="line">数据存放的地方是在Model，而使用数据的地方是在Controller，</span><br><span class="line">所以Model应该提供接口供controller访问其存放的数据（通常通过.h里面的只读属性）</span><br></pre></td></tr></table></figure><blockquote><p>View（视图）：是应用程序中处理数据显示的部分。通常视图是依据模型数据创建的。</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">View，视图，简单来说，就是我们在界面上看见的一切。</span><br><span class="line">它们有一部分是我们UI定死的，也就是不会根据数据来更新显示的，</span><br><span class="line">比如一些Logo图片啊，这里有个按钮啊，那里有个输入框啊，一些显示特定内容的label啊等等；</span><br><span class="line">有一部分是会根据数据来显示内容的，比如tableView来显示好友列表啊，</span><br><span class="line">这个tableView的显示内容肯定是根据数据来显示的。</span><br><span class="line">我们使用MVC解决问题的时候，通常是解决这些根据数据来显示内容的视图。</span><br></pre></td></tr></table></figure><blockquote><p>Controller（控制器）：是应用程序中处理用户交互的部分。通常控制器负责从视图读取数据，控制用户输入，并向模型发送数据。</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Controller是MVC中的数据和视图的协调者，也就是在Controller里面把Model的数据赋值给View来显示</span><br><span class="line">（或者是View接收用户输入的数据然后由Controller把这些数据传给Model来保存到本地或者上传到</span><br><span class="line">服务器）。</span><br></pre></td></tr></table></figure><blockquote><p>各部分之间的通信方式如下。 所有通信都是单向的。</p></blockquote><p><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020105.png" alt="图示"></p><h3 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h3><blockquote><p>MVVM 模式将 Controller 改名为 ViewModel.</p></blockquote><p><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020110.png" alt="图示"></p><p>它采用双向绑定（data-binding）：View 的变动，自动反映在 ViewModel，反之亦然。</p>]]></content>
     
@@ -53,6 +53,8 @@
     </summary>
     
     
+    
+      <category term="web" scheme="https://chenwenkai8023ni.github.io/tags/web/"/>
     
   </entry>
   
@@ -395,7 +397,7 @@
     <link href="https://chenwenkai8023ni.github.io/artcle/26373.html"/>
     <id>https://chenwenkai8023ni.github.io/artcle/26373.html</id>
     <published>2019-12-21T07:56:47.000Z</published>
-    <updated>2020-07-10T02:20:16.680Z</updated>
+    <updated>2020-07-10T02:46:02.349Z</updated>
     
     <content type="html"><![CDATA[<h2 id="移动端开发"><a href="#移动端开发" class="headerlink" title="移动端开发"></a>移动端开发</h2><a id="more"></a><h3 id="meta-标签"><a href="#meta-标签" class="headerlink" title="meta 标签"></a>meta 标签</h3><blockquote><p>html 代码中最关键的就是 meta 标签设置，开发移动端页面首先一定要设置 viewport （可视区域）</p></blockquote><ul><li>device-width - 设备的宽度</li><li>initial-scale - 初始的缩放比例</li><li>minimum-scale - 允许用户缩放到的最小比例</li><li>maximum-scale - 允许用户缩放到的最大比例</li><li>user-scalable - 用户是否可以手动缩放</li></ul><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span></span></span><br><span class="line"><span class="tag">  <span class="attr">name</span>=<span class="string">"viewport"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0, maximum-scale=1.0 ,user-scalable=no"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
     
@@ -407,7 +409,7 @@
     
     
     
-      <category term="移动端" scheme="https://chenwenkai8023ni.github.io/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
+      <category term="web" scheme="https://chenwenkai8023ni.github.io/tags/web/"/>
     
   </entry>
   
