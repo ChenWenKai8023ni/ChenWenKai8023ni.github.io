@@ -6,20 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://chenwenkai8023ni.github.io">
-  <title>Tag: WebGL | 风吹过得夏天</title>
+  <title>canvas_基础方法 | 风吹过得夏天</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人博客,技术分享,记录生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="风吹过得夏天">
-<meta property="og:url" content="https://chenwenkai8023ni.github.io/tags/WebGL/index.html">
+  <meta name="description" content="基本用法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="canvas_基础方法">
+<meta property="og:url" content="https://chenwenkai8023ni.github.io/artcle/58774.html">
 <meta property="og:site_name" content="风吹过得夏天">
-<meta property="og:description" content="个人博客,技术分享,记录生活">
+<meta property="og:description" content="基本用法">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://mdn.mozillademos.org/files/224/Canvas_default_grid.png">
+<meta property="og:image" content="https://mdn.mozillademos.org/files/245/Canvas_rect.png">
+<meta property="og:image" content="https://mdn.mozillademos.org/files/238/Canvas_lineTo.png">
+<meta property="og:image" content="https://mdn.mozillademos.org/files/252/Canvas_smiley.png">
+<meta property="og:image" content="https://mdn.mozillademos.org/files/223/Canvas_curves.png">
+<meta property="article:published_time" content="2020-07-05T02:28:47.000Z">
+<meta property="article:modified_time" content="2020-07-10T02:20:23.849Z">
 <meta property="article:author" content="风吹过得夏天">
 <meta property="article:tag" content="个人博客">
 <meta property="article:tag" content="技术分享">
 <meta property="article:tag" content="记录生活">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mdn.mozillademos.org/files/224/Canvas_default_grid.png">
   
     <link rel="alternative" href="/atom.xml" title="风吹过得夏天" type="application/atom+xml">
   
@@ -161,65 +169,156 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article
+  id="post-canvas-基础方法"
+  class="article article-type-post "
+  itemscope
+  itemprop="blogPost"
+>
+  <div class="article-inner">
     
-    
+    <header class="article-header">
       
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/54207.html" class="archive-article-date">
-  <time datetime="2020-07-09T02:07:00.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-07-09</time
-  >
-</a>
-
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/54207.html">Babylon基本使用</a>
+    <h1 class="article-title" itemprop="name">
+      canvas_基础方法
     </h1>
   
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">WebGL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
+  
+<a href="/artcle/58774.html" class="archive-article-date">
+  <time datetime="2020-07-05T02:28:47.000Z" itemprop="datePublished"
+    ><i class="icon-calendar icon"></i>2020-07-05</time
+  >
+</a>
+ 
     </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+       <h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><a id="more"></a>
+
+<p>canvas 标签只有 2 个属性,宽度和高度,在没设置宽度高度时,初始化宽度为 300 和 150 像素,<br>该元素可以使用 CSS 来定义大小，但在绘制时图像会伸缩以适应它的框架尺寸：如果 CSS 的尺寸与初始画布的比例不一致，它会出现扭曲.<br>canvas 元素默认是空白的,为了使用 canvas 需要找到渲染上下文,然后进行绘制它有一个 <code>getcontext()</code> 方法.通过这个方法获得渲染上下文进行绘画</p>
+<h2 id="使用-canvas-来绘制图形"><a href="#使用-canvas-来绘制图形" class="headerlink" title="使用 canvas 来绘制图形"></a>使用 canvas 来绘制图形</h2><h3 id="绘制矩形"><a href="#绘制矩形" class="headerlink" title="绘制矩形"></a>绘制矩形</h3><p><img src="https://mdn.mozillademos.org/files/224/Canvas_default_grid.png" alt=" 图示"><br><code>fillRect(x,y,width,height)</code><br>绘制一个填充的矩形<br><code>strokeRect(x,y,width,height)</code><br>绘制一个矩形边框<br><code>clearRect(x,y,width,height)</code><br>清除指定矩形区域，让清除部分完全透明。<br><strong>矩形例子</strong></p>
+<p><img src="https://mdn.mozillademos.org/files/245/Canvas_rect.png" alt="图示"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);</span><br><span class="line"><span class="keyword">if</span> (canvas.getContext) &#123;</span><br><span class="line">  <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line">  ctx.fillRect(<span class="number">25</span>, <span class="number">25</span>, <span class="number">100</span>, <span class="number">100</span>); <span class="comment">//位于坐标x,y出生成宽高100的填充矩形</span></span><br><span class="line">  ctx.clearRect(<span class="number">45</span>, <span class="number">45</span>, <span class="number">60</span>, <span class="number">60</span>); <span class="comment">//位于坐标x,y45出生成宽高60的透明区域</span></span><br><span class="line">  ctx.strokeRect(<span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>); <span class="comment">//位于坐标x,y50出生成宽高50的边框区域</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//以上的三个函数绘制之后会马上显现在canvas上，即时生效。</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="绘制路线"><a href="#绘制路线" class="headerlink" title="绘制路线"></a>绘制路线</h3><p>图形的基本元素是路径,路径通过不同颜色和宽度的线段或曲线连接形成不同的形状的集合<br>一个路径，甚至一个子路径，都是闭合的。使用路径绘制图形需要一些额外的步骤。</p>
+<ol>
+<li>创建路径起始点</li>
+<li>使用画图命令去画出路径。</li>
+<li>路径封闭</li>
+<li>通过描边或填充路径区域来渲染图形。</li>
+</ol>
+<p><code>beginPath()</code> 新建一条路径，生成之后，图形绘制命令被指向到路径上生成路径。<br><code>closePath()</code>闭合路径之后图形绘制命令又重新指向到上下文中。<br><code>stroke()</code>以线条形式绘制<br><code>fill()</code>填充路径绘制</p>
+<blockquote>
+<p>当前路径为空，即调用 beginPath()之后，或者 canvas 刚建的时候，第一条路径构造命令通常被视为是 moveTo（），无论实际上是什么。出于这个原因，你几乎总是要在设置路径之后专门指定你的起始位置。<br>闭合路径 closePath(),不是必需的。这个方法会通过绘制一条从当前点到开始点的直线来闭合图形。如果图形是已经闭合了的，即当前点为开始点，该函数什么也不做。<br>当你调用 fill()函数时，所有没有闭合的形状都会自动闭合，所以你不需要调用 closePath()函数。但是调用 stroke()时不会自动闭合。</p>
+</blockquote>
+<p><code>moveTo(x,y)</code>将笔触移动到指定的坐标 x 以及 y 上。(定义路径起点)<br>当 canvas 初始化或者 beginPath()调用后，你通常会使用 moveTo()函数设置起点。我们也能够使用 moveTo()绘制一些不连续的路径。看一下下面的笑脸例子。我将用到 moveTo()方法（红线处）的地方标记了。<br><code>lineTo(x, y)</code>绘制一条从当前位置到指定 x 以及 y 位置的直线。<br>该方法有两个参数：x 以及 y ，代表坐标系中直线结束的点。开始点和之前的绘制路径有关，之前路径的结束点就是接下来的开始点，开始点也可以通过 moveTo()函数改变。<br><code>arc(x,y,radius,startAngle,endAngle,anticlockwise)</code>画一个以（x,y）为圆心的以 radius 为半径的圆弧（圆），从 startAngle 开始到 endAngle 结束，按照 anticlockwise 给定的方向（默认为顺时针）来生成。<br><code>arcTo(x1, y1, x2, y2, radius)</code>据给定的控制点和半径画一段圆弧，再以直线连接两个控制点。</p>
+<blockquote>
+<p>arc 方法，该方法有六个参数：x,y 为绘制圆弧所在圆上的圆心坐标。radius 为半径。startAngle 以及 endAngle 参数用弧度定义了开始以及结束的弧度。这些都是以 x 轴为基准。参数 anticlockwise 为一个布尔值。为 true 时，是逆时针方向，否则顺时针方向。<br>arc()函数中表示角的单位是弧度，不是角度。角度与弧度的 js 表达式:弧度=(Math.PI/180)*角度。</p>
+</blockquote>
+<p><img src="https://mdn.mozillademos.org/files/238/Canvas_lineTo.png" alt="图示"> <img src="https://mdn.mozillademos.org/files/252/Canvas_smiley.png" alt="图示"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);</span><br><span class="line"><span class="keyword">if</span> (canvas.getContext) &#123;</span><br><span class="line">  <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line">  <span class="comment">// 填充三角形</span></span><br><span class="line">  ctx.beginPath();</span><br><span class="line">  ctx.moveTo(<span class="number">25</span>, <span class="number">25</span>);</span><br><span class="line">  ctx.lineTo(<span class="number">105</span>, <span class="number">25</span>);</span><br><span class="line">  ctx.lineTo(<span class="number">25</span>, <span class="number">105</span>);</span><br><span class="line">  ctx.fill(); <span class="comment">//生成填充图形</span></span><br><span class="line">  <span class="comment">// 描边三角形</span></span><br><span class="line">  ctx.beginPath();</span><br><span class="line">  ctx.moveTo(<span class="number">125</span>, <span class="number">125</span>); <span class="comment">//定义起点</span></span><br><span class="line">  ctx.lineTo(<span class="number">125</span>, <span class="number">45</span>);</span><br><span class="line">  ctx.lineTo(<span class="number">45</span>, <span class="number">125</span>);</span><br><span class="line">  ctx.closePath(); <span class="comment">//以直线形式回到起点</span></span><br><span class="line">  ctx.stroke(); <span class="comment">//生成图形轮廓。</span></span><br><span class="line">  <span class="comment">//绘制笑脸</span></span><br><span class="line">  ctx.beginPath();</span><br><span class="line">  ctx.arc(<span class="number">75</span>, <span class="number">75</span>, <span class="number">50</span>, <span class="number">0</span>, <span class="built_in">Math</span>.PI * <span class="number">2</span>, <span class="literal">true</span>); <span class="comment">// 绘制</span></span><br><span class="line">  ctx.moveTo(<span class="number">110</span>, <span class="number">75</span>);</span><br><span class="line">  ctx.arc(<span class="number">75</span>, <span class="number">75</span>, <span class="number">35</span>, <span class="number">0</span>, <span class="built_in">Math</span>.PI, <span class="literal">false</span>); <span class="comment">// 口(顺时针)</span></span><br><span class="line">  ctx.moveTo(<span class="number">65</span>, <span class="number">65</span>);</span><br><span class="line">  ctx.arc(<span class="number">60</span>, <span class="number">65</span>, <span class="number">5</span>, <span class="number">0</span>, <span class="built_in">Math</span>.PI * <span class="number">2</span>, <span class="literal">true</span>); <span class="comment">// 左眼</span></span><br><span class="line">  ctx.moveTo(<span class="number">95</span>, <span class="number">65</span>);</span><br><span class="line">  ctx.arc(<span class="number">90</span>, <span class="number">65</span>, <span class="number">5</span>, <span class="number">0</span>, <span class="built_in">Math</span>.PI * <span class="number">2</span>, <span class="literal">true</span>); <span class="comment">// 右眼</span></span><br><span class="line">  ctx.stroke();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="贝塞尔曲线绘制"><a href="#贝塞尔曲线绘制" class="headerlink" title="贝塞尔曲线绘制"></a>贝塞尔曲线绘制</h3><p>贝塞尔曲线一般用来绘制复杂有规律的图形。<br><code>quadraticCurveTo(cp1x, cp1y, x, y)</code><br>绘制二次贝塞尔曲线，cp1x,cp1y 为一个控制点，x,y 为结束点。<br><code>bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)</code><br>绘制三次贝塞尔曲线，cp1x,cp1y 为控制点一，cp2x,cp2y 为控制点二，x,y 为结束点。<br><img src="https://mdn.mozillademos.org/files/223/Canvas_curves.png" alt="图示"><br>二次贝塞尔曲线有一个开始点（蓝色）、一个结束点（蓝色）以及一个控制点（红色），而三次贝塞尔曲线有两个控制点。<br>参数 x、y 在这两个方法中都是结束点坐标。cp1x,cp1y 为坐标中的第一个控制点，cp2x,cp2y 为坐标中的第二个控制点。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);</span><br><span class="line"><span class="keyword">if</span> (canvas.getContext) &#123;</span><br><span class="line">  <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 二次贝塞尔曲线对话气泡。</span></span><br><span class="line">  ctx.beginPath();</span><br><span class="line">  ctx.moveTo(<span class="number">75</span>, <span class="number">25</span>);</span><br><span class="line">  ctx.quadraticCurveTo(<span class="number">25</span>, <span class="number">25</span>, <span class="number">25</span>, <span class="number">62.5</span>);</span><br><span class="line">  ctx.quadraticCurveTo(<span class="number">25</span>, <span class="number">100</span>, <span class="number">50</span>, <span class="number">100</span>);</span><br><span class="line">  ctx.quadraticCurveTo(<span class="number">50</span>, <span class="number">120</span>, <span class="number">30</span>, <span class="number">125</span>);</span><br><span class="line">  ctx.quadraticCurveTo(<span class="number">60</span>, <span class="number">120</span>, <span class="number">65</span>, <span class="number">100</span>);</span><br><span class="line">  ctx.quadraticCurveTo(<span class="number">125</span>, <span class="number">100</span>, <span class="number">125</span>, <span class="number">62.5</span>);</span><br><span class="line">  ctx.quadraticCurveTo(<span class="number">125</span>, <span class="number">25</span>, <span class="number">75</span>, <span class="number">25</span>);</span><br><span class="line">  ctx.stroke();</span><br><span class="line"></span><br><span class="line">  <span class="comment">//三次贝塞尔曲线 爱心</span></span><br><span class="line">  ctx.beginPath();</span><br><span class="line">  ctx.moveTo(<span class="number">75</span>, <span class="number">40</span>);</span><br><span class="line">  ctx.bezierCurveTo(<span class="number">75</span>, <span class="number">37</span>, <span class="number">70</span>, <span class="number">25</span>, <span class="number">50</span>, <span class="number">25</span>);</span><br><span class="line">  ctx.bezierCurveTo(<span class="number">20</span>, <span class="number">25</span>, <span class="number">20</span>, <span class="number">62.5</span>, <span class="number">20</span>, <span class="number">62.5</span>);</span><br><span class="line">  ctx.bezierCurveTo(<span class="number">20</span>, <span class="number">80</span>, <span class="number">40</span>, <span class="number">102</span>, <span class="number">75</span>, <span class="number">120</span>);</span><br><span class="line">  ctx.bezierCurveTo(<span class="number">110</span>, <span class="number">102</span>, <span class="number">130</span>, <span class="number">80</span>, <span class="number">130</span>, <span class="number">62.5</span>);</span><br><span class="line">  ctx.bezierCurveTo(<span class="number">130</span>, <span class="number">62.5</span>, <span class="number">130</span>, <span class="number">25</span>, <span class="number">100</span>, <span class="number">25</span>);</span><br><span class="line">  ctx.bezierCurveTo(<span class="number">85</span>, <span class="number">25</span>, <span class="number">75</span>, <span class="number">37</span>, <span class="number">75</span>, <span class="number">40</span>);</span><br><span class="line">  ctx.fill();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  
+      <div class="page-reward">
+        <a href="javascript:;" class="page-reward-btn tooltip-top">
+          <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p">
+                    <i class="icon icon-quo-left"></i>感谢观看<i class="icon icon-quo-right"></i>
+                  </p>
+                  <div class="reward-box">
+                     
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+        </a>
+      </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+        
+  
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+ 
+<nav id="article-nav">
+  
+    <a href="/artcle/41644.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          浏览器重排与重绘
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/artcle/48857.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MongoDB笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
-
-    
-
+</nav>
+  <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本用法"><span class="toc-number">1.</span> <span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-canvas-来绘制图形"><span class="toc-number">2.</span> <span class="toc-text">使用 canvas 来绘制图形</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#绘制矩形"><span class="toc-number">2.1.</span> <span class="toc-text">绘制矩形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绘制路线"><span class="toc-number">2.2.</span> <span class="toc-text">绘制路线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#贝塞尔曲线绘制"><span class="toc-number">2.3.</span> <span class="toc-text">贝塞尔曲线绘制</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside> 
+<!-- 来比力评论 -->
+ <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80ODI0Ny8yNDc0Mw==" style="position: relative; z-index: 10; padding: 0 29px;">
+  <script type="text/javascript">
+     (function(d, s) {
+         var j, e = d.getElementsByTagName(s)[0];
+  
+         if (typeof LivereTower === 'function') { return; }
+  
+         j = d.createElement(s);
+         j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+         j.async = true;
+  
+         e.parentNode.insertBefore(j, e);
+     })(document, 'script');
+  </script>
+  <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+  </div>
+  <!-- City版安装代码已完成 -->
+       
 
           </div>
         </div>
@@ -288,9 +387,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

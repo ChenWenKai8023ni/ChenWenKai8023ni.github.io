@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://chenwenkai8023ni.github.io">
-  <title>Tag: WebGL | 风吹过得夏天</title>
+  <title>javascript 高级程序设计第四版 | 风吹过得夏天</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人博客,技术分享,记录生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="风吹过得夏天">
-<meta property="og:url" content="https://chenwenkai8023ni.github.io/tags/WebGL/index.html">
+  <meta name="description" content="第三章 数据类型和值">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript 高级程序设计第四版">
+<meta property="og:url" content="https://chenwenkai8023ni.github.io/artcle/9d0b4b2a.html">
 <meta property="og:site_name" content="风吹过得夏天">
-<meta property="og:description" content="个人博客,技术分享,记录生活">
+<meta property="og:description" content="第三章 数据类型和值">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-12-21T10:54:32.000Z">
+<meta property="article:modified_time" content="2020-07-10T02:21:56.023Z">
 <meta property="article:author" content="风吹过得夏天">
-<meta property="article:tag" content="个人博客">
-<meta property="article:tag" content="技术分享">
-<meta property="article:tag" content="记录生活">
+<meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="风吹过得夏天" type="application/atom+xml">
@@ -161,65 +161,225 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article
+  id="javascript-JavaScript高级程序设计2"
+  class="article article-type-javascript "
+  itemscope
+  itemprop="blogPost"
+>
+  <div class="article-inner">
     
-    
+    <header class="article-header">
       
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/54207.html" class="archive-article-date">
-  <time datetime="2020-07-09T02:07:00.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-07-09</time
-  >
-</a>
-
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/54207.html">Babylon基本使用</a>
+    <h1 class="article-title" itemprop="name">
+      javascript 高级程序设计第四版
     </h1>
   
+  
+<a href="/artcle/9d0b4b2a.html" class="archive-article-date">
+  <time datetime="2019-12-21T10:54:32.000Z" itemprop="datePublished"
+    ><i class="icon-calendar icon"></i>2019-12-21</time
+  >
+</a>
+ 
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+       <h2 id="第三章-数据类型和值"><a href="#第三章-数据类型和值" class="headerlink" title="第三章 数据类型和值"></a>第三章 数据类型和值</h2><a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
+<p>在一种计算机语言中，能够表示并操作的值的类型称为数据类型。<br>JavaScript 中有：</p>
+<ul>
+<li>基本类型：<ul>
+<li>字符串（String）</li>
+<li>数字(Number)</li>
+<li>布尔(Boolean)</li>
+<li>对空（Null）</li>
+<li>未定义（Undefined）</li>
+<li>Symbol。独一无二的值</li>
+</ul>
+</li>
+<li>引用数据类型<ul>
+<li>对象(Object)</li>
+<li>数组(Array)</li>
+<li>函数(Function)</li>
+</ul>
+</li>
+</ul>
+<h4 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h4><ul>
+<li>在 JavaScript 程序中直接出现的数字称作为数值直接量<ul>
+<li>整型直接量<ul>
+<li>在 JavaScript 程序中数字的格式允许精确到-(2^53)~(2^53)之间的所有整数</li>
+</ul>
+</li>
+<li>八进制和 16 进制的直接量<ul>
+<li>以 0X 或 0x 开头的就是 16 进制的直接量</li>
+<li>ECMAScript 标准不支持八进制的直接量，在 JavaScript 某些情况允许使用八进制</li>
+</ul>
+</li>
+<li>浮点型直接量<ul>
+<li>浮点型直接量可以具有小数点，采用科学计数法。一个数值被表示为整数部分后加小数点和小数部分<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">3.14</span><br><span class="line">23456.789</span><br><span class="line">.33333333333</span><br><span class="line">6.02e23&#x2F;&#x2F;6.02*10</span><br><span class="line">1.473822E-32&#x2F;&#x2F;14738233*10^32</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>数字的使用<ul>
+<li>加法运算符</li>
+<li>减法运算符</li>
+<li>乘法运算符</li>
+<li>除法运算符</li>
+<li>算数函数</li>
+</ul>
+</li>
+<li>特殊的数值<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">infinity              表示无穷大的特殊值</span><br><span class="line">NaN                   特殊的非数字值</span><br><span class="line">Number.MAX-VALUE      可表示的最大数字</span><br><span class="line">Number.MIN-VALUE      可表示的最小数字（与零接触的数字）</span><br><span class="line">Number.NaN            特殊的非数字值</span><br><span class="line">Number.POSITIVE_infinity  表示正无穷大的特殊值</span><br><span class="line">Number.NEGATIVE_infinity  表示负无穷大的特殊值</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><ul>
+<li>由 Unicode 字符、数字、标点符号组成的序列，在 JavaScript 用于表示文本的数据类型<ul>
+<li>字符串直接量中的转义序列<ul>
+<li>在 JavaScript 中\反斜线具有特殊的用途，例如：<ul>
+<li>\n 是一个转义序列，表示一个换行符</li>
+<li>\b 退格符</li>
+<li>\t 水平制表符</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>字符串的操作<ul>
+<li>获取 str 字符串最后一个字符<ul>
+<li>str.charAt(str.length-1)</li>
+</ul>
+</li>
+<li>抽取 1 到 4 位；<ul>
+<li>str.substring(1,4);</li>
+</ul>
+</li>
+<li>查找第一个字母 a 所在 str 字符串中的位置<ul>
+<li>str.indexOf(‘a’);</li>
+</ul>
+</li>
+<li>…</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h4><ul>
+<li>布尔类型的值只有 2 个值，分别是由直接量’true’和’false’表示</li>
+</ul>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><ul>
+<li>函数是一个可执行的 js 代码段，由 JavaScript 程序定义或由 JavaScript 实现预定义</li>
+</ul>
+  
+      <div class="page-reward">
+        <a href="javascript:;" class="page-reward-btn tooltip-top">
+          <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p">
+                    <i class="icon icon-quo-left"></i>感谢观看<i class="icon icon-quo-right"></i>
+                  </p>
+                  <div class="reward-box">
+                     
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+        </a>
+      </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">WebGL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
         		</li>
       		
 		</ul>
 	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+ 
+  
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+ 
+<nav id="article-nav">
+  
+    <a href="/artcle/62153.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          JS放大镜
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/artcle/26373.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">移动端开发</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
-
-    
-
+</nav>
+  <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#第三章-数据类型和值"><span class="toc-number">1.</span> <span class="toc-text">第三章 数据类型和值</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数字"><span class="toc-number">1.0.1.</span> <span class="toc-text">数字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字符串"><span class="toc-number">1.0.2.</span> <span class="toc-text">字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#布尔值"><span class="toc-number">1.0.3.</span> <span class="toc-text">布尔值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#函数"><span class="toc-number">1.0.4.</span> <span class="toc-text">函数</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside> 
+<!-- 来比力评论 -->
+ <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80ODI0Ny8yNDc0Mw==" style="position: relative; z-index: 10; padding: 0 29px;">
+  <script type="text/javascript">
+     (function(d, s) {
+         var j, e = d.getElementsByTagName(s)[0];
+  
+         if (typeof LivereTower === 'function') { return; }
+  
+         j = d.createElement(s);
+         j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+         j.async = true;
+  
+         e.parentNode.insertBefore(j, e);
+     })(document, 'script');
+  </script>
+  <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+  </div>
+  <!-- City版安装代码已完成 -->
+       
 
           </div>
         </div>
@@ -288,9 +448,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

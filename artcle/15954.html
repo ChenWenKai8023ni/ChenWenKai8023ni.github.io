@@ -6,20 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://chenwenkai8023ni.github.io">
-  <title>Tag: WebGL | 风吹过得夏天</title>
+  <title>js防抖节流 | 风吹过得夏天</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人博客,技术分享,记录生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="风吹过得夏天">
-<meta property="og:url" content="https://chenwenkai8023ni.github.io/tags/WebGL/index.html">
+  <meta name="description" content="js 防抖节流">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js防抖节流">
+<meta property="og:url" content="https://chenwenkai8023ni.github.io/artcle/15954.html">
 <meta property="og:site_name" content="风吹过得夏天">
-<meta property="og:description" content="个人博客,技术分享,记录生活">
+<meta property="og:description" content="js 防抖节流">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/08/UEwruR.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/08/UEDu4K.md.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/08/UEgSE9.jpg">
+<meta property="article:published_time" content="2020-07-08T01:37:42.000Z">
+<meta property="article:modified_time" content="2020-07-10T02:20:35.036Z">
 <meta property="article:author" content="风吹过得夏天">
-<meta property="article:tag" content="个人博客">
-<meta property="article:tag" content="技术分享">
-<meta property="article:tag" content="记录生活">
+<meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/08/UEwruR.png">
   
     <link rel="alternative" href="/atom.xml" title="风吹过得夏天" type="application/atom+xml">
   
@@ -161,65 +165,189 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article
+  id="post-js防抖节流"
+  class="article article-type-post "
+  itemscope
+  itemprop="blogPost"
+>
+  <div class="article-inner">
     
-    
+    <header class="article-header">
       
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/54207.html" class="archive-article-date">
-  <time datetime="2020-07-09T02:07:00.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-07-09</time
-  >
-</a>
-
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/54207.html">Babylon基本使用</a>
+    <h1 class="article-title" itemprop="name">
+      js防抖节流
     </h1>
   
+  
+<a href="/artcle/15954.html" class="archive-article-date">
+  <time datetime="2020-07-08T01:37:42.000Z" itemprop="datePublished"
+    ><i class="icon-calendar icon"></i>2020-07-08</time
+  >
+</a>
+ 
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+       <h2 id="js-防抖节流"><a href="#js-防抖节流" class="headerlink" title="js 防抖节流"></a>js 防抖节流</h2><a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
+<p><strong>防抖和节流目前是前端开发中最重要的 2 个函数</strong></p>
+<h4 id="防抖使用场景"><a href="#防抖使用场景" class="headerlink" title="防抖使用场景"></a>防抖使用场景</h4><blockquote>
+<p>在输入框中输入自己搜索的内容</p>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/07/08/UEwruR.png" alt="图示"></p>
+<ul>
+<li>当输入男时,为了更好的体验,通常会出现对应的联想内容,发送一次网络请求</li>
+<li>继续输入男士时,再一次发送请求,出现对应内容</li>
+<li>在输入完男士夏季套装一共需要发送 6 次请求</li>
+</ul>
+<p>但是事实上不根本不需要怎么多次请求</p>
+<ul>
+<li>正确的做法应该是在合适的情况发送请求</li>
+<li>例如用户快速输入男士夏季套装,那么就发送一次请求</li>
+<li>例如用户每输入一个字停顿一会,这时就发送 6 次请求<br><img src="https://s1.ax1x.com/2020/07/08/UEDu4K.md.png" alt="图示"></li>
+</ul>
+<h4 id="节流使用场景"><a href="#节流使用场景" class="headerlink" title="节流使用场景"></a>节流使用场景</h4><blockquote>
+<p>监听页面滚动事件<br>鼠标移动事件<br>按钮点击事件</p>
+</blockquote>
+<ul>
+<li>在某个时间内,某个函数只能被触发执行一次</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/07/08/UEgSE9.jpg" alt="图示"></p>
+<h4 id="简单防抖函数实现"><a href="#简单防抖函数实现" class="headerlink" title="简单防抖函数实现"></a>简单防抖函数实现</h4><p><strong>基本功能</strong></p>
+<ul>
+<li>当触发一个函数,不会立即执行这个函数,而是延迟(使用定时器)</li>
+<li>如果延迟内有重新触发函数,那么取消上一个函数执行(取消定时器)</li>
+<li>如果在延迟时间内,没有重新触发函数,函数正常执行</li>
+</ul>
+<blockquote>
+<p>代码实现</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, time</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> timer = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (timer) clearTimeout(timer);</span><br><span class="line">    timer = setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      fn();</span><br><span class="line">    &#125;, time);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>优化参数和 this</p>
+</blockquote>
+<p>通常 input 事件触发都会带有参数传递,而且触发函数的 this 指向当前元素节点<br>上方代码的 fn 函数是个普通的函数,this 指向 window,且没有携带参数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, time</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> timer = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (timer) clearTimeout(timer);</span><br><span class="line">    <span class="keyword">let</span> that = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">let</span> arg = <span class="built_in">arguments</span>;</span><br><span class="line">    timer = setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      fn.apply(that, arg);</span><br><span class="line">    &#125;, time);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="简单节流函数实现"><a href="#简单节流函数实现" class="headerlink" title="简单节流函数实现"></a>简单节流函数实现</h4><p><strong>基本功能</strong></p>
+<p>使用时间戳方式来实现</p>
+<ul>
+<li>使用一个 last 记录上一次执行时间</li>
+<li>每次执行前获取当前时间</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn, interval</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> last = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> that = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">let</span> arg = <span class="built_in">arguments</span>;</span><br><span class="line">    <span class="keyword">let</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">    <span class="keyword">if</span> (now - last &gt; interval) &#123;</span><br><span class="line">      fn.apply(that, arg);</span><br><span class="line">      last = now;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  
+      <div class="page-reward">
+        <a href="javascript:;" class="page-reward-btn tooltip-top">
+          <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p">
+                    <i class="icon icon-quo-left"></i>感谢观看<i class="icon icon-quo-right"></i>
+                  </p>
+                  <div class="reward-box">
+                     
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+        </a>
+      </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">WebGL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
         		</li>
       		
 		</ul>
 	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+ 
+  
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+ 
+<nav id="article-nav">
+  
+    <a href="/artcle/44428.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          mvvm与mvc
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/artcle/64299.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js原型与原型链,闭包</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
-
-    
-
+</nav>
+  <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#js-防抖节流"><span class="toc-number">1.</span> <span class="toc-text">js 防抖节流</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#防抖使用场景"><span class="toc-number">1.0.1.</span> <span class="toc-text">防抖使用场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#节流使用场景"><span class="toc-number">1.0.2.</span> <span class="toc-text">节流使用场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#简单防抖函数实现"><span class="toc-number">1.0.3.</span> <span class="toc-text">简单防抖函数实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#简单节流函数实现"><span class="toc-number">1.0.4.</span> <span class="toc-text">简单节流函数实现</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside> 
+<!-- 来比力评论 -->
+ <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80ODI0Ny8yNDc0Mw==" style="position: relative; z-index: 10; padding: 0 29px;">
+  <script type="text/javascript">
+     (function(d, s) {
+         var j, e = d.getElementsByTagName(s)[0];
+  
+         if (typeof LivereTower === 'function') { return; }
+  
+         j = d.createElement(s);
+         j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+         j.async = true;
+  
+         e.parentNode.insertBefore(j, e);
+     })(document, 'script');
+  </script>
+  <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+  </div>
+  <!-- City版安装代码已完成 -->
+       
 
           </div>
         </div>
@@ -288,9 +416,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

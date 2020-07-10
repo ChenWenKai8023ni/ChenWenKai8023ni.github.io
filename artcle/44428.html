@@ -6,20 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://chenwenkai8023ni.github.io">
-  <title>Tag: WebGL | 风吹过得夏天</title>
+  <title>mvvm与mvc | 风吹过得夏天</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人博客,技术分享,记录生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="风吹过得夏天">
-<meta property="og:url" content="https://chenwenkai8023ni.github.io/tags/WebGL/index.html">
+  <meta name="description" content="mvvm 与 mvc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mvvm与mvc">
+<meta property="og:url" content="https://chenwenkai8023ni.github.io/artcle/44428.html">
 <meta property="og:site_name" content="风吹过得夏天">
-<meta property="og:description" content="个人博客,技术分享,记录生活">
+<meta property="og:description" content="mvvm 与 mvc">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020105.png">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020110.png">
+<meta property="article:published_time" content="2020-07-09T01:21:53.000Z">
+<meta property="article:modified_time" content="2020-07-10T02:22:39.986Z">
 <meta property="article:author" content="风吹过得夏天">
 <meta property="article:tag" content="个人博客">
 <meta property="article:tag" content="技术分享">
 <meta property="article:tag" content="记录生活">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020105.png">
   
     <link rel="alternative" href="/atom.xml" title="风吹过得夏天" type="application/atom+xml">
   
@@ -161,65 +166,155 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article
+  id="post-mvvm与mvc"
+  class="article article-type-post "
+  itemscope
+  itemprop="blogPost"
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      mvvm与mvc
+    </h1>
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/54207.html" class="archive-article-date">
-  <time datetime="2020-07-09T02:07:00.000Z" itemprop="datePublished"
+<a href="/artcle/44428.html" class="archive-article-date">
+  <time datetime="2020-07-09T01:21:53.000Z" itemprop="datePublished"
     ><i class="icon-calendar icon"></i>2020-07-09</time
   >
 </a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/54207.html">Babylon基本使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">WebGL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
+ 
     </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+       <h2 id="mvvm-与-mvc"><a href="#mvvm-与-mvc" class="headerlink" title="mvvm 与 mvc"></a>mvvm 与 mvc</h2><a id="more"></a>
+
+<h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><blockquote>
+<p>Model（模型）：是应用程序中用于处理应用程序数据逻辑的部分.通常模型对象负责在数据库中存取数据。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">比如我们人类有一双手，一双眼睛，一个脑袋，没有尾巴，这就是模型，Model定义了这个模块的数据模型。</span><br><span class="line">在代码中体现为数据管理者，Model负责对数据进行获取及存放。</span><br><span class="line">数据不可能凭空生成的，要么是从服务器上面获取到的数据，要么是本地数据库中的数据，</span><br><span class="line">也有可能是用户在UI上填写的表单即将上传到服务器上面存放，所以需要有数据来源。</span><br><span class="line">既然Model是数据管理者，则自然由它来负责获取数据。</span><br><span class="line">Controller不需要关心Model是如何拿到数据的，只管调用就行了。</span><br><span class="line">数据存放的地方是在Model，而使用数据的地方是在Controller，</span><br><span class="line">所以Model应该提供接口供controller访问其存放的数据（通常通过.h里面的只读属性）</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>View（视图）：是应用程序中处理数据显示的部分。通常视图是依据模型数据创建的。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">View，视图，简单来说，就是我们在界面上看见的一切。</span><br><span class="line">它们有一部分是我们UI定死的，也就是不会根据数据来更新显示的，</span><br><span class="line">比如一些Logo图片啊，这里有个按钮啊，那里有个输入框啊，一些显示特定内容的label啊等等；</span><br><span class="line">有一部分是会根据数据来显示内容的，比如tableView来显示好友列表啊，</span><br><span class="line">这个tableView的显示内容肯定是根据数据来显示的。</span><br><span class="line">我们使用MVC解决问题的时候，通常是解决这些根据数据来显示内容的视图。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Controller（控制器）：是应用程序中处理用户交互的部分。通常控制器负责从视图读取数据，控制用户输入，并向模型发送数据。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Controller是MVC中的数据和视图的协调者，也就是在Controller里面把Model的数据赋值给View来显示</span><br><span class="line">（或者是View接收用户输入的数据然后由Controller把这些数据传给Model来保存到本地或者上传到</span><br><span class="line">服务器）。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>各部分之间的通信方式如下。 所有通信都是单向的。</p>
+</blockquote>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020105.png" alt="图示"></p>
+<h3 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h3><blockquote>
+<p>MVVM 模式将 Controller 改名为 ViewModel.</p>
+</blockquote>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015020110.png" alt="图示"></p>
+<p>它采用双向绑定（data-binding）：View 的变动，自动反映在 ViewModel，反之亦然。</p>
+  
+      <div class="page-reward">
+        <a href="javascript:;" class="page-reward-btn tooltip-top">
+          <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p">
+                    <i class="icon icon-quo-left"></i>感谢观看<i class="icon icon-quo-right"></i>
+                  </p>
+                  <div class="reward-box">
+                     
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+        </a>
+      </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+        
+  
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+ 
+<nav id="article-nav">
+  
+    <a href="/artcle/54207.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Babylon基本使用
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/artcle/15954.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js防抖节流</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
-
-    
-
+</nav>
+  <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#mvvm-与-mvc"><span class="toc-number">1.</span> <span class="toc-text">mvvm 与 mvc</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC"><span class="toc-number">1.1.</span> <span class="toc-text">MVC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MVVM"><span class="toc-number">1.2.</span> <span class="toc-text">MVVM</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside> 
+<!-- 来比力评论 -->
+ <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80ODI0Ny8yNDc0Mw==" style="position: relative; z-index: 10; padding: 0 29px;">
+  <script type="text/javascript">
+     (function(d, s) {
+         var j, e = d.getElementsByTagName(s)[0];
+  
+         if (typeof LivereTower === 'function') { return; }
+  
+         j = d.createElement(s);
+         j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+         j.async = true;
+  
+         e.parentNode.insertBefore(j, e);
+     })(document, 'script');
+  </script>
+  <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+  </div>
+  <!-- City版安装代码已完成 -->
+       
 
           </div>
         </div>
@@ -288,9 +383,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
