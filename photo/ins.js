@@ -107,8 +107,8 @@
           var data = res.list[j].arr;
           var liTmpl = "";
           for (var i = 0, len = data.link.length; i < len; i++) {
-            var minSrc = `https://s1.ax1x.com/${data.year}/0${data.month}/${data.day}/${data.link[i]}.th.jpg`;
-            var src = `https://s1.ax1x.com/${data.year}/0${data.month}/${data.day}/${data.link[i]}.jpg`;
+            var minSrc = `https://s1.ax1x.com/${data.year}/${data.month}/${data.day}/${data.link[i]}.th.jpg`;
+            var src = `https://s1.ax1x.com/${data.year}/${data.month}/${data.day}/${data.link[i]}.jpg`;
             var type = data.type[i];
             var target = src + (type === "video" ? ".mp4" : ".jpg");
             // src += ".jpg";
