@@ -161,22 +161,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article
-  id="post-Express-模块使用"
-  class="article article-type-post "
-  itemscope
-  itemprop="blogPost"
->
+            <article id="post-Express-模块使用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
-    <header class="article-header">
-      
+      <header class="article-header">
+        
   
     <h1 class="article-title" itemprop="name">
       Express模块使用
     </h1>
   
-  
+
+        
+        
 <!-- 不蒜子统计 -->
 <span
   id="busuanzi_container_page_pv"
@@ -193,9 +190,9 @@
     ><i class="icon-calendar icon"></i>2020-01-02</time
   >
 </a>
- 
 
-        <!-- 开始添加字数统计-->
+        
+         <!-- 开始添加字数统计-->
         
           <div style="margin-top:10px;">
   <span class="post-time">
@@ -215,13 +212,13 @@
     </span>
   </span>
 </div>
-
-          
-        <!-- 添加完成 -->
-    </header>
+ 
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
-       <h2 id="图片上传"><a href="#图片上传" class="headerlink" title="图片上传"></a>图片上传</h2><a id="more"></a>
+      
+        <h2 id="图片上传"><a href="#图片上传" class="headerlink" title="图片上传"></a>图片上传</h2><a id="more"></a>
 
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">注意：image.html的表单中</span><br><span class="line"><span class="number">1.</span>表单必须添加 enctype=<span class="string">"multipart/form-data"</span></span><br><span class="line"><span class="number">2.</span>给input type=<span class="string">"file"</span>添加name的名字photo</span><br><span class="line"></span><br><span class="line">用户点击提交图片，图片上传到服务器，更新数据库用户的头像信息：router.post(<span class="string">'/image'</span>)</span><br><span class="line">	router.post(<span class="string">'/image'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">	&#125;)</span><br><span class="line"><span class="number">1.</span> 借助于第三方模块multer:npm install multer --save</span><br><span class="line"><span class="number">2.</span> 使用</span><br><span class="line">		<span class="keyword">var</span> multer = <span class="built_in">require</span>(<span class="string">'multer'</span>);</span><br><span class="line">		<span class="keyword">var</span> upload = multer(&#123;</span><br><span class="line">			dest:<span class="string">'public/upload'</span>	<span class="comment">// 设置</span></span><br><span class="line">				<span class="comment">// 将上传的图片放在upload里面，方便后期的头像管理</span></span><br><span class="line">		&#125;)</span><br><span class="line">		router.post(<span class="string">'/image'</span>,upload.single(<span class="string">'photo'</span>),<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;&#125;)</span><br><span class="line">    原理:</span><br><span class="line">    图片上传到服务器：实质是图片经过互联网传递到服务器的一个文件</span><br><span class="line">    （一般情况下是第三方模块multer指定的位置），</span><br><span class="line">    需要对文件进行安全检查（大小，类型，是否是可信任文件），</span><br><span class="line">    获取到文件的名字，将名字保存到数据库</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">示例:</span><br><span class="line"><span class="comment">//image.html</span></span><br><span class="line">&lt;form action=<span class="string">"/users/image"</span> method=<span class="string">"post"</span> enctype=<span class="string">"multipart/form-data"</span>&gt;</span><br><span class="line">	&lt;input type=<span class="string">"hidden"</span> name=<span class="string">"id"</span> value=<span class="string">"&lt;%=id%&gt;"</span>&gt;</span><br><span class="line">	&lt;input type=<span class="string">"file"</span> name=<span class="string">"photo"</span>&gt;</span><br><span class="line">&lt;<span class="regexp">/form&gt;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/路由</span></span><br><span class="line"><span class="regexp">router.post('/im</span>age<span class="string">',upload.single('</span>photo<span class="string">'),function(req,res)&#123;</span></span><br><span class="line"><span class="string">    // console.log(req.file);</span></span><br><span class="line"><span class="string">    console.log(req.body.id);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    // 判断文件大小是否符合要求（100kb为界限）</span></span><br><span class="line"><span class="string">    if (req.file.size &gt; 102400) &#123;</span></span><br><span class="line"><span class="string">        res.send('</span>文件过大，请重新上传<span class="string">');</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    // 判断文件的类型</span></span><br><span class="line"><span class="string">    // console.log(req.file.mimetype);</span></span><br><span class="line"><span class="string">    var arr = ['</span>image/png<span class="string">','</span>image/gif<span class="string">','</span>image/jpeg<span class="string">'];</span></span><br><span class="line"><span class="string">    // indexOf 返回某个指定的字符串值在字符串中首次出现的位置</span></span><br><span class="line"><span class="string">    if (arr.indexOf(req.file.mimetype) === -1) &#123;</span></span><br><span class="line"><span class="string">        res.send('</span>上传的文件不符合类型<span class="string">');</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    // 给文件设置后缀名</span></span><br><span class="line"><span class="string">    var fs = require('</span>fs<span class="string">');</span></span><br><span class="line"><span class="string">    var path = require('</span>path<span class="string">');</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    // 拼接老名字和新名字，使用rename进行改名</span></span><br><span class="line"><span class="string">    var oldname = path.join('</span>public/upload<span class="string">',req.file.filename);</span></span><br><span class="line"><span class="string">    // 补充文件的后缀名-- path.extname获取文件的后缀名</span></span><br><span class="line"><span class="string">    var filename = req.file.filename+path.extname(req.file.originalname);</span></span><br><span class="line"><span class="string">    // path.join():将指定的路径通过\连接</span></span><br><span class="line"><span class="string">    var newname = path.join('</span>public/upload<span class="string">',filename);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    fs.rename(oldname,newname,function(error)&#123;</span></span><br><span class="line"><span class="string">        if (error) &#123;</span></span><br><span class="line"><span class="string">            console.log('</span>修改失败<span class="string">',error);</span></span><br><span class="line"><span class="string">        &#125; else &#123;</span></span><br><span class="line"><span class="string">            // 将名字保存到数据库</span></span><br><span class="line"><span class="string">            connection.query('</span>update users <span class="keyword">set</span> photo="'+filename+'" where id='+req.body.id,function(error)&#123;</span><br><span class="line">                <span class="keyword">if</span> (error) &#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="string">'修改用户头像数据失败'</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// res.send('上传成功');</span></span><br><span class="line">                    res.redirect(<span class="string">'/users'</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
 
@@ -246,32 +243,35 @@
 <li>配置</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var app &#x3D; express();&#x2F;&#x2F;这一行之后</span><br><span class="line">&#x2F;&#x2F;设置跨域</span><br><span class="line">app.use(cors(&#123;</span><br><span class="line">  &quot;origin&quot;: &quot;*&quot;,</span><br><span class="line">  &quot;methods&quot;: &quot;GET,HEAD,PUT,PATCH,POST,DELETE&quot;,</span><br><span class="line">  &quot;preflightContinue&quot;: false,</span><br><span class="line">  &quot;optionsSuccessStatus&quot;: 200</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
-  
-      <div class="page-reward">
-        <a href="javascript:;" class="page-reward-btn tooltip-top">
-          <div class="tooltip tooltip-east">
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
             <span class="tooltip-item">
               赏
             </span>
             <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
-                  <p class="reward-p">
-                    <i class="icon icon-quo-left"></i>感谢观看<i class="icon icon-quo-right"></i>
-                  </p>
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢观看<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
-                     
+                    
+                    
                   </div>
                 </span>
               </span>
             </span>
           </div>
-        </a>
-      </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
-       
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -282,8 +282,13 @@
       		
 		</ul>
 	</div>
- 
-   
+
+      
+
+      
+
+      
+        
 <div class="share-btn share-icons tooltip-left">
   <div class="tooltip tooltip-east">
     <span class="tooltip-item">
@@ -338,26 +343,29 @@
     </div>
   </div>
 </article>
- 
+
+  
 <nav id="article-nav">
   
-    <a href="/artcle/39204.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/artcle/51663.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Express JWT
+          Express框架安装与搭建
         
       </div>
     </a>
   
   
-    <a href="/artcle/51663.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Express框架安装与搭建</div>
+    <a href="/artcle/62153.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JS放大镜</div>
       <i class="icon-circle-right"></i>
     </a>
   
 </nav>
-  <aside class="wrap-side-operation">
+
+
+<aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -384,27 +392,34 @@
         </div>
         
     </div>
-</aside> 
-<!-- 来比力评论 -->
- <!-- 来必力City版安装代码 -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC80ODI0Ny8yNDc0Mw==" style="position: relative; z-index: 10; padding: 0 29px;">
-  <script type="text/javascript">
-     (function(d, s) {
-         var j, e = d.getElementsByTagName(s)[0];
+</aside>
+
+
+	
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'false' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "D5szmzhp8za9gwaqf5ShK0Io-gzGzoHsz",
+        app_key: "euv6Ozr0COt2ObIkLA0s0JWE",
+        placeholder: "Just go go",
+        avatar:"mm",
+    });
+</script>
+  </section>
   
-         if (typeof LivereTower === 'function') { return; }
-  
-         j = d.createElement(s);
-         j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-         j.async = true;
-  
-         e.parentNode.insertBefore(j, e);
-     })(document, 'script');
-  </script>
-  <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-  </div>
-  <!-- City版安装代码已完成 -->
-       
 
           </div>
         </div>
@@ -416,8 +431,6 @@
       <div class="footer-left">
         &copy; 2020 风吹过得夏天
       </div>
-
-      <!--《添加网站运行时间  <br/>-->
       
       <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
       <script>
@@ -454,10 +467,8 @@
         setInterval("createtime()", 250);
       </script>
       
-
       <div class="footer-right">
         
-        <!-- 不蒜子统计 -->
         <span id="busuanzi_container_site_pv">
           本站总访问量<span id="busuanzi_value_site_pv"></span>次
         </span>
@@ -571,10 +582,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
               </li>
             
             <div class="clearfix"></div>

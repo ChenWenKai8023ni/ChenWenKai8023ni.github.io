@@ -163,22 +163,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article
-  id="post-JSElement"
-  class="article article-type-post "
-  itemscope
-  itemprop="blogPost"
->
+            <article id="post-JSElement" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
-    <header class="article-header">
-      
+      <header class="article-header">
+        
   
     <h1 class="article-title" itemprop="name">
       JsElement
     </h1>
   
-  
+
+        
+        
 <!-- 不蒜子统计 -->
 <span
   id="busuanzi_container_page_pv"
@@ -195,9 +192,9 @@
     ><i class="icon-calendar icon"></i>2019-11-19</time
   >
 </a>
- 
 
-        <!-- 开始添加字数统计-->
+        
+         <!-- 开始添加字数统计-->
         
           <div style="margin-top:10px;">
   <span class="post-time">
@@ -217,13 +214,13 @@
     </span>
   </span>
 </div>
-
-          
-        <!-- 添加完成 -->
-    </header>
+ 
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
-       <h2 id="clientHeight-等属性详解"><a href="#clientHeight-等属性详解" class="headerlink" title="clientHeight 等属性详解"></a>clientHeight 等属性详解</h2> <a id="more"></a>
+      
+        <h2 id="clientHeight-等属性详解"><a href="#clientHeight-等属性详解" class="headerlink" title="clientHeight 等属性详解"></a>clientHeight 等属性详解</h2> <a id="more"></a>
 
 <h3 id="clientHeight"><a href="#clientHeight" class="headerlink" title="clientHeight"></a>clientHeight</h3><blockquote>
 <p>clientHeight 可以通过 CSS height + CSS padding - 水平滚动条高度 (如果存在)来计算</p>
@@ -271,32 +268,35 @@
 <li>一个元素的 scrollTop 值是这个元素的内容顶部（卷起来的）到它的视口可见内容（的顶部）的距离的度量。</li>
 <li>当一个元素的内容没有产生垂直方向的滚动条，那么它的 scrollTop 值为 0</li>
 </ul>
-  
-      <div class="page-reward">
-        <a href="javascript:;" class="page-reward-btn tooltip-top">
-          <div class="tooltip tooltip-east">
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
             <span class="tooltip-item">
               赏
             </span>
             <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
-                  <p class="reward-p">
-                    <i class="icon icon-quo-left"></i>感谢观看<i class="icon icon-quo-right"></i>
-                  </p>
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢观看<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
-                     
+                    
+                    
                   </div>
                 </span>
               </span>
             </span>
           </div>
-        </a>
-      </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
-       
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -307,8 +307,13 @@
       		
 		</ul>
 	</div>
- 
-   
+
+      
+
+      
+
+      
+        
 <div class="share-btn share-icons tooltip-left">
   <div class="tooltip tooltip-east">
     <span class="tooltip-item">
@@ -363,7 +368,8 @@
     </div>
   </div>
 </article>
- 
+
+  
 <nav id="article-nav">
   
     <a href="/artcle/45907.html" id="article-nav-newer" class="article-nav-link-wrap">
@@ -377,7 +383,9 @@
   
   
 </nav>
-  <aside class="wrap-side-operation">
+
+
+<aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -404,27 +412,34 @@
         </div>
         
     </div>
-</aside> 
-<!-- 来比力评论 -->
- <!-- 来必力City版安装代码 -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC80ODI0Ny8yNDc0Mw==" style="position: relative; z-index: 10; padding: 0 29px;">
-  <script type="text/javascript">
-     (function(d, s) {
-         var j, e = d.getElementsByTagName(s)[0];
+</aside>
+
+
+	
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'false' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "D5szmzhp8za9gwaqf5ShK0Io-gzGzoHsz",
+        app_key: "euv6Ozr0COt2ObIkLA0s0JWE",
+        placeholder: "Just go go",
+        avatar:"mm",
+    });
+</script>
+  </section>
   
-         if (typeof LivereTower === 'function') { return; }
-  
-         j = d.createElement(s);
-         j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-         j.async = true;
-  
-         e.parentNode.insertBefore(j, e);
-     })(document, 'script');
-  </script>
-  <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-  </div>
-  <!-- City版安装代码已完成 -->
-       
 
           </div>
         </div>
@@ -436,8 +451,6 @@
       <div class="footer-left">
         &copy; 2020 风吹过得夏天
       </div>
-
-      <!--《添加网站运行时间  <br/>-->
       
       <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
       <script>
@@ -474,10 +487,8 @@
         setInterval("createtime()", 250);
       </script>
       
-
       <div class="footer-right">
         
-        <!-- 不蒜子统计 -->
         <span id="busuanzi_container_site_pv">
           本站总访问量<span id="busuanzi_value_site_pv"></span>次
         </span>
@@ -591,10 +602,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
               </li>
             
             <div class="clearfix"></div>

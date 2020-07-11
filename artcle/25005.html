@@ -161,22 +161,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article
-  id="post-Vue-roter基本使用"
-  class="article article-type-post "
-  itemscope
-  itemprop="blogPost"
->
+            <article id="post-Vue-roter基本使用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
-    <header class="article-header">
-      
+      <header class="article-header">
+        
   
     <h1 class="article-title" itemprop="name">
       Vue-router
     </h1>
   
-  
+
+        
+        
 <!-- 不蒜子统计 -->
 <span
   id="busuanzi_container_page_pv"
@@ -193,9 +190,9 @@
     ><i class="icon-calendar icon"></i>2020-01-16</time
   >
 </a>
- 
 
-        <!-- 开始添加字数统计-->
+        
+         <!-- 开始添加字数统计-->
         
           <div style="margin-top:10px;">
   <span class="post-time">
@@ -215,13 +212,13 @@
     </span>
   </span>
 </div>
-
-          
-        <!-- 添加完成 -->
-    </header>
+ 
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
-       <h2 id="Vue-router-基本使用"><a href="#Vue-router-基本使用" class="headerlink" title="Vue-router 基本使用"></a>Vue-router 基本使用</h2><a id="more"></a>
+      
+        <h2 id="Vue-router-基本使用"><a href="#Vue-router-基本使用" class="headerlink" title="Vue-router 基本使用"></a>Vue-router 基本使用</h2><a id="more"></a>
 
 <h3 id="主要用法"><a href="#主要用法" class="headerlink" title="主要用法"></a>主要用法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;安装</span><br><span class="line">npm install --save vue-router</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;引入</span><br><span class="line">main.js</span><br><span class="line">import VueRouter from &#39;vue-router&#39;;</span><br><span class="line">Vue.use(Vuerouter);</span><br><span class="line"></span><br><span class="line">const Routers &#x3D; [</span><br><span class="line">  &#123;</span><br><span class="line">	path:&#39;&#x2F;path&#39;,</span><br><span class="line">    &lt;!-- component: () &#x3D;&gt; import(&#39;@&#x2F;page&#x2F;about&#39;) --&gt;</span><br><span class="line">    &#x2F;&#x2F;异步组件按需加载</span><br><span class="line">    component:(resolve) &#x3D;&gt; require([&#39;.&#x2F;views&#x2F;about.vue&#39;],resolve)</span><br><span class="line"> &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">  	path:&#39;&#x2F;about&#39;,</span><br><span class="line">    component:(resolve) &#x3D;&gt; require([&#39;.&#x2F;views&#x2F;about.vue&#39;],resolve)</span><br><span class="line">  &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;index.vue</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div&gt;首页&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	export default&#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;about.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;介绍页&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
 
@@ -240,32 +237,35 @@
 <h4 id="router-其他方法"><a href="#router-其他方法" class="headerlink" title="$router 其他方法"></a>$router 其他方法</h4><blockquote>
 <p>this.$router.go(-1); 返回上一级</p>
 </blockquote>
-  
-      <div class="page-reward">
-        <a href="javascript:;" class="page-reward-btn tooltip-top">
-          <div class="tooltip tooltip-east">
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
             <span class="tooltip-item">
               赏
             </span>
             <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
-                  <p class="reward-p">
-                    <i class="icon icon-quo-left"></i>感谢观看<i class="icon icon-quo-right"></i>
-                  </p>
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢观看<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
-                     
+                    
+                    
                   </div>
                 </span>
               </span>
             </span>
           </div>
-        </a>
-      </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
-       
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -276,8 +276,13 @@
       		
 		</ul>
 	</div>
- 
-   
+
+      
+
+      
+
+      
+        
 <div class="share-btn share-icons tooltip-left">
   <div class="tooltip tooltip-east">
     <span class="tooltip-item">
@@ -332,7 +337,8 @@
     </div>
   </div>
 </article>
- 
+
+  
 <nav id="article-nav">
   
     <a href="/artcle/8235.html" id="article-nav-newer" class="article-nav-link-wrap">
@@ -351,7 +357,9 @@
     </a>
   
 </nav>
-  <aside class="wrap-side-operation">
+
+
+<aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -378,27 +386,34 @@
         </div>
         
     </div>
-</aside> 
-<!-- 来比力评论 -->
- <!-- 来必力City版安装代码 -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC80ODI0Ny8yNDc0Mw==" style="position: relative; z-index: 10; padding: 0 29px;">
-  <script type="text/javascript">
-     (function(d, s) {
-         var j, e = d.getElementsByTagName(s)[0];
+</aside>
+
+
+	
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'false' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "D5szmzhp8za9gwaqf5ShK0Io-gzGzoHsz",
+        app_key: "euv6Ozr0COt2ObIkLA0s0JWE",
+        placeholder: "Just go go",
+        avatar:"mm",
+    });
+</script>
+  </section>
   
-         if (typeof LivereTower === 'function') { return; }
-  
-         j = d.createElement(s);
-         j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-         j.async = true;
-  
-         e.parentNode.insertBefore(j, e);
-     })(document, 'script');
-  </script>
-  <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-  </div>
-  <!-- City版安装代码已完成 -->
-       
 
           </div>
         </div>
@@ -410,8 +425,6 @@
       <div class="footer-left">
         &copy; 2020 风吹过得夏天
       </div>
-
-      <!--《添加网站运行时间  <br/>-->
       
       <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
       <script>
@@ -448,10 +461,8 @@
         setInterval("createtime()", 250);
       </script>
       
-
       <div class="footer-right">
         
-        <!-- 不蒜子统计 -->
         <span id="busuanzi_container_site_pv">
           本站总访问量<span id="busuanzi_value_site_pv"></span>次
         </span>
@@ -565,10 +576,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
               </li>
             
             <div class="clearfix"></div>

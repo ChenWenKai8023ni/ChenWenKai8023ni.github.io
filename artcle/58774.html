@@ -169,22 +169,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article
-  id="post-canvas-基础方法"
-  class="article article-type-post "
-  itemscope
-  itemprop="blogPost"
->
+            <article id="post-canvas-基础方法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
-    <header class="article-header">
-      
+      <header class="article-header">
+        
   
     <h1 class="article-title" itemprop="name">
       canvas_基础方法
     </h1>
   
-  
+
+        
+        
 <!-- 不蒜子统计 -->
 <span
   id="busuanzi_container_page_pv"
@@ -201,9 +198,9 @@
     ><i class="icon-calendar icon"></i>2020-07-05</time
   >
 </a>
- 
 
-        <!-- 开始添加字数统计-->
+        
+         <!-- 开始添加字数统计-->
         
           <div style="margin-top:10px;">
   <span class="post-time">
@@ -223,13 +220,13 @@
     </span>
   </span>
 </div>
-
-          
-        <!-- 添加完成 -->
-    </header>
+ 
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
-       <h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><a id="more"></a>
+      
+        <h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><a id="more"></a>
 
 <p>canvas 标签只有 2 个属性,宽度和高度,在没设置宽度高度时,初始化宽度为 300 和 150 像素,<br>该元素可以使用 CSS 来定义大小，但在绘制时图像会伸缩以适应它的框架尺寸：如果 CSS 的尺寸与初始画布的比例不一致，它会出现扭曲.<br>canvas 元素默认是空白的,为了使用 canvas 需要找到渲染上下文,然后进行绘制它有一个 <code>getcontext()</code> 方法.通过这个方法获得渲染上下文进行绘画</p>
 <h2 id="使用-canvas-来绘制图形"><a href="#使用-canvas-来绘制图形" class="headerlink" title="使用 canvas 来绘制图形"></a>使用 canvas 来绘制图形</h2><h3 id="绘制矩形"><a href="#绘制矩形" class="headerlink" title="绘制矩形"></a>绘制矩形</h3><p><img src="https://mdn.mozillademos.org/files/224/Canvas_default_grid.png" alt=" 图示"><br><code>fillRect(x,y,width,height)</code><br>绘制一个填充的矩形<br><code>strokeRect(x,y,width,height)</code><br>绘制一个矩形边框<br><code>clearRect(x,y,width,height)</code><br>清除指定矩形区域，让清除部分完全透明。<br><strong>矩形例子</strong></p>
@@ -256,33 +253,41 @@
 
 <h3 id="贝塞尔曲线绘制"><a href="#贝塞尔曲线绘制" class="headerlink" title="贝塞尔曲线绘制"></a>贝塞尔曲线绘制</h3><p>贝塞尔曲线一般用来绘制复杂有规律的图形。<br><code>quadraticCurveTo(cp1x, cp1y, x, y)</code><br>绘制二次贝塞尔曲线，cp1x,cp1y 为一个控制点，x,y 为结束点。<br><code>bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)</code><br>绘制三次贝塞尔曲线，cp1x,cp1y 为控制点一，cp2x,cp2y 为控制点二，x,y 为结束点。<br><img src="https://mdn.mozillademos.org/files/223/Canvas_curves.png" alt="图示"><br>二次贝塞尔曲线有一个开始点（蓝色）、一个结束点（蓝色）以及一个控制点（红色），而三次贝塞尔曲线有两个控制点。<br>参数 x、y 在这两个方法中都是结束点坐标。cp1x,cp1y 为坐标中的第一个控制点，cp2x,cp2y 为坐标中的第二个控制点。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);</span><br><span class="line"><span class="keyword">if</span> (canvas.getContext) &#123;</span><br><span class="line">  <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 二次贝塞尔曲线对话气泡。</span></span><br><span class="line">  ctx.beginPath();</span><br><span class="line">  ctx.moveTo(<span class="number">75</span>, <span class="number">25</span>);</span><br><span class="line">  ctx.quadraticCurveTo(<span class="number">25</span>, <span class="number">25</span>, <span class="number">25</span>, <span class="number">62.5</span>);</span><br><span class="line">  ctx.quadraticCurveTo(<span class="number">25</span>, <span class="number">100</span>, <span class="number">50</span>, <span class="number">100</span>);</span><br><span class="line">  ctx.quadraticCurveTo(<span class="number">50</span>, <span class="number">120</span>, <span class="number">30</span>, <span class="number">125</span>);</span><br><span class="line">  ctx.quadraticCurveTo(<span class="number">60</span>, <span class="number">120</span>, <span class="number">65</span>, <span class="number">100</span>);</span><br><span class="line">  ctx.quadraticCurveTo(<span class="number">125</span>, <span class="number">100</span>, <span class="number">125</span>, <span class="number">62.5</span>);</span><br><span class="line">  ctx.quadraticCurveTo(<span class="number">125</span>, <span class="number">25</span>, <span class="number">75</span>, <span class="number">25</span>);</span><br><span class="line">  ctx.stroke();</span><br><span class="line"></span><br><span class="line">  <span class="comment">//三次贝塞尔曲线 爱心</span></span><br><span class="line">  ctx.beginPath();</span><br><span class="line">  ctx.moveTo(<span class="number">75</span>, <span class="number">40</span>);</span><br><span class="line">  ctx.bezierCurveTo(<span class="number">75</span>, <span class="number">37</span>, <span class="number">70</span>, <span class="number">25</span>, <span class="number">50</span>, <span class="number">25</span>);</span><br><span class="line">  ctx.bezierCurveTo(<span class="number">20</span>, <span class="number">25</span>, <span class="number">20</span>, <span class="number">62.5</span>, <span class="number">20</span>, <span class="number">62.5</span>);</span><br><span class="line">  ctx.bezierCurveTo(<span class="number">20</span>, <span class="number">80</span>, <span class="number">40</span>, <span class="number">102</span>, <span class="number">75</span>, <span class="number">120</span>);</span><br><span class="line">  ctx.bezierCurveTo(<span class="number">110</span>, <span class="number">102</span>, <span class="number">130</span>, <span class="number">80</span>, <span class="number">130</span>, <span class="number">62.5</span>);</span><br><span class="line">  ctx.bezierCurveTo(<span class="number">130</span>, <span class="number">62.5</span>, <span class="number">130</span>, <span class="number">25</span>, <span class="number">100</span>, <span class="number">25</span>);</span><br><span class="line">  ctx.bezierCurveTo(<span class="number">85</span>, <span class="number">25</span>, <span class="number">75</span>, <span class="number">37</span>, <span class="number">75</span>, <span class="number">40</span>);</span><br><span class="line">  ctx.fill();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-  
-      <div class="page-reward">
-        <a href="javascript:;" class="page-reward-btn tooltip-top">
-          <div class="tooltip tooltip-east">
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
             <span class="tooltip-item">
               赏
             </span>
             <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
-                  <p class="reward-p">
-                    <i class="icon icon-quo-left"></i>感谢观看<i class="icon icon-quo-right"></i>
-                  </p>
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢观看<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
-                     
+                    
+                    
                   </div>
                 </span>
               </span>
             </span>
           </div>
-        </a>
-      </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
         
-   
 <div class="share-btn share-icons tooltip-left">
   <div class="tooltip tooltip-east">
     <span class="tooltip-item">
@@ -337,7 +342,8 @@
     </div>
   </div>
 </article>
- 
+
+  
 <nav id="article-nav">
   
     <a href="/artcle/41644.html" id="article-nav-newer" class="article-nav-link-wrap">
@@ -356,7 +362,9 @@
     </a>
   
 </nav>
-  <aside class="wrap-side-operation">
+
+
+<aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -383,27 +391,34 @@
         </div>
         
     </div>
-</aside> 
-<!-- 来比力评论 -->
- <!-- 来必力City版安装代码 -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC80ODI0Ny8yNDc0Mw==" style="position: relative; z-index: 10; padding: 0 29px;">
-  <script type="text/javascript">
-     (function(d, s) {
-         var j, e = d.getElementsByTagName(s)[0];
+</aside>
+
+
+	
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'false' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "D5szmzhp8za9gwaqf5ShK0Io-gzGzoHsz",
+        app_key: "euv6Ozr0COt2ObIkLA0s0JWE",
+        placeholder: "Just go go",
+        avatar:"mm",
+    });
+</script>
+  </section>
   
-         if (typeof LivereTower === 'function') { return; }
-  
-         j = d.createElement(s);
-         j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-         j.async = true;
-  
-         e.parentNode.insertBefore(j, e);
-     })(document, 'script');
-  </script>
-  <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-  </div>
-  <!-- City版安装代码已完成 -->
-       
 
           </div>
         </div>
@@ -415,8 +430,6 @@
       <div class="footer-left">
         &copy; 2020 风吹过得夏天
       </div>
-
-      <!--《添加网站运行时间  <br/>-->
       
       <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
       <script>
@@ -453,10 +466,8 @@
         setInterval("createtime()", 250);
       </script>
       
-
       <div class="footer-right">
         
-        <!-- 不蒜子统计 -->
         <span id="busuanzi_container_site_pv">
           本站总访问量<span id="busuanzi_value_site_pv"></span>次
         </span>
@@ -570,10 +581,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
               </li>
             
             <div class="clearfix"></div>
