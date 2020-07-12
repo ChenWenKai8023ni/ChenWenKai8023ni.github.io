@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="https://chenwenkai8023ni.github.io">
   <title>相册 | 风吹过得夏天</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="风景   生活   明星      图片来自路过图床，正在加载中…     window.onload &#x3D; function () {      var btn &#x3D; document.getElementsByClassName(&quot;photos-btn-wrap&quot;)[0];     var span &#x3D; document.getElementsByClassName(&quot;photos-bt">
+  <meta name="description" content="风景   生活    其他      图片来自路过图床，正在加载中…     window.onload &#x3D; function () {     var btn &#x3D; document.getElementsByClassName(&quot;photos-btn-wrap&quot;)[0];     var span &#x3D; document.getElementsByClassName(&quot;photos-bt">
 <meta property="og:type" content="website">
 <meta property="og:title" content="相册">
 <meta property="og:url" content="https://chenwenkai8023ni.github.io/photo/index.html">
 <meta property="og:site_name" content="风吹过得夏天">
-<meta property="og:description" content="风景   生活   明星      图片来自路过图床，正在加载中…     window.onload &#x3D; function () {      var btn &#x3D; document.getElementsByClassName(&quot;photos-btn-wrap&quot;)[0];     var span &#x3D; document.getElementsByClassName(&quot;photos-bt">
+<meta property="og:description" content="风景   生活    其他      图片来自路过图床，正在加载中…     window.onload &#x3D; function () {     var btn &#x3D; document.getElementsByClassName(&quot;photos-btn-wrap&quot;)[0];     var span &#x3D; document.getElementsByClassName(&quot;photos-bt">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://chenwenkai8023ni.github.io/assets/img/empty.png">
-<meta property="article:published_time" content="2020-07-11T15:18:52.798Z">
-<meta property="article:modified_time" content="2020-07-11T15:18:52.798Z">
+<meta property="article:published_time" content="2020-07-12T04:52:18.382Z">
+<meta property="article:modified_time" content="2020-07-12T04:52:18.382Z">
 <meta property="article:author" content="风吹过得夏天">
 <meta property="article:tag" content="个人博客">
 <meta property="article:tag" content="技术分享">
@@ -208,37 +208,41 @@
 <div class="photos-btn-wrap">
   <span id="ins" class="photos-btn active" href="javascript:void(0)">风景</span>
   <span id="life" class="photos-btn" href="javascript:void(0)">生活</span>
-  <span id="star" class="photos-btn" href="javascript:void(0)">明星</span>
+  <span id="star" class="photos-btn" href="javascript:void(0)"> 其他</span>
 </div>
 
 <div class="instagram itemscope">
-  <a href="https://s1.ax1x.com/2020/06/25/N0Uro8.png" target="_blank" class="open-ins">图片来自路过图床，正在加载中…</a>
+  <a
+    href="https://s1.ax1x.com/2020/06/25/N0Uro8.png"
+    target="_blank"
+    class="open-ins"
+    >图片来自路过图床，正在加载中…</a
+  >
 </div>
 <script>
   window.onload = function () {
-
     var btn = document.getElementsByClassName("photos-btn-wrap")[0];
     var span = document.getElementsByClassName("photos-btn");
     let arg = "";
     btn.addEventListener("click", function (e) {
-      for (let i = 0; i < span.length; i++) {
-        span[i].setAttribute("class", "photos-btn");
-      }
       if (arg != e.target.id && e.target.id) {
+        for (let i = 0; i < span.length; i++) {
+          span[i].setAttribute("class", "photos-btn");
+        }
         arg = e.target.id;
         e.target.setAttribute("class", "photos-btn active");
-        getjson(e.target.id)
-
+        getjson(e.target.id);
       }
     });
-    getjson("ins")
+    getjson("ins");
 
     function getjson(getjson) {
       (function (modules) {
         var installedModules = {};
 
         function __webpack_require__(moduleId) {
-          if (installedModules[moduleId]) return installedModules[moduleId].exports;
+          if (installedModules[moduleId])
+            return installedModules[moduleId].exports;
 
           var module = (installedModules[moduleId] = {
             exports: {},
@@ -272,10 +276,11 @@
           var _view2 = _interopRequireDefault(_view);
 
           function _interopRequireDefault(obj) {
-            return obj && obj.__esModule ?
-              obj : {
-                default: obj,
-              };
+            return obj && obj.__esModule
+              ? obj
+              : {
+                  default: obj,
+                };
           }
 
           var _collection = [];
@@ -285,7 +290,6 @@
           function addMask(elem) {
             var rect = elem.getBoundingClientRect();
             var style = getComputedStyle(elem, null);
-
             var mask = document.createElement("i");
             mask.className = "icon-film";
             mask.style.color = "#fff";
@@ -298,7 +302,9 @@
           }
 
           var createVideoIncon = function createVideoIncon() {
-            var $videoImg = document.querySelectorAll('.thumb a[data-type="video"]');
+            var $videoImg = document.querySelectorAll(
+              '.thumb a[data-type="video"]'
+            );
             for (var i = 0, len = $videoImg.length; i < len; i++) {
               addMask($videoImg[i]);
             }
@@ -436,7 +442,8 @@
             }
 
             function lazyload(opts) {
-              opts = merge({
+              opts = merge(
+                {
                   offset: 333,
                   src: "data-src",
                   container: false,
@@ -518,7 +525,7 @@
             }
 
             function indexOf(value) {
-              for (var i = this.length; i-- && this[i] !== value;) {}
+              for (var i = this.length; i-- && this[i] !== value; ) {}
               return i;
             }
 
@@ -578,7 +585,8 @@
                     '<video src="' +
                     target +
                     '" controls="controls" autoplay="autoplay"></video>';
-                  if (type === "video") {}
+                  if (type === "video") {
+                  }
                 }
 
                 item.el = figureEl;
@@ -673,9 +681,11 @@
                 galleryUID: galleryElement.getAttribute("data-pswp-uid"),
 
                 getThumbBoundsFn: function getThumbBoundsFn(index) {
-                  var thumbnail = items[index].el.getElementsByTagName("img")[0],
+                  var thumbnail = items[index].el.getElementsByTagName(
+                      "img"
+                    )[0],
                     pageYScroll =
-                    window.pageYOffset || document.documentElement.scrollTop,
+                      window.pageYOffset || document.documentElement.scrollTop,
                     rect = thumbnail.getBoundingClientRect();
 
                   return {
@@ -794,7 +804,8 @@
                 params = {};
               }
 
-              var container = (opts.container = params.container || opts.container);
+              var container = (opts.container =
+                params.container || opts.container);
               var offset = (opts.offset = params.offset || opts.offset);
 
               for (var i = 0; i < instances.length; i++) {
@@ -837,22 +848,22 @@
               if (!global.document) {
                 return true;
               }
-              return global.document.documentElement.compareDocumentPosition ?
-                function (a, b) {
-                  return !!(a.compareDocumentPosition(b) & 16);
-                } :
-                global.document.documentElement.contains ?
-                function (a, b) {
-                  return a !== b && (a.contains ? a.contains(b) : false);
-                } :
-                function (a, b) {
-                  while ((b = b.parentNode)) {
-                    if (b === a) {
-                      return true;
-                    }
+              return global.document.documentElement.compareDocumentPosition
+                ? function (a, b) {
+                    return !!(a.compareDocumentPosition(b) & 16);
                   }
-                  return false;
-                };
+                : global.document.documentElement.contains
+                ? function (a, b) {
+                    return a !== b && (a.contains ? a.contains(b) : false);
+                  }
+                : function (a, b) {
+                    while ((b = b.parentNode)) {
+                      if (b === a) {
+                        return true;
+                      }
+                    }
+                    return false;
+                  };
             };
 
             function createInViewport(container) {
@@ -860,7 +871,10 @@
 
               var scrollContainer =
                 container === global.document.body ? global : container;
-              var debouncedCheck = debounce(watches.checkAll(watchInViewport), 15);
+              var debouncedCheck = debounce(
+                watches.checkAll(watchInViewport),
+                15
+              );
 
               addEvent(scrollContainer, "scroll", debouncedCheck);
 
@@ -926,7 +940,8 @@
                     top: -offset,
                     left: -offset,
                     right: global.document.documentElement.clientWidth + offset,
-                    bottom: global.document.documentElement.clientHeight + offset,
+                    bottom:
+                      global.document.documentElement.clientHeight + offset,
                   };
                 } else {
                   var containerRect = container.getBoundingClientRect();
@@ -1032,10 +1047,10 @@
           ));
         },
       ]);
-
     }
   };
 </script>
+
       
 
       
@@ -1293,11 +1308,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Express</a>
+                <a href="javascript:void(0)" class="js-tag color1">WebGL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">WebGL</a>
+                <a href="javascript:void(0)" class="js-tag color3">Express</a>
               </li>
              
               <li class="article-tag-list-item">
