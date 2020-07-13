@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="https://chenwenkai8023ni.github.io">
   <title>相册 | 风吹过得夏天</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="风景   生活    其他      图片来自路过图床，正在加载中…     window.onload &#x3D; function () {     var btn &#x3D; document.getElementsByClassName(&quot;photos-btn-wrap&quot;)[0];     var span &#x3D; document.getElementsByClassName(&quot;photos-bt">
+  <meta name="description" content="风景   手机壁纸    其他      图片来自互联网,侵删.正在加载中…     window.onload &#x3D; function () {     var btn &#x3D; document.getElementsByClassName(&quot;photos-btn-wrap&quot;)[0];     var span &#x3D; document.getElementsByClassName(&quot;photo">
 <meta property="og:type" content="website">
 <meta property="og:title" content="相册">
 <meta property="og:url" content="https://chenwenkai8023ni.github.io/photo/index.html">
 <meta property="og:site_name" content="风吹过得夏天">
-<meta property="og:description" content="风景   生活    其他      图片来自路过图床，正在加载中…     window.onload &#x3D; function () {     var btn &#x3D; document.getElementsByClassName(&quot;photos-btn-wrap&quot;)[0];     var span &#x3D; document.getElementsByClassName(&quot;photos-bt">
+<meta property="og:description" content="风景   手机壁纸    其他      图片来自互联网,侵删.正在加载中…     window.onload &#x3D; function () {     var btn &#x3D; document.getElementsByClassName(&quot;photos-btn-wrap&quot;)[0];     var span &#x3D; document.getElementsByClassName(&quot;photo">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://chenwenkai8023ni.github.io/assets/img/empty.png">
-<meta property="article:published_time" content="2020-07-12T04:52:18.382Z">
-<meta property="article:modified_time" content="2020-07-12T04:52:18.382Z">
+<meta property="article:published_time" content="2020-07-13T08:32:00.714Z">
+<meta property="article:modified_time" content="2020-07-13T08:32:00.714Z">
 <meta property="article:author" content="风吹过得夏天">
 <meta property="article:tag" content="个人博客">
 <meta property="article:tag" content="技术分享">
@@ -184,7 +184,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">1.8k字</span>
+      <span class="post-count">1.9k字</span>
     </span>
   </span>
 
@@ -207,7 +207,7 @@
 <link rel="stylesheet" href="./ins.css" />
 <div class="photos-btn-wrap">
   <span id="ins" class="photos-btn active" href="javascript:void(0)">风景</span>
-  <span id="life" class="photos-btn" href="javascript:void(0)">生活</span>
+  <span id="life" class="photos-btn" href="javascript:void(0)">手机壁纸</span>
   <span id="star" class="photos-btn" href="javascript:void(0)"> 其他</span>
 </div>
 
@@ -216,7 +216,7 @@
     href="https://s1.ax1x.com/2020/06/25/N0Uro8.png"
     target="_blank"
     class="open-ins"
-    >图片来自路过图床，正在加载中…</a
+    >图片来自互联网,侵删.正在加载中…</a
   >
 </div>
 <script>
@@ -315,8 +315,13 @@
               var data = res.list[j].arr;
               var liTmpl = "";
               for (var i = 0, len = data.link.length; i < len; i++) {
-                var minSrc = `https://s1.ax1x.com/${data.year}/${data.month}/${data.day}/${data.link[i]}.th.jpg`;
-                var src = `https://s1.ax1x.com/${data.year}/${data.month}/${data.day}/${data.link[i]}.jpg`;
+                if (data.type[i] === "jpg") {
+                  var minSrc = `https://s1.ax1x.com/${data.year}/${data.month}/${data.day}/${data.link[i]}.th.jpg`;
+                  var src = `https://s1.ax1x.com/${data.year}/${data.month}/${data.day}/${data.link[i]}.jpg`;
+                } else if (data.type[i] === "png") {
+                  var minSrc = `https://s1.ax1x.com/${data.year}/${data.month}/${data.day}/${data.link[i]}.th.png`;
+                  var src = `https://s1.ax1x.com/${data.year}/${data.month}/${data.day}/${data.link[i]}.png`;
+                }
                 var type = data.type[i];
                 var target = src + (type === "video" ? ".mp4" : ".jpg");
 
@@ -336,7 +341,7 @@
                   '" src="/assets/img/empty.png" itemprop="thumbnail" onload="lzld(this)">\
                 </a>\
                 <figcaption style="display:none" itemprop="caption description">' +
-                  data.text[i] +
+                  data.text[0] +
                   "</figcaption>\
             </figure>";
               }
@@ -356,9 +361,7 @@
         </section>";
             }
             document.querySelector(".instagram").innerHTML =
-              '<div class="photos" itemscope="" itemtype="http://schema.org/ImageGallery">' +
-              ulTmpl +
-              "</div>";
+              '<div class="photos" itemscope="" >' + ulTmpl + "</div>";
             createVideoIncon();
             _view2.default.init();
           };
