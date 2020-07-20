@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://chenwenkai8023ni.github.io">
-  <title>Tag: Vue | 风吹过得夏天</title>
+  <title>canvas实现贪吃蛇 | 风吹过得夏天</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人博客,技术分享,记录生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="风吹过得夏天">
-<meta property="og:url" content="https://chenwenkai8023ni.github.io/tags/Vue/index.html">
+  <meta name="description" content="canvas 实现简易贪吃蛇">
+<meta property="og:type" content="article">
+<meta property="og:title" content="canvas实现贪吃蛇">
+<meta property="og:url" content="https://chenwenkai8023ni.github.io/artcle/f47fe538.html">
 <meta property="og:site_name" content="风吹过得夏天">
-<meta property="og:description" content="个人博客,技术分享,记录生活">
+<meta property="og:description" content="canvas 实现简易贪吃蛇">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-20T01:59:57.000Z">
+<meta property="article:modified_time" content="2020-07-20T02:16:28.644Z">
 <meta property="article:author" content="风吹过得夏天">
-<meta property="article:tag" content="个人博客">
-<meta property="article:tag" content="技术分享">
-<meta property="article:tag" content="记录生活">
+<meta property="article:tag" content="WebGL">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="风吹过得夏天" type="application/atom+xml">
@@ -161,233 +161,275 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-canvas实现贪吃蛇" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      canvas实现贪吃蛇
+    </h1>
+  
+
+        
+        
+<!-- 不蒜子统计 -->
+<span
+  id="busuanzi_container_page_pv"
+  style="display: none;"
+  class="archive-article-date"
+>
+  <i class="icon-smile icon"></i> 阅读数：<span
+    id="busuanzi_value_page_pv"
+  ></span>次
+</span>
+
+<a href="/artcle/f47fe538.html" class="archive-article-date">
+  <time datetime="2020-07-20T01:59:57.000Z" itemprop="datePublished"
+    ><i class="icon-calendar icon"></i>2020-07-20</time
+  >
+</a>
+
+        
+         <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">961字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">5分</span>
+    </span>
+  </span>
+</div>
+ 
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="canvas-实现简易贪吃蛇"><a href="#canvas-实现简易贪吃蛇" class="headerlink" title="canvas 实现简易贪吃蛇"></a>canvas 实现简易贪吃蛇</h2><a id="more"></a>
+
+<h3 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h3><ul>
+<li>制作蛇<ul>
+<li>蛇头和蛇身</li>
+<li>蛇运动</li>
+</ul>
+</li>
+<li>键盘事件<ul>
+<li>animate 运动</li>
+<li>随机食物</li>
+</ul>
+</li>
+<li>随机数坐标<ul>
+<li>是否投放在蛇身和蛇头中(重新投放)</li>
+<li>吃食物</li>
+</ul>
+</li>
+<li>碰撞检测<ul>
+<li>增加蛇身长度</li>
+<li>蛇头是否碰撞到蛇身</li>
+<li>gameover</li>
+</ul>
+</li>
+</ul>
+<h3 id="定义绘制矩形构造函数"><a href="#定义绘制矩形构造函数" class="headerlink" title="定义绘制矩形构造函数"></a>定义绘制矩形构造函数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Reat</span>(<span class="params">x, y, width, height, color</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.x = x;</span><br><span class="line">  <span class="keyword">this</span>.y = y;</span><br><span class="line">  <span class="keyword">this</span>.width = width;</span><br><span class="line">  <span class="keyword">this</span>.height = height;</span><br><span class="line">  <span class="keyword">this</span>.color = color;</span><br><span class="line">  <span class="keyword">this</span>.draw = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    ctx.beginPath();</span><br><span class="line">    ctx.fillStyle = <span class="keyword">this</span>.color;</span><br><span class="line">    ctx.fillRect(<span class="keyword">this</span>.x, <span class="keyword">this</span>.y, <span class="keyword">this</span>.width, <span class="keyword">this</span>.height);</span><br><span class="line">    ctx.strokeRect(<span class="keyword">this</span>.x, <span class="keyword">this</span>.y, <span class="keyword">this</span>.width, <span class="keyword">this</span>.height);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="初始化参数"><a href="#初始化参数" class="headerlink" title="初始化参数"></a>初始化参数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ctx = canvas.getContext(<span class="string">"2d"</span>);</span><br><span class="line"><span class="comment">//吃食物开关</span></span><br><span class="line"><span class="keyword">let</span> isEatFood = <span class="literal">false</span>;</span><br><span class="line"><span class="comment">//定时器</span></span><br><span class="line"><span class="keyword">let</span> timer;</span><br><span class="line"><span class="comment">//速度</span></span><br><span class="line"><span class="keyword">let</span> sudu = <span class="number">200</span>;</span><br><span class="line"><span class="comment">//键盘值</span></span><br><span class="line"><span class="keyword">let</span> keycode = <span class="number">39</span>;</span><br><span class="line"><span class="comment">//定时器开关</span></span><br><span class="line"><span class="keyword">let</span> flag = <span class="literal">true</span>;</span><br><span class="line"><span class="comment">//食物方法</span></span><br><span class="line"><span class="keyword">let</span> food;</span><br><span class="line"><span class="comment">//蛇实例</span></span><br><span class="line"><span class="keyword">let</span> snake;</span><br></pre></td></tr></table></figure>
+
+<h3 id="定义蛇构造函数"><a href="#定义蛇构造函数" class="headerlink" title="定义蛇构造函数"></a>定义蛇构造函数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Snake</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">//初始化蛇运动方向</span></span><br><span class="line">  <span class="keyword">this</span>.direction = <span class="number">2</span>;</span><br><span class="line">  <span class="comment">//蛇头</span></span><br><span class="line">  <span class="keyword">this</span>.head = <span class="keyword">new</span> Reat(</span><br><span class="line">    canvas.width / <span class="number">2</span> - <span class="number">20</span>,</span><br><span class="line">    canvas.height / <span class="number">2</span> - <span class="number">20</span>,</span><br><span class="line">    <span class="number">40</span>,</span><br><span class="line">    <span class="number">40</span>,</span><br><span class="line">    <span class="string">"red"</span></span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  <span class="comment">//蛇身</span></span><br><span class="line">  <span class="keyword">this</span>.body = [];</span><br><span class="line">  <span class="keyword">let</span> x = <span class="keyword">this</span>.head.x - <span class="number">40</span>;</span><br><span class="line">  <span class="keyword">let</span> y = <span class="keyword">this</span>.head.y;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> rect = <span class="keyword">new</span> Reat(x, y, <span class="number">40</span>, <span class="number">40</span>, <span class="string">"gray"</span>);</span><br><span class="line">    <span class="keyword">this</span>.body.push(rect);</span><br><span class="line">    x -= <span class="number">40</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//画</span></span><br><span class="line">  <span class="keyword">this</span>.draw = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 绘制蛇头</span></span><br><span class="line">    <span class="keyword">this</span>.head.draw();</span><br><span class="line">    <span class="comment">//绘制蛇身</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.body.length; i++) &#123;</span><br><span class="line">      <span class="keyword">this</span>.body[i].draw();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="comment">// 移动</span></span><br><span class="line">  <span class="keyword">this</span>.move = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//创建当前蛇头位置的蛇身</span></span><br><span class="line">    <span class="keyword">let</span> rect = <span class="keyword">new</span> Reat(</span><br><span class="line">      <span class="keyword">this</span>.head.x,</span><br><span class="line">      <span class="keyword">this</span>.head.y,</span><br><span class="line">      <span class="keyword">this</span>.head.width,</span><br><span class="line">      <span class="keyword">this</span>.head.height,</span><br><span class="line">      <span class="string">"gray"</span></span><br><span class="line">    );</span><br><span class="line">    <span class="keyword">this</span>.body.splice(<span class="number">0</span>, <span class="number">0</span>, rect);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//去尾</span></span><br><span class="line">    <span class="comment">//如何没吃到食物,去除一个尾部</span></span><br><span class="line">    <span class="keyword">if</span> (isEatFood == <span class="literal">false</span>) &#123;</span><br><span class="line">      <span class="keyword">this</span>.body.pop();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      isEatFood = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//蛇头移动</span></span><br><span class="line">    <span class="keyword">switch</span> (<span class="keyword">this</span>.direction) &#123;</span><br><span class="line">      <span class="comment">//蛇头向左</span></span><br><span class="line">      <span class="keyword">case</span> <span class="number">0</span>: &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.head.x &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">          <span class="keyword">this</span>.head.x = canvas.width;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.head.x -= <span class="keyword">this</span>.head.width;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//上</span></span><br><span class="line">      <span class="keyword">case</span> <span class="number">1</span>: &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.head.y &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">          <span class="keyword">this</span>.head.y = canvas.height;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.head.y -= <span class="keyword">this</span>.head.width;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//右</span></span><br><span class="line">      <span class="keyword">case</span> <span class="number">2</span>: &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.head.x &gt;= <span class="number">795</span>) &#123;</span><br><span class="line">          <span class="keyword">this</span>.head.x = <span class="number">-40</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.head.x += <span class="keyword">this</span>.head.width;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//下</span></span><br><span class="line">      <span class="keyword">case</span> <span class="number">3</span>: &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.head.y &gt;= canvas.height - <span class="number">40</span>) &#123;</span><br><span class="line">          <span class="keyword">this</span>.head.y = <span class="number">-40</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.head.y += <span class="keyword">this</span>.head.width;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 判断蛇头和蛇身是否撞上</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.body.length; i++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (isRect(<span class="keyword">this</span>.head, <span class="keyword">this</span>.body[i])) &#123;</span><br><span class="line">        clearInterval(timer);</span><br><span class="line">        timer = <span class="literal">null</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="定义键盘事件"><a href="#定义键盘事件" class="headerlink" title="定义键盘事件"></a>定义键盘事件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//键盘事件传值</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"keydown"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> ev = event || <span class="built_in">window</span>.event;</span><br><span class="line">  <span class="keyword">switch</span> (ev.keyCode) &#123;</span><br><span class="line">    <span class="comment">//左</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">37</span>: &#123;</span><br><span class="line">      <span class="keyword">if</span> (keycode !== <span class="number">39</span>) &#123;</span><br><span class="line">        snake.direction = <span class="number">0</span>;</span><br><span class="line">        keycode = <span class="number">37</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//上</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">38</span>: &#123;</span><br><span class="line">      <span class="keyword">if</span> (keycode !== <span class="number">40</span>) &#123;</span><br><span class="line">        snake.direction = <span class="number">1</span>;</span><br><span class="line">        keycode = <span class="number">38</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//右</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">39</span>: &#123;</span><br><span class="line">      <span class="keyword">if</span> (keycode !== <span class="number">37</span>) &#123;</span><br><span class="line">        snake.direction = <span class="number">2</span>;</span><br><span class="line">        keycode = <span class="number">39</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//下</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">40</span>: &#123;</span><br><span class="line">      <span class="keyword">if</span> (keycode !== <span class="number">38</span>) &#123;</span><br><span class="line">        snake.direction = <span class="number">3</span>;</span><br><span class="line">        keycode = <span class="number">40</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="定义食物事件"><a href="#定义食物事件" class="headerlink" title="定义食物事件"></a>定义食物事件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">food = isfood();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isfood</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> isSnake = <span class="literal">true</span>;</span><br><span class="line">  <span class="keyword">while</span> (isSnake) &#123;</span><br><span class="line">    <span class="keyword">let</span> x = getNum(<span class="number">0</span>, (canvas.width - <span class="number">40</span>) / <span class="number">40</span>) * <span class="number">40</span>;</span><br><span class="line">    <span class="keyword">let</span> y = getNum(<span class="number">0</span>, (canvas.height - <span class="number">40</span>) / <span class="number">40</span>) * <span class="number">40</span>;</span><br><span class="line">    <span class="keyword">var</span> rect = <span class="keyword">new</span> Reat(x, y, <span class="number">40</span>, <span class="number">40</span>, <span class="string">"blue"</span>);</span><br><span class="line">    <span class="comment">//判断生成位置是否与蛇头重叠</span></span><br><span class="line">    <span class="keyword">if</span> (isRect(snake.head, rect)) &#123;</span><br><span class="line">      isSnake = <span class="literal">true</span>;</span><br><span class="line">      <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    isSnake = <span class="literal">false</span>;</span><br><span class="line">    <span class="comment">//判断生成位置是否与蛇身重叠</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; snake.body.length; i++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (isRect(snake.body[i], rect)) &#123;</span><br><span class="line">        isSnake = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> rect;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="随机数事件"><a href="#随机数事件" class="headerlink" title="随机数事件"></a>随机数事件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getNum</span>(<span class="params">min, max</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.round(<span class="built_in">Math</span>.random() * (max - min) + min);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="碰撞检测事件"><a href="#碰撞检测事件" class="headerlink" title="碰撞检测事件"></a>碰撞检测事件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isRect</span>(<span class="params">rect1, rect2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> minX1 = rect1.x;</span><br><span class="line">  <span class="keyword">let</span> minX2 = rect2.x;</span><br><span class="line">  <span class="keyword">let</span> minY1 = rect1.y;</span><br><span class="line">  <span class="keyword">let</span> minY2 = rect2.y;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> maxX1 = rect1.x + rect1.width;</span><br><span class="line">  <span class="keyword">let</span> maxX2 = rect2.x + rect2.width;</span><br><span class="line">  <span class="keyword">let</span> maxY1 = rect1.y + rect1.height;</span><br><span class="line">  <span class="keyword">let</span> maxY2 = rect2.y + rect2.height;</span><br><span class="line">  <span class="comment">//判断矩形相交</span></span><br><span class="line">  <span class="keyword">let</span> minX = <span class="built_in">Math</span>.max(minX1, minX2);</span><br><span class="line">  <span class="keyword">let</span> minY = <span class="built_in">Math</span>.max(minY1, minY2);</span><br><span class="line">  <span class="keyword">let</span> maxX = <span class="built_in">Math</span>.min(maxX1, maxX2);</span><br><span class="line">  <span class="keyword">let</span> maxY = <span class="built_in">Math</span>.min(maxY1, maxY2);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (minX &lt; maxX &amp;&amp; minY &lt; maxY) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="动画事件"><a href="#动画事件" class="headerlink" title="动画事件"></a>动画事件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">animate</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  ctx.clearRect(<span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height);</span><br><span class="line">  food.draw(); <span class="comment">//绘制食物</span></span><br><span class="line">  snake.move(); <span class="comment">//蛇头移动坐标</span></span><br><span class="line">  snake.draw(); <span class="comment">//绘制</span></span><br><span class="line">  <span class="comment">//判读蛇头是否吃到食物</span></span><br><span class="line">  <span class="keyword">if</span> (isRect(snake.head, food)) &#123;</span><br><span class="line">    isEatFood = <span class="literal">true</span>;</span><br><span class="line">    food = isfood();</span><br><span class="line">    food.draw();</span><br><span class="line">    sudu = sudu &lt; <span class="number">50</span> ? <span class="number">50</span> : sudu - <span class="number">10</span>;</span><br><span class="line">    stop();</span><br><span class="line">    start();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="开始游戏计时器"><a href="#开始游戏计时器" class="headerlink" title="开始游戏计时器"></a>开始游戏计时器</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">start</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (flag == <span class="literal">true</span>) &#123;</span><br><span class="line">    timer = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      animate();</span><br><span class="line">      flag = <span class="literal">false</span>;</span><br><span class="line">    &#125;, sudu);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="暂停游戏"><a href="#暂停游戏" class="headerlink" title="暂停游戏"></a>暂停游戏</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">stop</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  clearInterval(timer);</span><br><span class="line">  flag = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢观看<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/8235.html" class="archive-article-date">
-  <time datetime="2020-01-18T07:58:02.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-01-18</time
-  >
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/8235.html">Vuex</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">WebGL</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://chenwenkai8023ni.github.io/artcle/f47fe538.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/25005.html" class="archive-article-date">
-  <time datetime="2020-01-16T07:58:02.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-01-16</time
-  >
-</a>
 
+  
+<nav id="article-nav">
+  
+  
+    <a href="/artcle/6cc1dae0.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">canvas添加样式和颜色</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/25005.html">Vue-router</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#canvas-实现简易贪吃蛇"><span class="toc-number">1.</span> <span class="toc-text">canvas 实现简易贪吃蛇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现过程"><span class="toc-number">1.1.</span> <span class="toc-text">实现过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定义绘制矩形构造函数"><span class="toc-number">1.2.</span> <span class="toc-text">定义绘制矩形构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化参数"><span class="toc-number">1.3.</span> <span class="toc-text">初始化参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定义蛇构造函数"><span class="toc-number">1.4.</span> <span class="toc-text">定义蛇构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定义键盘事件"><span class="toc-number">1.5.</span> <span class="toc-text">定义键盘事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定义食物事件"><span class="toc-number">1.6.</span> <span class="toc-text">定义食物事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#随机数事件"><span class="toc-number">1.7.</span> <span class="toc-text">随机数事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#碰撞检测事件"><span class="toc-number">1.8.</span> <span class="toc-text">碰撞检测事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动画事件"><span class="toc-number">1.9.</span> <span class="toc-text">动画事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开始游戏计时器"><span class="toc-number">1.10.</span> <span class="toc-text">开始游戏计时器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#暂停游戏"><span class="toc-number">1.11.</span> <span class="toc-text">暂停游戏</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+	
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'false' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "D5szmzhp8za9gwaqf5ShK0Io-gzGzoHsz",
+        app_key: "euv6Ozr0COt2ObIkLA0s0JWE",
+        placeholder: "Just go go",
+        avatar:"mm",
+    });
+</script>
+  </section>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/46903.html" class="archive-article-date">
-  <time datetime="2020-01-13T07:58:02.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-01-13</time
-  >
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/46903.html">Vueprop传值</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/51277.html" class="archive-article-date">
-  <time datetime="2020-01-12T07:58:02.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-01-12</time
-  >
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/51277.html">Vue基本使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/9489.html" class="archive-article-date">
-  <time datetime="2020-01-10T07:58:02.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-01-10</time
-  >
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/9489.html">Vue初学</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-
 
           </div>
         </div>
@@ -455,9 +497,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
