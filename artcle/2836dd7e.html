@@ -6,20 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://chenwenkai8023ni.github.io">
-  <title>Archives | 风吹过得夏天</title>
+  <title>js深拷贝与浅拷贝 | 风吹过得夏天</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人博客,技术分享,记录生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="风吹过得夏天">
-<meta property="og:url" content="https://chenwenkai8023ni.github.io/archives/page/2/index.html">
+  <meta name="description" content="js 深拷贝与浅拷贝">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js深拷贝与浅拷贝">
+<meta property="og:url" content="https://chenwenkai8023ni.github.io/artcle/2836dd7e.html">
 <meta property="og:site_name" content="风吹过得夏天">
-<meta property="og:description" content="个人博客,技术分享,记录生活">
+<meta property="og:description" content="js 深拷贝与浅拷贝">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/23/UqNCr9.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/23/UqduMF.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/23/UqdJG6.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/23/UqdyJP.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/23/UqwpJx.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/23/Uqwo0H.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/23/Uq0CAs.png">
+<meta property="article:published_time" content="2020-07-23T01:56:45.000Z">
+<meta property="article:modified_time" content="2020-07-23T02:40:25.133Z">
 <meta property="article:author" content="风吹过得夏天">
-<meta property="article:tag" content="个人博客">
-<meta property="article:tag" content="技术分享">
-<meta property="article:tag" content="记录生活">
+<meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/23/UqNCr9.png">
   
     <link rel="alternative" href="/atom.xml" title="风吹过得夏天" type="application/atom+xml">
   
@@ -161,40 +169,103 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-js深拷贝与浅拷贝" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/51388.html" class="archive-article-date">
-  <time datetime="2020-07-07T03:03:15.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-07-07</time
-  >
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/51388.html">牛客网js错题总结</a>
+    <h1 class="article-title" itemprop="name">
+      js深拷贝与浅拷贝
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        
+<!-- 不蒜子统计 -->
+<span
+  id="busuanzi_container_page_pv"
+  style="display: none;"
+  class="archive-article-date"
+>
+  <i class="icon-smile icon"></i> 阅读数：<span
+    id="busuanzi_value_page_pv"
+  ></span>次
+</span>
+
+<a href="/artcle/2836dd7e.html" class="archive-article-date">
+  <time datetime="2020-07-23T01:56:45.000Z" itemprop="datePublished"
+    ><i class="icon-calendar icon"></i>2020-07-23</time
+  >
+</a>
+
+        
+         <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">443字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">1分</span>
+    </span>
+  </span>
+</div>
+ 
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="js-深拷贝与浅拷贝"><a href="#js-深拷贝与浅拷贝" class="headerlink" title="js 深拷贝与浅拷贝"></a>js 深拷贝与浅拷贝</h2><a id="more"></a>
+
+<p>深拷贝与浅拷贝的区别，实现深拷贝的几种方法是面试必问考点<br>区分两者很容易,简单的来说,假设 b 复制了 a,当修改 a 的值时,b 的值也发生变化,这就是浅拷贝<br>如果 b 没有发生改变就是深拷贝<br>浅拷贝例子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> A = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> B = A;</span><br><span class="line">A[<span class="number">0</span>] = <span class="number">4</span>;</span><br><span class="line"><span class="built_in">console</span>.log(A, B);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s1.ax1x.com/2020/07/23/UqNCr9.png" alt="图示"></p>
+<h3 id="基本数据类型与引用数据类型"><a href="#基本数据类型与引用数据类型" class="headerlink" title="基本数据类型与引用数据类型"></a>基本数据类型与引用数据类型</h3><p>1 基本类型–名值存储在栈内存中 let a =1</p>
+<p><img src="https://s1.ax1x.com/2020/07/23/UqduMF.png" alt="图示"><br>当 b=a 复制时,栈内存会重新开辟一个内存<br><img src="https://s1.ax1x.com/2020/07/23/UqdJG6.png" alt="图示"><br>所以此时修改 a=2，对 b 并不会造成影响</p>
+<p>2 引用数据类型–名存在栈内存中，值存在于堆内存中</p>
+<p><img src="https://s1.ax1x.com/2020/07/23/UqdyJP.png" alt="图示"><br>当 b=a 进行拷贝时，其实复制的是 a 的引用地址，而并非堆里面的值。<br><img src="https://s1.ax1x.com/2020/07/23/UqwpJx.png" alt="图示"><br>当我们 a[0]=1 时进行数组修改时，由于 a 与 b 指向的是同一个地址，所以自然 b 也受了影响，这就是所谓的浅拷贝了。<br><img src="https://s1.ax1x.com/2020/07/23/Uqwo0H.png" alt="图示"><br>要是在堆内存中也开辟一个新的内存专门为 b 存放值，就像基本类型那样就达到深拷贝效果<br><img src="https://s1.ax1x.com/2020/07/23/Uq0CAs.png" alt="图示"></p>
+<h4 id="深拷贝方法"><a href="#深拷贝方法" class="headerlink" title="深拷贝方法"></a>深拷贝方法</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//判断是对象还是数组</span></span><br><span class="line">  <span class="keyword">let</span> objClone = <span class="built_in">Array</span>.isArray(obj) ? [] : &#123;&#125;;</span><br><span class="line">  <span class="keyword">if</span> (obj &amp;&amp; <span class="keyword">typeof</span> obj === <span class="string">"object"</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> (key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">      <span class="comment">//对象自身属性中是否具有指定的属性</span></span><br><span class="line">      <span class="keyword">if</span> (obj.hasOwnProperty(key)) &#123;</span><br><span class="line">        <span class="comment">//判断ojb子元素是否为对象，如果是，递归复制</span></span><br><span class="line">        <span class="keyword">if</span> (obj[key] &amp;&amp; <span class="keyword">typeof</span> obj[key] === <span class="string">"object"</span>) &#123;</span><br><span class="line">          objClone[key] = deepClone(obj[key]);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="comment">//如果不是，简单复制</span></span><br><span class="line">          objClone[key] = obj[key];</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> objClone;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">let</span> b = deepClone(a);</span><br><span class="line">a[<span class="number">0</span>] = <span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a, b);</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢观看<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -206,402 +277,134 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://chenwenkai8023ni.github.io/artcle/2836dd7e.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/41644.html" class="archive-article-date">
-  <time datetime="2020-07-07T01:38:43.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-07-07</time
-  >
-</a>
 
+  
+<nav id="article-nav">
+  
+  
+    <a href="/artcle/5c3dbcbd.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">面试题总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/41644.html">浏览器重排与重绘</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#js-深拷贝与浅拷贝"><span class="toc-number">1.</span> <span class="toc-text">js 深拷贝与浅拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本数据类型与引用数据类型"><span class="toc-number">1.1.</span> <span class="toc-text">基本数据类型与引用数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#深拷贝方法"><span class="toc-number">1.1.1.</span> <span class="toc-text">深拷贝方法</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+	
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'false' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "D5szmzhp8za9gwaqf5ShK0Io-gzGzoHsz",
+        app_key: "euv6Ozr0COt2ObIkLA0s0JWE",
+        placeholder: "Just go go",
+        avatar:"mm",
+    });
+</script>
+  </section>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/58774.html" class="archive-article-date">
-  <time datetime="2020-07-05T02:28:47.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-07-05</time
-  >
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/58774.html">canvas_基础方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">WebGL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/48857.html" class="archive-article-date">
-  <time datetime="2020-01-22T07:56:47.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-01-22</time
-  >
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/48857.html">MongoDB笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MongoDB</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/8235.html" class="archive-article-date">
-  <time datetime="2020-01-18T07:58:02.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-01-18</time
-  >
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/8235.html">Vuex</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/25005.html" class="archive-article-date">
-  <time datetime="2020-01-16T07:58:02.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-01-16</time
-  >
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/25005.html">Vue-router</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/46903.html" class="archive-article-date">
-  <time datetime="2020-01-13T07:58:02.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-01-13</time
-  >
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/46903.html">Vueprop传值</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/51277.html" class="archive-article-date">
-  <time datetime="2020-01-12T07:58:02.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-01-12</time
-  >
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/51277.html">Vue基本使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/9489.html" class="archive-article-date">
-  <time datetime="2020-01-10T07:58:02.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-01-10</time
-  >
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/9489.html">Vue初学</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-express">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/39204.html" class="archive-article-date">
-  <time datetime="2020-01-05T07:58:02.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-01-05</time
-  >
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/39204.html">Express JWT</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Express</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">Next &amp;raquo;</a>
-    </nav>
-  
-
 
           </div>
         </div>
@@ -669,8 +472,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
