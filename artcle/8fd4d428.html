@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://chenwenkai8023ni.github.io">
-  <title>Express模块使用 | 风吹过得夏天</title>
+  <title>Vue初级知识汇总 | 风吹过得夏天</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="图片上传">
+  <meta name="description" content="Vue 初级知识汇总">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Express模块使用">
-<meta property="og:url" content="https://chenwenkai8023ni.github.io/artcle/38401.html">
+<meta property="og:title" content="Vue初级知识汇总">
+<meta property="og:url" content="https://chenwenkai8023ni.github.io/artcle/8fd4d428.html">
 <meta property="og:site_name" content="风吹过得夏天">
-<meta property="og:description" content="图片上传">
+<meta property="og:description" content="Vue 初级知识汇总">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-01-02T07:56:47.000Z">
-<meta property="article:modified_time" content="2020-07-25T01:17:27.191Z">
+<meta property="article:published_time" content="2020-07-25T00:52:23.000Z">
+<meta property="article:modified_time" content="2020-07-25T02:59:32.778Z">
 <meta property="article:author" content="风吹过得夏天">
-<meta property="article:tag" content="Express">
+<meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="风吹过得夏天" type="application/atom+xml">
@@ -161,14 +161,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Express-模块使用" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Vue初级知识汇总" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Express模块使用
+      Vue初级知识汇总
     </h1>
   
 
@@ -185,9 +185,9 @@
   ></span>次
 </span>
 
-<a href="/artcle/38401.html" class="archive-article-date">
-  <time datetime="2020-01-02T07:56:47.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-01-02</time
+<a href="/artcle/8fd4d428.html" class="archive-article-date">
+  <time datetime="2020-07-25T00:52:23.000Z" itemprop="datePublished"
+    ><i class="icon-calendar icon"></i>2020-07-25</time
   >
 </a>
 
@@ -199,7 +199,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">739字</span>
+      <span class="post-count">1.9k字</span>
     </span>
   </span>
 
@@ -208,7 +208,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-hourglass-half"></i>
       <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">3分</span>
+      <span class="post-count">7分</span>
     </span>
   </span>
 </div>
@@ -218,31 +218,198 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="图片上传"><a href="#图片上传" class="headerlink" title="图片上传"></a>图片上传</h2><a id="more"></a>
+        <h2 id="Vue-初级知识汇总"><a href="#Vue-初级知识汇总" class="headerlink" title="Vue 初级知识汇总"></a>Vue 初级知识汇总</h2><a id="more"></a>
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">注意：image.html的表单中</span><br><span class="line"><span class="number">1.</span>表单必须添加 enctype=<span class="string">"multipart/form-data"</span></span><br><span class="line"><span class="number">2.</span>给input type=<span class="string">"file"</span>添加name的名字photo</span><br><span class="line"></span><br><span class="line">用户点击提交图片，图片上传到服务器，更新数据库用户的头像信息：router.post(<span class="string">'/image'</span>)</span><br><span class="line">	router.post(<span class="string">'/image'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">	&#125;)</span><br><span class="line"><span class="number">1.</span> 借助于第三方模块multer:npm install multer --save</span><br><span class="line"><span class="number">2.</span> 使用</span><br><span class="line">		<span class="keyword">var</span> multer = <span class="built_in">require</span>(<span class="string">'multer'</span>);</span><br><span class="line">		<span class="keyword">var</span> upload = multer(&#123;</span><br><span class="line">			dest:<span class="string">'public/upload'</span>	<span class="comment">// 设置</span></span><br><span class="line">				<span class="comment">// 将上传的图片放在upload里面，方便后期的头像管理</span></span><br><span class="line">		&#125;)</span><br><span class="line">		router.post(<span class="string">'/image'</span>,upload.single(<span class="string">'photo'</span>),<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;&#125;)</span><br><span class="line">    原理:</span><br><span class="line">    图片上传到服务器：实质是图片经过互联网传递到服务器的一个文件</span><br><span class="line">    （一般情况下是第三方模块multer指定的位置），</span><br><span class="line">    需要对文件进行安全检查（大小，类型，是否是可信任文件），</span><br><span class="line">    获取到文件的名字，将名字保存到数据库</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">示例:</span><br><span class="line"><span class="comment">//image.html</span></span><br><span class="line">&lt;form action=<span class="string">"/users/image"</span> method=<span class="string">"post"</span> enctype=<span class="string">"multipart/form-data"</span>&gt;</span><br><span class="line">	&lt;input type=<span class="string">"hidden"</span> name=<span class="string">"id"</span> value=<span class="string">"&lt;%=id%&gt;"</span>&gt;</span><br><span class="line">	&lt;input type=<span class="string">"file"</span> name=<span class="string">"photo"</span>&gt;</span><br><span class="line">&lt;<span class="regexp">/form&gt;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/路由</span></span><br><span class="line"><span class="regexp">router.post('/im</span>age<span class="string">',upload.single('</span>photo<span class="string">'),function(req,res)&#123;</span></span><br><span class="line"><span class="string">    // console.log(req.file);</span></span><br><span class="line"><span class="string">    console.log(req.body.id);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    // 判断文件大小是否符合要求（100kb为界限）</span></span><br><span class="line"><span class="string">    if (req.file.size &gt; 102400) &#123;</span></span><br><span class="line"><span class="string">        res.send('</span>文件过大，请重新上传<span class="string">');</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    // 判断文件的类型</span></span><br><span class="line"><span class="string">    // console.log(req.file.mimetype);</span></span><br><span class="line"><span class="string">    var arr = ['</span>image/png<span class="string">','</span>image/gif<span class="string">','</span>image/jpeg<span class="string">'];</span></span><br><span class="line"><span class="string">    // indexOf 返回某个指定的字符串值在字符串中首次出现的位置</span></span><br><span class="line"><span class="string">    if (arr.indexOf(req.file.mimetype) === -1) &#123;</span></span><br><span class="line"><span class="string">        res.send('</span>上传的文件不符合类型<span class="string">');</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    // 给文件设置后缀名</span></span><br><span class="line"><span class="string">    var fs = require('</span>fs<span class="string">');</span></span><br><span class="line"><span class="string">    var path = require('</span>path<span class="string">');</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    // 拼接老名字和新名字，使用rename进行改名</span></span><br><span class="line"><span class="string">    var oldname = path.join('</span>public/upload<span class="string">',req.file.filename);</span></span><br><span class="line"><span class="string">    // 补充文件的后缀名-- path.extname获取文件的后缀名</span></span><br><span class="line"><span class="string">    var filename = req.file.filename+path.extname(req.file.originalname);</span></span><br><span class="line"><span class="string">    // path.join():将指定的路径通过\连接</span></span><br><span class="line"><span class="string">    var newname = path.join('</span>public/upload<span class="string">',filename);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    fs.rename(oldname,newname,function(error)&#123;</span></span><br><span class="line"><span class="string">        if (error) &#123;</span></span><br><span class="line"><span class="string">            console.log('</span>修改失败<span class="string">',error);</span></span><br><span class="line"><span class="string">        &#125; else &#123;</span></span><br><span class="line"><span class="string">            // 将名字保存到数据库</span></span><br><span class="line"><span class="string">            connection.query('</span>update users <span class="keyword">set</span> photo="'+filename+'" where id='+req.body.id,function(error)&#123;</span><br><span class="line">                <span class="keyword">if</span> (error) &#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="string">'修改用户头像数据失败'</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// res.send('上传成功');</span></span><br><span class="line">                    res.redirect(<span class="string">'/users'</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="Vue2-0-兼容-IE-哪个版本以上吗"><a href="#Vue2-0-兼容-IE-哪个版本以上吗" class="headerlink" title="Vue2.0 兼容 IE 哪个版本以上吗"></a>Vue2.0 兼容 IE 哪个版本以上吗</h3><details>
+    不支持ie8及以下，部分兼容ie9 ，完全兼容10以上， 因为vue的响应式原理是基于es5的Object.defineProperty(),而这个方法不支持ie8及以下。
+</details>
 
-<h2 id="session-的使用"><a href="#session-的使用" class="headerlink" title="session 的使用"></a>session 的使用</h2><ul>
-<li>安装</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install express-session</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>配置</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在app.js中</span><br><span class="line">var session &#x3D; require(&#39;express-session&#39;)</span><br><span class="line">app.use(session(&#123; secret: &#39;keyboard cat&#39;, cookie: &#123; maxAge: 60000 &#125;&#125;))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;session在网站中一个路由中定义，其他路由都可以直接获取</span><br><span class="line">	router.get(&#39;&#x2F;login&#39;,function(req,res)&#123;</span><br><span class="line">		req.session.admin &#x3D; &#123;username:&quot;zhangsan&quot;,age:20,sex:&quot;nan&quot;&#125;</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">	router.get(&#39;&#x2F;list&#39;,function(req,res)&#123;</span><br><span class="line">		console.log(req.session.admin);	&#x2F;&#x2F; &#123;username:&quot;zhangsan&quot;,age:20,sex:&quot;nan&quot;&#125;</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">	总结：</span><br><span class="line">	1.session可以进行路由之间的数据共享</span><br></pre></td></tr></table></figure>
-
-<h2 id="跨域请求"><a href="#跨域请求" class="headerlink" title="跨域请求"></a>跨域请求</h2><ul>
-<li>安装</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install cors --save</span><br></pre></td></tr></table></figure>
+<h3 id="vue-的生命周期是什么"><a href="#vue-的生命周期是什么" class="headerlink" title="vue 的生命周期是什么"></a>vue 的生命周期是什么</h3><details>
 
 <ul>
-<li>配置</li>
+<li><code>beforeCreate</code>:实例创建前被调用</li>
+<li><code>created</code> :实例创建后被调用,完成数据观测,属性和方法的运算,watch/event 实际回调,模板渲染成 html(vm.$el 未定义),数据初始化最好在这个阶段完成</li>
+<li><code>beforeMount</code> : 在$el挂载前被调用，相关的 render 函数首次被调用，期间将模块渲染成html,此时vm.$el 还是未定义；</li>
+<li><code>mounted</code> : 在$el挂载后被调用，此时vm.$el 可以调用，不能保证所有的子组件都挂载，要等视图全部更新完毕用 vm.$nextTick()</li>
+<li><code>beforeUpdate</code>:数据更新时调用;</li>
+<li><code>updated</code> :数据更新后调用;</li>
+<li><code>activated</code> :<code>&lt;keep-alive&gt;&lt;/keep-alive&gt;</code>包裹的组件激活时调用</li>
+<li><code>deactivated</code> :<code>&lt;keep-alive&gt;&lt;/keep-alive&gt;</code>包裹的组件离开时调用</li>
+<li><code>beforeDestroy</code> :实例销毁之前调用,此时实例仍然完全可用；</li>
+<li><code>destroyed</code> :实例销毁之后调用,此时实例的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var app &#x3D; express();&#x2F;&#x2F;这一行之后</span><br><span class="line">&#x2F;&#x2F;设置跨域</span><br><span class="line">app.use(cors(&#123;</span><br><span class="line">  &quot;origin&quot;: &quot;*&quot;,</span><br><span class="line">  &quot;methods&quot;: &quot;GET,HEAD,PUT,PATCH,POST,DELETE&quot;,</span><br><span class="line">  &quot;preflightContinue&quot;: false,</span><br><span class="line">  &quot;optionsSuccessStatus&quot;: 200</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+</details>
+
+<h3 id="computed-中的属性名和-data-中的属性名可以相同么"><a href="#computed-中的属性名和-data-中的属性名可以相同么" class="headerlink" title="computed 中的属性名和 data 中的属性名可以相同么"></a>computed 中的属性名和 data 中的属性名可以相同么</h3><details>
+不能同名，因为不管是computed属性名还是data数据名还是props数据名都会被挂载在vm实例上，因此这三个都不能同名
+</details>
+
+<h3 id="怎么缓存当前打开的路由组件，缓存后想更新当前组件怎么办呢"><a href="#怎么缓存当前打开的路由组件，缓存后想更新当前组件怎么办呢" class="headerlink" title="怎么缓存当前打开的路由组件，缓存后想更新当前组件怎么办呢"></a>怎么缓存当前打开的路由组件，缓存后想更新当前组件怎么办呢</h3><details>
+用`<keep-alive></keep-alive>`内置组件包裹路由组件,在钩子函数activated中更新。
+</details>
+
+<h3 id="跟-keep-alive-有关的生命周期是哪些"><a href="#跟-keep-alive-有关的生命周期是哪些" class="headerlink" title="跟 keep-alive 有关的生命周期是哪些"></a>跟 keep-alive 有关的生命周期是哪些</h3><details>
+- activated钩子：keep-alive 组件激活时调用。
+- deactivated钩子：keep-alive 组件停用时调用。
+- 以上钩子服务器端渲染期间不被调用。
+</details>
+
+<h3 id="watch-的属性使用箭头函数定义可以吗"><a href="#watch-的属性使用箭头函数定义可以吗" class="headerlink" title="watch 的属性使用箭头函数定义可以吗"></a>watch 的属性使用箭头函数定义可以吗</h3><details>
+不可以。this会是undefind,因为箭头函数中的this指向的是定义时的this，而不是执行时的this，所以不会指向Vue实例的上下文。
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">watch:&#123;</span><br><span class="line">    show:<span class="function">(<span class="params">val</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>)<span class="comment">//undefind this会指向show</span></span><br><span class="line">    &#125;,</span><br><span class="line">    id(val)&#123;</span><br><span class="line">        conosle.log(<span class="keyword">this</span>)<span class="comment">//Vue实例对象</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</details>
+
+<h3 id="怎么在-watch-监听开始之后立即被调用"><a href="#怎么在-watch-监听开始之后立即被调用" class="headerlink" title="怎么在 watch 监听开始之后立即被调用"></a>怎么在 watch 监听开始之后立即被调用</h3><details>
+在选项参数中指定immediate: true将立即以表达式的当前值触发回调。
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">watch:&#123;</span><br><span class="line">   a:&#123;</span><br><span class="line">       handler:<span class="function"><span class="keyword">function</span>(<span class="params">val,oldval</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">       &#125;,</span><br><span class="line">      immediate: <span class="literal">true</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</details>
+
+<h3 id="watch-怎么深度监听对象变化"><a href="#watch-怎么深度监听对象变化" class="headerlink" title="watch 怎么深度监听对象变化"></a>watch 怎么深度监听对象变化</h3><details>
+在选项参数中指定 deep:true。
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">watch:&#123;</span><br><span class="line">   a:&#123;</span><br><span class="line">       handler:<span class="function"><span class="keyword">function</span>(<span class="params">val,oldval</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">       &#125;,</span><br><span class="line">      deep:<span class="literal">true</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</details>
+
+<h3 id="怎么强制刷新组件"><a href="#怎么强制刷新组件" class="headerlink" title="怎么强制刷新组件"></a>怎么强制刷新组件</h3><details>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;demo :key&#x3D;&quot;count&quot;&gt;&lt;&#x2F;demo&gt; &#x2F;&#x2F; 绑定key值</span><br><span class="line">    &lt;button @click&#x3D;&quot;handleRefresh&quot;&gt;刷新demo组件&lt;&#x2F;button&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import demo from &quot;.&#x2F;test.vue&quot;;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;refreshDemo&quot;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      count: 0 </span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    handleRefresh() &#123;</span><br><span class="line">      this.count +&#x3D; 1 &#x2F;&#x2F; 更改key值，从而达到刷新组件的效果 当key改变时就是释放原始组件，重新加载新的组件</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+</details>
+
+<h3 id="父组件中的自定义事件怎么接收子组件的多个参数"><a href="#父组件中的自定义事件怎么接收子组件的多个参数" class="headerlink" title="父组件中的自定义事件怎么接收子组件的多个参数"></a>父组件中的自定义事件怎么接收子组件的多个参数</h3><details>
+this.$emit('eventName',data),data可以是个对象，包含子组件的多个参数，然后传给父组件。
+</details>
+
+<h3 id="给组件绑定自定义事件无效怎么解决"><a href="#给组件绑定自定义事件无效怎么解决" class="headerlink" title="给组件绑定自定义事件无效怎么解决"></a>给组件绑定自定义事件无效怎么解决</h3><details>
+加上修饰词.native
+否则无法触发事件
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;Main @click.native&#x3D;&quot;shuchu&quot; &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import Main from &quot;.&#x2F;components&#x2F;main&quot;;</span><br><span class="line">export default &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    Main</span><br><span class="line">  &#125;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    shuchu() &#123;</span><br><span class="line">      console.log(&quot;1&quot;);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+</details>
+
+<h3 id="怎么访问子组件的实例或者子元素"><a href="#怎么访问子组件的实例或者子元素" class="headerlink" title="怎么访问子组件的实例或者子元素"></a>怎么访问子组件的实例或者子元素</h3><details>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">  &lt;buttom @click&#x3D;&quot;shuchu&quot; &gt;&lt;&#x2F;buttom&gt;</span><br><span class="line">    &lt;Main ref &#x3D;&quot;main&quot;&#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import Main from &quot;.&#x2F;components&#x2F;main&quot;;</span><br><span class="line">export default &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    Main</span><br><span class="line">  &#125;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    shuchu() &#123;</span><br><span class="line">    &#x2F;&#x2F;通过使用this.$refs.main.方法名可以调用子组件内methods内的方法</span><br><span class="line">    this.$refs.main.方法名</span><br><span class="line">    &#x2F;&#x2F;获取子组件data数据</span><br><span class="line">    this.$refs.main.$data</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">ref</span>=<span class="string">"mydiv"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>第一个li<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>第二个li<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">console.log(this.$refs['mydiv']</span><br><span class="line">.getElementsByClassName('item')[0].innerHTML)//第一个</span><br></pre></td></tr></table></figure>
+
+</details>
+
+<h3 id="怎么在子组件中访问父组件的实例"><a href="#怎么在子组件中访问父组件的实例" class="headerlink" title="怎么在子组件中访问父组件的实例"></a>怎么在子组件中访问父组件的实例</h3><details>
+
+<p>在子组件中使用<code>this.$parent</code>来访问</p>
+</details>
+
+<h3 id="怎么在组件中访问到根实例"><a href="#怎么在组件中访问到根实例" class="headerlink" title="怎么在组件中访问到根实例"></a>怎么在组件中访问到根实例</h3><details>
+
+<p>在子组件中使用<code>this.$root</code>来访问</p>
+</details>
+
+<h3 id="组件会在什么时候下被销毁"><a href="#组件会在什么时候下被销毁" class="headerlink" title="组件会在什么时候下被销毁"></a>组件会在什么时候下被销毁</h3><details>
+
+<ul>
+<li>没有使用 keep-alive 时的路由切换；</li>
+<li>v-if=’false’；</li>
+<li>执行 vm.$destroy()；</details>
+
+</li>
+</ul>
+<h3 id="Vue-组件之间的通信都有哪些"><a href="#Vue-组件之间的通信都有哪些" class="headerlink" title="Vue 组件之间的通信都有哪些"></a>Vue 组件之间的通信都有哪些</h3><details>
+
+<ul>
+<li>props</li>
+<li>this.$emit(‘input’,data)</li>
+<li>this.$root.$on(‘input’,function(data){})和 this.$root.$emit(‘emit’,data)</li>
+<li>this.$refs.tree(tree 为 ref 绑定值)</li>
+<li>Vuex</li>
+</ul>
+</details>
+
+<h3 id="prop-验证的-type-类型有哪几种-可以设置默认值吗"><a href="#prop-验证的-type-类型有哪几种-可以设置默认值吗" class="headerlink" title="prop 验证的 type 类型有哪几种 ,可以设置默认值吗"></a>prop 验证的 type 类型有哪几种 ,可以设置默认值吗</h3><details>
+
+<p>String、Number、Boolean、Array、Object、Date、Function、Symbol， 此外还可以是一个自定义的构造函数 Personnel，并且通过 instanceof 来验证 propwokrer 的值是否是通过这个自定义的构造函数创建的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Personnel</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    wokrer: Personnel,</span><br><span class="line">    propA: [<span class="built_in">String</span>, <span class="built_in">Number</span>],</span><br><span class="line">    propB: &#123;</span><br><span class="line">      type: <span class="built_in">Number</span>,</span><br><span class="line">      <span class="keyword">default</span>: <span class="number">1</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    propC: <span class="built_in">Boolean</span>,</span><br><span class="line">    propD: &#123;</span><br><span class="line">      type: <span class="built_in">Object</span>,</span><br><span class="line">      <span class="keyword">default</span>() &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+</details>
+
+<h3 id="在-Vue-事件中是如何使用-event-对象的"><a href="#在-Vue-事件中是如何使用-event-对象的" class="headerlink" title="在 Vue 事件中是如何使用 event 对象的"></a>在 Vue 事件中是如何使用 event 对象的</h3><details>
+
+<ul>
+<li><code>@click=&quot;handleOpen&quot;</code> 默认第一个参数传入 event 对象;</li>
+<li><code>@click=&quot;handleOpen(0, $event)</code>,如果自己需要传入参数和 event 对象，则需要使用$event 来获取 event 对象并传入 handleOpen。</details>
+
+</li>
+</ul>
+<h3 id="在-Vue-事件中传入-event，使用-event-target-和-event-currentTarget-有什么区别"><a href="#在-Vue-事件中传入-event，使用-event-target-和-event-currentTarget-有什么区别" class="headerlink" title="在 Vue 事件中传入$event，使用$event.target 和$event.currentTarget 有什么区别"></a>在 Vue 事件中传入$event，使用$event.target 和$event.currentTarget 有什么区别</h3><details>
+
+<p><code>$event.currentTarget</code>始终指向事件所绑定的元素，而<code>$event.target</code>指向事件发生时的元素。</p>
+</details>
+
+<h3 id="表单修饰符和事件修饰符"><a href="#表单修饰符和事件修饰符" class="headerlink" title="表单修饰符和事件修饰符"></a>表单修饰符和事件修饰符</h3><details>
+
+<ul>
+<li><p>.stop：阻止事件传递</p>
+</li>
+<li><p>.prevent： 阻止默认事件；</p>
+</li>
+<li><p>.capture ：在捕获的过程监听，没有 capture 修饰符时都是默认冒泡过程 监听；</p>
+</li>
+<li><p>.self：当前绑定事件的元素才能触发；</p>
+</li>
+<li><p>.once：事件只会触发一次；</p>
+</li>
+<li><p>.passive：默认事件会立即触发，不要把.passive 和.prevent 一起使用，因为.prevent 将不起作用。</p>
+</li>
+<li><p>表单修饰符.number .lazy .trim</p>
+</details>
+
+</li>
+</ul>
+<h3 id="使用事件修饰符要注意"><a href="#使用事件修饰符要注意" class="headerlink" title="使用事件修饰符要注意"></a>使用事件修饰符要注意</h3><details>
+
+<p>要注意顺序很重要，用<code>@click.prevent.self</code>会阻止所有的点击，而<code>@click.self.prevent</code>只会阻止对元素自身的点击。</p>
+</details>
+
+<h3 id="Vue-如何监听键盘事件"><a href="#Vue-如何监听键盘事件" class="headerlink" title="Vue 如何监听键盘事件"></a>Vue 如何监听键盘事件</h3><details>
+
+<p>使用按键修饰符 <code>&lt;input @keyup.enter=&quot;submit&quot;&gt;</code>按下回车键时候触发 submit 事件</p>
+<ul>
+<li>.enter</li>
+<li>.tab</li>
+<li>.delete (捕获“删除”和“退格”键)</li>
+<li>.esc</li>
+<li>.space</li>
+<li>.up</li>
+<li>.down</li>
+<li>.left</li>
+<li>.right。</li>
+</ul>
+</details>
+
+<h3 id="v-show-和-v-if-有什么区别？使用场景分别是什么"><a href="#v-show-和-v-if-有什么区别？使用场景分别是什么" class="headerlink" title="v-show 和 v-if 有什么区别？使用场景分别是什么"></a>v-show 和 v-if 有什么区别？使用场景分别是什么</h3><details>
+
+<ul>
+<li>v-show，切换元素的 display 属性,来控制元素显示隐藏，初始化会渲染，适用频繁显示隐藏的元素,不能用在<code>&lt;template&gt;</code>上；</li>
+<li>v-if，通过销毁并重建组件，来控制组件显示隐藏，初始化不会渲染，不适用频繁显示隐藏的组件，可以用在<code>&lt;template&gt;</code>上。</li>
+</ul>
+</details>
+
+<h3 id="vm-nextTick-有什么作用"><a href="#vm-nextTick-有什么作用" class="headerlink" title="vm.$nextTick 有什么作用"></a>vm.$nextTick 有什么作用</h3><details>
+
+<p>vm.$nextTick(() =&gt;{this.handleadd()}),将 handleadd 回调延迟到下次 DOM 更新循环之后执行。</p>
+</details>
+
+<h3 id="Vue-中怎么重置-data"><a href="#Vue-中怎么重置-data" class="headerlink" title="Vue 中怎么重置 data"></a>Vue 中怎么重置 data</h3><details>
+
+<p>Object.assign(this.$data,this.$options.data())。</p>
+</details>
+
+<hr>
+<blockquote><footer><strong>内容来源:</strong><cite><a href="https://juejin.im/post/5d6e6e916fb9a06b1b19dda3#comment" target="_blank" rel="noopener">简书作者红尘炼心</a></cite></footer></blockquote>
+
+<hr>
 
       
 
@@ -277,7 +444,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Express</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
         		</li>
       		
 		</ul>
@@ -333,7 +500,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://chenwenkai8023ni.github.io/artcle/38401.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://chenwenkai8023ni.github.io/artcle/8fd4d428.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -347,18 +514,9 @@
   
 <nav id="article-nav">
   
-    <a href="/artcle/39204.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Express JWT
-        
-      </div>
-    </a>
   
-  
-    <a href="/artcle/51663.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Express框架安装与搭建</div>
+    <a href="/artcle/2836dd7e.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js深拷贝与浅拷贝</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -385,7 +543,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#图片上传"><span class="toc-number">1.</span> <span class="toc-text">图片上传</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#session-的使用"><span class="toc-number">2.</span> <span class="toc-text">session 的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#跨域请求"><span class="toc-number">3.</span> <span class="toc-text">跨域请求</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-初级知识汇总"><span class="toc-number">1.</span> <span class="toc-text">Vue 初级知识汇总</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue2-0-兼容-IE-哪个版本以上吗"><span class="toc-number">1.1.</span> <span class="toc-text">Vue2.0 兼容 IE 哪个版本以上吗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-的生命周期是什么"><span class="toc-number">1.2.</span> <span class="toc-text">vue 的生命周期是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#computed-中的属性名和-data-中的属性名可以相同么"><span class="toc-number">1.3.</span> <span class="toc-text">computed 中的属性名和 data 中的属性名可以相同么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#怎么缓存当前打开的路由组件，缓存后想更新当前组件怎么办呢"><span class="toc-number">1.4.</span> <span class="toc-text">怎么缓存当前打开的路由组件，缓存后想更新当前组件怎么办呢</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#跟-keep-alive-有关的生命周期是哪些"><span class="toc-number">1.5.</span> <span class="toc-text">跟 keep-alive 有关的生命周期是哪些</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#watch-的属性使用箭头函数定义可以吗"><span class="toc-number">1.6.</span> <span class="toc-text">watch 的属性使用箭头函数定义可以吗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#怎么在-watch-监听开始之后立即被调用"><span class="toc-number">1.7.</span> <span class="toc-text">怎么在 watch 监听开始之后立即被调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#watch-怎么深度监听对象变化"><span class="toc-number">1.8.</span> <span class="toc-text">watch 怎么深度监听对象变化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#怎么强制刷新组件"><span class="toc-number">1.9.</span> <span class="toc-text">怎么强制刷新组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#父组件中的自定义事件怎么接收子组件的多个参数"><span class="toc-number">1.10.</span> <span class="toc-text">父组件中的自定义事件怎么接收子组件的多个参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#给组件绑定自定义事件无效怎么解决"><span class="toc-number">1.11.</span> <span class="toc-text">给组件绑定自定义事件无效怎么解决</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#怎么访问子组件的实例或者子元素"><span class="toc-number">1.12.</span> <span class="toc-text">怎么访问子组件的实例或者子元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#怎么在子组件中访问父组件的实例"><span class="toc-number">1.13.</span> <span class="toc-text">怎么在子组件中访问父组件的实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#怎么在组件中访问到根实例"><span class="toc-number">1.14.</span> <span class="toc-text">怎么在组件中访问到根实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组件会在什么时候下被销毁"><span class="toc-number">1.15.</span> <span class="toc-text">组件会在什么时候下被销毁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue-组件之间的通信都有哪些"><span class="toc-number">1.16.</span> <span class="toc-text">Vue 组件之间的通信都有哪些</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#prop-验证的-type-类型有哪几种-可以设置默认值吗"><span class="toc-number">1.17.</span> <span class="toc-text">prop 验证的 type 类型有哪几种 ,可以设置默认值吗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在-Vue-事件中是如何使用-event-对象的"><span class="toc-number">1.18.</span> <span class="toc-text">在 Vue 事件中是如何使用 event 对象的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在-Vue-事件中传入-event，使用-event-target-和-event-currentTarget-有什么区别"><span class="toc-number">1.19.</span> <span class="toc-text">在 Vue 事件中传入$event，使用$event.target 和$event.currentTarget 有什么区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表单修饰符和事件修饰符"><span class="toc-number">1.20.</span> <span class="toc-text">表单修饰符和事件修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用事件修饰符要注意"><span class="toc-number">1.21.</span> <span class="toc-text">使用事件修饰符要注意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue-如何监听键盘事件"><span class="toc-number">1.22.</span> <span class="toc-text">Vue 如何监听键盘事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-show-和-v-if-有什么区别？使用场景分别是什么"><span class="toc-number">1.23.</span> <span class="toc-text">v-show 和 v-if 有什么区别？使用场景分别是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vm-nextTick-有什么作用"><span class="toc-number">1.24.</span> <span class="toc-text">vm.$nextTick 有什么作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue-中怎么重置-data"><span class="toc-number">1.25.</span> <span class="toc-text">Vue 中怎么重置 data</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

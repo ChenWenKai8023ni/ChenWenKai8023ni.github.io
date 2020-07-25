@@ -16,7 +16,7 @@
 <meta property="og:description" content="js 错题集">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-07T03:03:15.000Z">
-<meta property="article:modified_time" content="2020-07-10T02:19:31.821Z">
+<meta property="article:modified_time" content="2020-07-25T03:00:25.308Z">
 <meta property="article:author" content="风吹过得夏天">
 <meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
@@ -221,7 +221,7 @@
         <h2 id="js-错题集"><a href="#js-错题集" class="headerlink" title="js 错题集"></a>js 错题集</h2><a id="more"></a>
 
 <h3 id="2020-年-7-月"><a href="#2020-年-7-月" class="headerlink" title="2020 年 7 月"></a>2020 年 7 月</h3><blockquote>
-<p><strong>1在 javascript 中，下列不属于数组方法的是()</strong></p>
+<p><strong>1 在 javascript 中，下列不属于数组方法的是()</strong></p>
 </blockquote>
 <ol>
 <li>concat()<ul>
@@ -242,7 +242,7 @@
 </li>
 </ol>
 <blockquote>
-<p><strong>2白屏时间 first paint 和可交互时间 dom ready 的关系是？</strong></p>
+<p><strong>2 白屏时间 first paint 和可交互时间 dom ready 的关系是？</strong></p>
 </blockquote>
 <ol>
 <li>先触发 first paint ，后触发 dom ready</li>
@@ -257,7 +257,7 @@
 <li>总下载时间——页面所有资源都加载完成并呈现出来所花的时间，即页面 onload 的时间</li>
 </ul>
 <blockquote>
-<p><strong>3页面有一个按钮 button id 为 button1，通过原生的 js 如何禁用？（）</strong></p>
+<p><strong>3 页面有一个按钮 button id 为 button1，通过原生的 js 如何禁用？（）</strong></p>
 </blockquote>
 <ol>
 <li>document.getElementById(“button1”).setAttribute(“Readolny”,true);<ul>
@@ -272,7 +272,7 @@
 <li>document.getElementById(“button1”).disabled=true;</li>
 </ol>
 <blockquote>
-<p><strong>4关于 JavaScript 里的 xml 处理，以下说法正确的是 ()</strong></p>
+<p><strong>4 关于 JavaScript 里的 xml 处理，以下说法正确的是 ()</strong></p>
 </blockquote>
 <ol>
 <li>Xml 是种可扩展标记语言，格式更规范，是作为未来 html 的替代</li>
@@ -298,7 +298,7 @@
 <li>HTML 旨在显示信息，而 XML 旨在传输信息。</li>
 </ul>
 <blockquote>
-<p><strong>5如何获取下面表单 select 域的选择部分的文本？()</strong><form name="a"><select name="a" size="1" id=”obj”><option value="a">1</option><option value="b">2</option><option value="c">3</option></select></form></p>
+<p><strong>5 如何获取下面表单 select 域的选择部分的文本？()</strong><form name="a"><select name="a" size="1" id=”obj”><option value="a">1</option><option value="b">2</option><option value="c">3</option></select></form></p>
 </blockquote>
 <ol>
 <li>obj.options[obj.selectedIndex].text<ul>
@@ -315,7 +315,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">//首先获得下拉框的节点对象；</span></span><br><span class="line">  <span class="keyword">var</span> obj = <span class="built_in">document</span>.getElementById(<span class="string">"obj"</span>);</span><br><span class="line">  <span class="comment">//1.如何获得当前选中的值？：</span></span><br><span class="line">  <span class="keyword">var</span> value = obj.value;</span><br><span class="line">  <span class="comment">//2.如何获得该下拉框所有的option的节点对象</span></span><br><span class="line">  <span class="keyword">var</span> options = obj.options;</span><br><span class="line">  <span class="comment">//注意：得到的options是一个对象数组</span></span><br><span class="line">  <span class="comment">//3.如何获得第几个option的value值?比如我要获取第一option的value,可以这样：</span></span><br><span class="line">  <span class="keyword">var</span> value1 = options[<span class="number">0</span>].value;</span><br><span class="line">  <span class="comment">//4.如何获得第几个option的文本内容?比如我要获取第一option的文本,可以这样：</span></span><br><span class="line">  <span class="keyword">var</span> text1 = options[<span class="number">0</span>].text;</span><br><span class="line">  <span class="comment">//5.如何获得当前选中的option的索引？</span></span><br><span class="line">  <span class="keyword">var</span> index = obj.selectedIndex;</span><br><span class="line">  <span class="comment">//6.如何获得当前选中的option的文本内容？</span></span><br><span class="line">  <span class="comment">//从第2个问题，我们已经获得所有的option的对象数组options了</span></span><br><span class="line">  <span class="comment">//又从第5个问题，我们获取到了当前选中的option的索引值</span></span><br><span class="line">  <span class="comment">//所以我们只要同options[index]下标的方法得到当前选中的option了</span></span><br><span class="line">  <span class="keyword">var</span> selectedText = options[index].text;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p><strong>6解释型语言的特性有什么？</strong></p>
+<p><strong>6 解释型语言的特性有什么？</strong></p>
 </blockquote>
 <ol>
 <li>非独立</li>
@@ -326,7 +326,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">解释性语言和编译性语言的定义：</span><br><span class="line">计算机不能直接理解高级语言，只能直接理解机器语言，所以必须要把高级语言翻译成机器语言，计算机才能执行高级语言编写的程序。</span><br><span class="line">翻译的方式有两种，一个是编译，一个是解释。两种方式只是翻译的时间不同。</span><br><span class="line"></span><br><span class="line">解释性语言的定义：</span><br><span class="line">解释性语言的程序不需要编译，在运行程序的时候才翻译，每个语句都是执行的时候才翻译。这样解释性语言每执行一次就需要逐行翻译一次，效率比较低。</span><br><span class="line">现代解释性语言通常把源程序编译成中间代码，然后用解释器把中间代码一条条翻译成目标机器代码，一条条执行。</span><br><span class="line"></span><br><span class="line">编译性语言的定义：</span><br><span class="line">编译性语言写的程序在被执行之前，需要一个专门的编译过程，把程序编译成为机器语言的文件，比如exe文件，以后要运行的话就不用重新翻译了，直接使用编译的结果就行了（exe文件），因为翻译只做了一次，运行时不需要翻译，所以编译型语言的程序执行效率高。</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p><strong>7只能输入零和非零开头的数字，正确的正则表达式是（）</strong></p>
+<p><strong>7 只能输入零和非零开头的数字，正确的正则表达式是（）</strong></p>
 </blockquote>
 <ol>
 <li>^(0|[1-9][0-9]\\*)$</li>
@@ -337,7 +337,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">只能输入零／非零开头的数字</span><br><span class="line">^ 以。。。开头，$以。。。结尾。</span><br><span class="line">*任意多次</span><br><span class="line">|或的意思</span><br><span class="line">（）组</span><br><span class="line">[]集合</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p><strong>8以下哪些方法会返回一个数组？</strong></p>
+<p><strong>8 以下哪些方法会返回一个数组？</strong></p>
 </blockquote>
 <ol>
 <li>Object.keys()</li>
