@@ -16,7 +16,7 @@
 <meta property="og:description" content="Vue 初级知识汇总">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-25T00:52:23.000Z">
-<meta property="article:modified_time" content="2020-07-25T07:51:30.502Z">
+<meta property="article:modified_time" content="2020-08-26T12:23:10.269Z">
 <meta property="article:author" content="风吹过得夏天">
 <meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
@@ -255,18 +255,24 @@
 </details>
 
 <h3 id="怎么缓存当前打开的路由组件，缓存后想更新当前组件怎么办呢"><a href="#怎么缓存当前打开的路由组件，缓存后想更新当前组件怎么办呢" class="headerlink" title="怎么缓存当前打开的路由组件，缓存后想更新当前组件怎么办呢"></a>怎么缓存当前打开的路由组件，缓存后想更新当前组件怎么办呢</h3><details>
-用`<keep-alive></keep-alive>`内置组件包裹路由组件,在钩子函数activated中更新。
+
+<p>用<code>keep-alive</code>内置组件包裹路由组件,在钩子函数 activated 中更新。</p>
 </details>
 
 <h3 id="跟-keep-alive-有关的生命周期是哪些"><a href="#跟-keep-alive-有关的生命周期是哪些" class="headerlink" title="跟 keep-alive 有关的生命周期是哪些"></a>跟 keep-alive 有关的生命周期是哪些</h3><details>
-- activated钩子：keep-alive 组件激活时调用。
-- deactivated钩子：keep-alive 组件停用时调用。
-- 以上钩子服务器端渲染期间不被调用。
+
+<ul>
+<li>activated 钩子：keep-alive 组件激活时调用。</li>
+<li>deactivated 钩子：keep-alive 组件停用时调用。</li>
+<li>以上钩子服务器端渲染期间不被调用。</li>
+</ul>
 </details>
 
 <h3 id="watch-的属性使用箭头函数定义可以吗"><a href="#watch-的属性使用箭头函数定义可以吗" class="headerlink" title="watch 的属性使用箭头函数定义可以吗"></a>watch 的属性使用箭头函数定义可以吗</h3><details>
-不可以。this会是undefind,因为箭头函数中的this指向的是定义时的this，而不是执行时的this，所以不会指向Vue实例的上下文。
+
+<p>不可以。this 会是 undefind,因为箭头函数中的 this 指向的是定义时的 this，而不是执行时的 this，所以不会指向 Vue 实例的上下文。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">watch:&#123;</span><br><span class="line">    show:<span class="function">(<span class="params">val</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>)<span class="comment">//undefind this会指向show</span></span><br><span class="line">    &#125;,</span><br><span class="line">    id(val)&#123;</span><br><span class="line">        conosle.log(<span class="keyword">this</span>)<span class="comment">//Vue实例对象</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 </details>
 
 <h3 id="怎么在-watch-监听开始之后立即被调用"><a href="#怎么在-watch-监听开始之后立即被调用" class="headerlink" title="怎么在 watch 监听开始之后立即被调用"></a>怎么在 watch 监听开始之后立即被调用</h3><details>
@@ -277,8 +283,8 @@
 </details>
 
 <h3 id="watch-怎么深度监听对象变化"><a href="#watch-怎么深度监听对象变化" class="headerlink" title="watch 怎么深度监听对象变化"></a>watch 怎么深度监听对象变化</h3><details>
-在选项参数中指定 deep:true。
 
+<p>在选项参数中指定 deep:true。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">watch:&#123;</span><br><span class="line">   a:&#123;</span><br><span class="line">       handler:<span class="function"><span class="keyword">function</span>(<span class="params">val,oldval</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">       &#125;,</span><br><span class="line">      deep:<span class="literal">true</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </details>
@@ -763,6 +769,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
             
             <div class="clearfix"></div>

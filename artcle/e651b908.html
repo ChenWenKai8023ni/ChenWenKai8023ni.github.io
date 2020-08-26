@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://chenwenkai8023ni.github.io">
-  <title>Archives: 2020/7 | 风吹过得夏天</title>
+  <title>vue3-Composition-Api | 风吹过得夏天</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人博客,技术分享,记录生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="风吹过得夏天">
-<meta property="og:url" content="https://chenwenkai8023ni.github.io/archives/2020/07/index.html">
+  <meta name="description" content="Vue3 Composition Api">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue3-Composition-Api">
+<meta property="og:url" content="https://chenwenkai8023ni.github.io/artcle/e651b908.html">
 <meta property="og:site_name" content="风吹过得夏天">
-<meta property="og:description" content="个人博客,技术分享,记录生活">
+<meta property="og:description" content="Vue3 Composition Api">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-24T01:38:57.000Z">
+<meta property="article:modified_time" content="2020-08-26T12:24:26.494Z">
 <meta property="article:author" content="风吹过得夏天">
-<meta property="article:tag" content="个人博客">
-<meta property="article:tag" content="技术分享">
-<meta property="article:tag" content="记录生活">
+<meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="风吹过得夏天" type="application/atom+xml">
@@ -171,447 +171,290 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-vue3-Composition-Api" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vue3-Composition-Api
+    </h1>
+  
+
+        
+        
+<!-- 不蒜子统计 -->
+<span
+  id="busuanzi_container_page_pv"
+  style="display: none;"
+  class="archive-article-date"
+>
+  <i class="icon-smile icon"></i> 阅读数：<span
+    id="busuanzi_value_page_pv"
+  ></span>次
+</span>
+
+<a href="/artcle/e651b908.html" class="archive-article-date">
+  <time datetime="2020-08-24T01:38:57.000Z" itemprop="datePublished"
+    ><i class="icon-calendar icon"></i>2020-08-24</time
+  >
+</a>
+
+        
+         <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">737字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">3分</span>
+    </span>
+  </span>
+</div>
+ 
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Vue3-Composition-Api"><a href="#Vue3-Composition-Api" class="headerlink" title="Vue3 Composition Api"></a>Vue3 Composition Api</h2><a id="more"></a>
+<ol>
+<li>Composition API 是根据逻辑相关性组织代码,提高可读性和可维护性</li>
+<li>更好的重用逻辑代码</li>
+<li>在 Vue3 中 Composition API 是可选的</li>
+</ol>
+<h3 id="setup-函数"><a href="#setup-函数" class="headerlink" title="setup 函数"></a>setup 函数</h3><ul>
+<li>使用 Composition API 的入口</li>
+<li>在 beforeCreate 之前调用</li>
+<li>this 在 setup() 中不可用</li>
+</ul>
+<h4 id="ref-函数"><a href="#ref-函数" class="headerlink" title="ref 函数"></a>ref 函数</h4><p><code>使用 import { ref } from &#39;vue&#39;</code></p>
+<ul>
+<li>创建并返回一个响应式且可改变的 ref 对象,对象拥有一个指向内部值的单一属性 .value</li>
+<li>修改对象必须使用 <code>XXX.value</code></li>
+<li>在模板中使用 ref 创建的对象,必须在 setup 函数中放进一个对象中并返回</li>
+</ul>
+<h4 id="事件方法"><a href="#事件方法" class="headerlink" title="事件方法"></a>事件方法</h4><ul>
+<li>在 setup 函数中定义方法</li>
+<li>在模板中使用改方法,必须放进一个对象并返回</li>
+</ul>
+<h4 id="computed-计算属性"><a href="#computed-计算属性" class="headerlink" title="computed 计算属性"></a>computed 计算属性</h4><p><code>使用 import { computed } from &#39;vue&#39;</code></p>
+<ul>
+<li>在模板中使用必须在 setup 函数中放进一个对象中并返回</li>
+<li>传入一个 getter 函数，返回一个默认不可手动修改的 ref 对象。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> count = ref(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">const</span> plusOne = computed(<span class="function"><span class="params">()</span> =&gt;</span> count.value + <span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(plusOne.value); <span class="comment">// 2</span></span><br><span class="line">plusOne.value++; <span class="comment">// 错误！</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>或者传入一个拥有 get 和 set 函数的对象，创建一个可手动修改的计算状态。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">setup()&#123;</span><br><span class="line">    <span class="keyword">const</span> count = ref(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">const</span> plusOne = computed(&#123;</span><br><span class="line">        <span class="keyword">get</span>: () =&gt; count.value + 1,</span><br><span class="line">        <span class="keyword">set</span>: (val) =&gt; &#123;</span><br><span class="line">            count.value = val - <span class="number">1</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">plusOne.value = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(count.value);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="响应式对象-reactive"><a href="#响应式对象-reactive" class="headerlink" title="响应式对象 reactive"></a>响应式对象 reactive</h4><p><code>使用 import {computed, reactive } from &#39;vue&#39;</code></p>
+<ul>
+<li>接收一个普通对象然后返回该普通对象的响应式代理</li>
+<li>在模板中使用必须在 setup 函数中放进一个对象中并返回</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">setup()&#123;</span><br><span class="line"><span class="keyword">const</span> data = reactive(&#123;</span><br><span class="line">  name: <span class="string">"张三"</span>,</span><br><span class="line">  age: <span class="number">18</span>,</span><br><span class="line">  year: computed(&#123;</span><br><span class="line">    <span class="keyword">get</span>: () =&gt; &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">2020</span> - data.age;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span>: (val) =&gt; &#123;</span><br><span class="line">      data.age = <span class="number">2020</span> - val;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;),</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">return</span> &#123;data&#125;</span><br><span class="line"><span class="comment">// 简写 return &#123;...toRefs&#123;data&#125;&#125;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 在模板上使用data中的数据必须是data.的格式,</span></span><br><span class="line"><span class="comment">//简化模板书写格式可以做引入toRefs</span></span><br><span class="line"><span class="comment">//toRefs:把一个响应式对象转换成普通对象，但对象内的属性都是响应式的</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="setup-的参数-props-context"><a href="#setup-的参数-props-context" class="headerlink" title="setup 的参数 props ,context"></a>setup 的参数 props ,context</h4><ul>
+<li>获取组件中的 props</li>
+<li>第一个参数 props 对象是响应式的，watchEffect 或 watch 会观察和响应 props 的更新：</li>
+<li>第二个参数提供了一个上下文对象，从原来 2.x 中 this 选择性地暴露了一些 property。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  props: &#123;</span><br><span class="line">    name: <span class="built_in">String</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  setup(props,context) &#123;</span><br><span class="line">    watch(</span><br><span class="line">        ()=&gt; props.title,(newval,oldval)=&gt;&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(newval,oldval)</span><br><span class="line">            context.emit(<span class="string">"title-changed"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    )</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="watchEffect"><a href="#watchEffect" class="headerlink" title="watchEffect"></a>watchEffect</h4><ul>
+<li>立即执行传入的一个函数，并响应式追踪其依赖，并在其依赖变更时重新运行该函数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> count = ref(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">watchEffect(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(count.value));</span><br><span class="line"><span class="comment">// -&gt; 打印出 0</span></span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  count.value++;</span><br><span class="line">  <span class="comment">// -&gt; 打印出 1</span></span><br><span class="line">&#125;, <span class="number">100</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>停止更新</li>
+<li>当 watchEffect 在组件的 setup() 函数或生命周期钩子被调用时，</li>
+<li>侦听器会被链接到该组件的生命周期，并在组件卸载时自动停止。</li>
+<li>在一些情况下，也可以显式调用返回值以停止侦听</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> stop = watchEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 之后</span></span><br><span class="line">stop();</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢观看<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/8fd4d428.html" class="archive-article-date">
-  <time datetime="2020-07-25T00:52:23.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-07-25</time
-  >
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/8fd4d428.html">Vue初级知识汇总</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://chenwenkai8023ni.github.io/artcle/e651b908.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/2836dd7e.html" class="archive-article-date">
-  <time datetime="2020-07-23T01:56:45.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-07-23</time
-  >
-</a>
 
+  
+<nav id="article-nav">
+  
+  
+    <a href="/artcle/c0aac05a.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JS apply.call.bind</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/2836dd7e.html">js深拷贝与浅拷贝</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue3-Composition-Api"><span class="toc-number">1.</span> <span class="toc-text">Vue3 Composition Api</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#setup-函数"><span class="toc-number">1.1.</span> <span class="toc-text">setup 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ref-函数"><span class="toc-number">1.1.1.</span> <span class="toc-text">ref 函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事件方法"><span class="toc-number">1.1.2.</span> <span class="toc-text">事件方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#computed-计算属性"><span class="toc-number">1.1.3.</span> <span class="toc-text">computed 计算属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#响应式对象-reactive"><span class="toc-number">1.1.4.</span> <span class="toc-text">响应式对象 reactive</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#setup-的参数-props-context"><span class="toc-number">1.1.5.</span> <span class="toc-text">setup 的参数 props ,context</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#watchEffect"><span class="toc-number">1.1.6.</span> <span class="toc-text">watchEffect</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+	
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'false' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "D5szmzhp8za9gwaqf5ShK0Io-gzGzoHsz",
+        app_key: "euv6Ozr0COt2ObIkLA0s0JWE",
+        placeholder: "Just go go",
+        avatar:"mm",
+    });
+</script>
+  </section>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/5c3dbcbd.html" class="archive-article-date">
-  <time datetime="2020-07-21T09:51:35.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-07-21</time
-  >
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/5c3dbcbd.html">面试题总结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/f47fe538.html" class="archive-article-date">
-  <time datetime="2020-07-20T01:59:57.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-07-20</time
-  >
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/f47fe538.html">canvas实现贪吃蛇</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">WebGL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/6cc1dae0.html" class="archive-article-date">
-  <time datetime="2020-07-11T14:10:13.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-07-11</time
-  >
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/6cc1dae0.html">canvas添加样式和颜色</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">WebGL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/341ecd43.html" class="archive-article-date">
-  <time datetime="2020-07-10T04:30:31.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-07-10</time
-  >
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/341ecd43.html">git命令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/715c0509.html" class="archive-article-date">
-  <time datetime="2020-07-10T04:14:31.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-07-10</time
-  >
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/715c0509.html">Three.js</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">WebGL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/54207.html" class="archive-article-date">
-  <time datetime="2020-07-09T02:07:00.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-07-09</time
-  >
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/54207.html">Babylon基本使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">WebGL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/44428.html" class="archive-article-date">
-  <time datetime="2020-07-09T01:21:53.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-07-09</time
-  >
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/44428.html">mvvm与mvc</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/artcle/15954.html" class="archive-article-date">
-  <time datetime="2020-07-08T01:37:42.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2020-07-08</time
-  >
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/artcle/15954.html">js防抖节流</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2020/07/page/2/">2</a><a class="extend next" rel="next" href="/archives/2020/07/page/2/">Next &amp;raquo;</a>
-    </nav>
-  
-
 
           </div>
         </div>
@@ -679,8 +522,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
